@@ -1,0 +1,13 @@
+{
+    "hello_world": "Hello {{name}}",
+    "intro_title_1": "Best Industry Leaders",
+    "intro_title_2": "Learn Courses Online",
+    "intro_title_3": "Wide Collection of References",
+    "intro_subtitle_1": "Learn from the Best Approachable Expert-Mentors.",
+    "intro_subtitle_2": "Take the most essential courses from wherever you are.",
+    "intro_subtitle_3": "A multilingual collection of both free and paid publications.",
+    "home": "Home",
+    "favorite": "Favorite",
+    "search": "Search",
+    "settings": "Settings"
+}

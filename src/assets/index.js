@@ -1,0 +1,8 @@
+export const logo = require('src/assets/images/logo.png') 
+export const logo_white = require('src/assets/images/logo_white.png') 
+export const slide_indicator = require('src/assets/images/slide_indicator.png') 
+export const slide_indicator_selected = require('src/assets/images/slide_indicator_selected.png') 
+export const intro1 = require('src/assets/images/intro1.png') 
+export const intro2 = require('src/assets/images/intro2.png') 
+export const intro3 = require('src/assets/images/intro3.png') 
+export const hamburger = require('src/assets/images/hamburger.png') 
