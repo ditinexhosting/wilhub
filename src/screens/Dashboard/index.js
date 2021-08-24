@@ -57,7 +57,7 @@ export default ({ navigation }) => {
 
     const renderItem = ({ item }) => (
         <View style={styles.itemContainer}>
-            <TouchableOpacity style={[styles.flex1,styles.centerAll]}>
+            <TouchableOpacity style={[styles.flex1,styles.centerAll]} onPress={()=>navigation.navigate('About')}>
             <Image style={styles.image} source={item.image} />
             <Text style={styles.title}>{item.title}</Text>
             </TouchableOpacity>

@@ -84,6 +84,9 @@ const styles = StyleSheet.create({
     spaceBetween:{
         justifyContent: 'space-between'
     },
+    justifyStart:{
+        justifyContent:'flex-start'
+    },
     justifyCenter:{
         justifyContent: 'center'
     },
@@ -95,6 +98,9 @@ const styles = StyleSheet.create({
     },
     alignEnd:{
         alignItems: 'flex-end'
+    },
+    alignSelfStart:{
+        alignSelf:'flex-start'
     },
     centerAll:{
         justifyContent: 'center',

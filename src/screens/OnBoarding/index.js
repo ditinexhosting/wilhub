@@ -64,7 +64,7 @@ export default ({ navigation }) => {
         <Container isTransparentStatusBar={false}>
             <View style={styles.skipButton}>
                 <TouchableOpacity onPress={onSkip} >
-                    <Text style={styles.skipText}>Skip ></Text>
+                    <Text style={styles.skipText}>Skip</Text>
                 </TouchableOpacity>
             </View>
             <Onboarding

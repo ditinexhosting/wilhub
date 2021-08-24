@@ -9,5 +9,13 @@
     "home": "Home",
     "favorite": "Favorite",
     "search": "Search",
-    "settings": "Settings"
+    "settings": "Settings",
+    "about_us_title": "About Us",
+    "about_us_description": "Wil Hub is a pioneer in the field of education,combining modern technology and methodologies for imparting knowledge to people from all over the world. Wil Hub facilitates learning for people of all ages, overcoming constraints such as time and geography, in order to provide a sufficient amount of knowledge and leadership characteristics to the next generation.We guarantee modern technology and systems, as well as a variety of individual and group activities.Rather than using conventional learning tools, we use simple and effective ways. ",
+    "advisory_board": "Advisory Board",
+    "about_person_image_title": "Lorem Epsum Dolor",
+    "about_person_image_description": "Lorem epsum dolor",
+    "our_team": "Our Team",
+    "guest_lecturers": "Guest Lecturers",
+    "services": "Services"
 }

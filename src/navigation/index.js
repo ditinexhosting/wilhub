@@ -26,6 +26,7 @@ const Router = () => {
         <Stack.Screen name="Dashboard" >
           {props => <Drawer {...props} />}
         </Stack.Screen>
+        <Stack.Screen name="About" component={Screen.About} />
       </Stack.Navigator>
     </NavigationContainer>
   );
