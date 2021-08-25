@@ -20,36 +20,35 @@ import Icon2 from 'react-native-vector-icons/Entypo'
 import LinearGradient from 'react-native-linear-gradient'
 
 
-const DATA = [
-    {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'About WilHub',
-        image: about
-    },
-    {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Courses',
-        image: courses
-    },
-    {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Research',
-        image: research
-    },
-    {
-        id: '58694a0f-3da1-471f-bd96-145571e29d73',
-        title: 'Videos',
-        image: videos
-    },
-];
-
-
 export default ({ navigation }) => {
     const [Colors, styles] = useTheme(style)
     const translate = useLanguage().t
     const dispatch = useDispatch()
     const sessionReducer = useSelector(state => state.sessionReducer)
     const [searchQuery, setSearchQuery] = useState()
+
+    const DATA = [
+        {
+            id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+            title: translate('dashboard_item_title_1'),
+            image: about
+        },
+        {
+            id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+            title: translate('dashboard_item_title_2'),
+            image: courses
+        },
+        {
+            id: '58694a0f-3da1-471f-bd96-145571e29d72',
+            title: translate('dashboard_item_title_3'),
+            image: research
+        },
+        {
+            id: '58694a0f-3da1-471f-bd96-145571e29d73',
+            title: translate('dashboard_item_title_4'),
+            image: videos
+        },
+    ];
 
     useEffect(() => {
 
@@ -78,7 +77,7 @@ export default ({ navigation }) => {
                             style={styles.searchInput}
                             onChangeText={(text) => setSearchQuery(text)}
                             value={searchQuery}
-                            placeholder="What do you wnat to learn today ?"
+                            placeholder={translate("search_placeholder")}
                         />
                         <TouchableOpacity>
                             <Icon name={'search'} size={20} color={Colors.primary} />

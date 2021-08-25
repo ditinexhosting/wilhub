@@ -5,41 +5,44 @@ import { Mixins, Spacing, Typography,style } from 'src/styles'
 
 const styles =({Colors})=> StyleSheet.create({
     header:{
-       marginVertical: Spacing.SCALE_10,
+       marginVertical: Spacing.SCALE_15,
     },
-    headerIcon:{
-        marginHorizontal:Spacing.SCALE_10
-
+    backButton:{
+        position: 'absolute',
+        top: Spacing.SCALE_20,
+        left: Spacing.SCALE_20
     },
     headerText:{
-        fontSize: Typography.FONT_SIZE_20,
+        fontSize: Typography.FONT_SIZE_25,
         color:Colors.white,
-        marginLeft:Mixins.scaleSize(80)
+        flex: 1,
+        textAlign: 'center'
     },
     background:{
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        width: Mixins.DEVICE_WIDTH,
-        height: Mixins.DEVICE_HEIGHT
+        flex: 1
     },
     logo:{
-        width: Mixins.DEVICE_WIDTH,
-        height: Mixins.scaleSize(250),
-        resizeMode: 'contain'
+        width: Mixins.scaleSize(280),
+        height: Mixins.scaleSize(280),
+        resizeMode: 'cover',
+        alignSelf: 'center',
     },
     descriptionText:{
         color:Colors.white,
-        textAlign:'center',
-        marginHorizontal:Spacing.SCALE_10,
+        textAlign:'justify',
+        marginHorizontal:Spacing.SCALE_20,
         fontSize:Typography.FONT_SIZE_15
     },
     contentHeader:{
-        maxHeight:Mixins.scaleSize(100)
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: Spacing.SCALE_30,
+        marginBottom: Spacing.SCALE_10
     },
     iconImage:{
         marginHorizontal:Spacing.SCALE_10,
         width:Spacing.SCALE_50,
+        height:Spacing.SCALE_50,
         resizeMode:'contain',
     },
     iconText:{
@@ -47,21 +50,17 @@ const styles =({Colors})=> StyleSheet.create({
         fontSize:Typography.FONT_SIZE_25
     },
     imageContainer:{
-        marginHorizontal:Spacing.SCALE_10,
+        paddingHorizontal:Spacing.SCALE_10,
+        flex: 1
     },
     personImage:{
         width:Spacing.SCALE_100,
         height:Spacing.SCALE_100,
-        borderRadius:Spacing.SCALE_50,
-        resizeMode:'contain',
+        borderRadius: 50,
+        resizeMode:'cover',
     },
     personTitle:{
-        fontSize:Typography.FONT_SIZE_10,
-        color:Colors.white,
-        textAlign:'center'
-    },
-    personDescription:{
-        fontSize:Typography.FONT_SIZE_8,
+        fontSize:Typography.FONT_SIZE_14,
         color:Colors.white,
         textAlign:'center'
     },
