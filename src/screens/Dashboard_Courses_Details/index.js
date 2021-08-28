@@ -34,19 +34,6 @@ export default ({navigation}) => {
   const sessionReducer = useSelector(state => state.sessionReducer);
   const [courseList,setCourseList] = useState([])
 
-  useEffect(()=>{
-    getCourses()
-  },[])
-
-  const getCourses = async ()=>{
-    dispatch(ACTION.loadingStarted())
-    const response = await API.getCourses()
-    dispatch(ACTION.loadingCompleted())
-    if(response.status){
-      setCourseList(response.data.categorylist)
-    }
-  }
-
 
   return (
     <Container isTransparentStatusBar={false}>
@@ -96,7 +83,7 @@ export default ({navigation}) => {
 
         <Text style={styles.courseTitle}>{translate('most_popular')}</Text>
         {courseList.length > 0 ? <View style={[styles.flexRow, styles.justifyCenter]}>
-          <TouchableOpacity onPress={()=>navigation.navigate('Dashboard_Courses_Details',{id: 1})} style={[styles.flex1,styles.paddingHorizontal10, styles.alignCenter]}>
+          <TouchableOpacity onPress={()=>setModalVideo(VIDEOS['new'][0])} style={[styles.flex1,styles.paddingHorizontal10, styles.alignCenter]}>
             <ImageBackground
               source={course_icon_background_blue}
               style={styles.iconBackground}
@@ -105,7 +92,7 @@ export default ({navigation}) => {
             </ImageBackground>
             <Text numberOfLines={2} style={styles.courseText}>{courseList[0].title}</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigation.navigate('Dashboard_Courses_Details',{id: 2})} style={[styles.flex1,styles.paddingHorizontal10, styles.alignCenter]}>
+          <TouchableOpacity onPress={()=>setModalVideo(VIDEOS['new'][1])} style={[styles.flex1,styles.paddingHorizontal10, styles.alignCenter]}>
             <ImageBackground
               source={course_icon_background_blue}
               style={styles.iconBackground}
@@ -114,7 +101,7 @@ export default ({navigation}) => {
             </ImageBackground>
             <Text numberOfLines={2} style={styles.courseText}>{courseList[1].title}</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigation.navigate('Dashboard_Courses_Details',{id: 3})} style={[styles.flex1,styles.paddingHorizontal10, styles.alignCenter]}>
+          <TouchableOpacity onPress={()=>setModalVideo(VIDEOS['new'][1])} style={[styles.flex1,styles.paddingHorizontal10, styles.alignCenter]}>
             <ImageBackground
               source={course_icon_background_blue}
               style={styles.iconBackground}
@@ -128,7 +115,7 @@ export default ({navigation}) => {
 
         <Text style={styles.courseTitle}>{translate('most_viewed')}</Text>
         {courseList.length > 0 ? <View style={[styles.flexRow, styles.justifyCenter]}>
-          <TouchableOpacity onPress={()=>navigation.navigate('Dashboard_Courses_Details',{id: 1})} style={[styles.flex1,styles.paddingHorizontal10, styles.alignCenter]}>
+          <TouchableOpacity onPress={()=>setModalVideo(VIDEOS['new'][0])} style={[styles.flex1,styles.paddingHorizontal10, styles.alignCenter]}>
             <ImageBackground
               source={course_icon_background_blue}
               style={styles.iconBackground}
@@ -137,7 +124,7 @@ export default ({navigation}) => {
             </ImageBackground>
             <Text numberOfLines={2} style={styles.courseText}>{courseList[0].title}</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigation.navigate('Dashboard_Courses_Details',{id: 2})} style={[styles.flex1,styles.paddingHorizontal10, styles.alignCenter]}>
+          <TouchableOpacity onPress={()=>setModalVideo(VIDEOS['new'][1])} style={[styles.flex1,styles.paddingHorizontal10, styles.alignCenter]}>
             <ImageBackground
               source={course_icon_background_blue}
               style={styles.iconBackground}
@@ -146,7 +133,7 @@ export default ({navigation}) => {
             </ImageBackground>
             <Text numberOfLines={2} style={styles.courseText}>{courseList[1].title}</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigation.navigate('Dashboard_Courses_Details',{id: 3})} style={[styles.flex1,styles.paddingHorizontal10, styles.alignCenter]}>
+          <TouchableOpacity onPress={()=>setModalVideo(VIDEOS['new'][1])} style={[styles.flex1,styles.paddingHorizontal10, styles.alignCenter]}>
             <ImageBackground
               source={course_icon_background_blue}
               style={styles.iconBackground}

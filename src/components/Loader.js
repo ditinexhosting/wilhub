@@ -5,7 +5,8 @@ import {
   StyleSheet,
   Easing,
   Dimensions,
-  Image
+  Image,
+  ActivityIndicator
 } from 'react-native';
 import { loader_image } from 'src/assets'
 import { Styles, Colors, Spacing, Mixins } from 'src/styles'
@@ -14,7 +15,7 @@ const Loader=()=>{
 
 	return (
 		<View style={styles.backgroundContainer}>
-			<Image source={loader_image} style={styles.loader} resizeMode="cover" />
+			<ActivityIndicator size={'large'} color={Colors.primary} style={styles.marginBottom20} />
 		</View>
     );
 }
@@ -34,6 +35,9 @@ const styles = StyleSheet.create({
       width: Mixins.scaleSize(200),
       height: Mixins.scaleSize(200),
       //backgroundColor: Colors.white,
+  },
+  marginBottom20:{
+    marginBottom: Spacing.SCALE_20
   }
 });
 

@@ -30,10 +30,10 @@ const styles = ({Colors}) =>
     iconBackground: {
       width: Spacing.SCALE_100,
       height: Spacing.SCALE_100,
+      alignItems: 'center',
+      justifyContent: 'center'
     },
     iconvideo: {
-      position: 'absolute',
-      margin: Spacing.SCALE_10,
       width: Spacing.SCALE_80,
       height: Spacing.SCALE_80,
     },

@@ -44,7 +44,7 @@ export const handleResponse = response => {
 	return {
 		status: true,
 		code: response.status,
-		data: response.data,
+		data: response.data.data,
 		error: null
 	}
 }

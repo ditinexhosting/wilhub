@@ -27,6 +27,7 @@ const Router = () => {
         <Stack.Screen name="About" component={Screen.About} />
         <Stack.Screen name="Research" component={Screen.Research} />
         <Stack.Screen name="Courses" component={Screen.Courses} />
+        <Stack.Screen name="Dashboard_Courses_Details" component={Screen.Dashboard_Courses_Details} />
         <Stack.Screen name="Videos" component={Screen.Videos} />
       </Stack.Navigator>
     </NavigationContainer>
