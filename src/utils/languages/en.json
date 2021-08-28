@@ -22,5 +22,16 @@
     "about_person_image_description": "Lorem epsum dolor",
     "our_team": "Our Team",
     "guest_lecturers": "Guest Lecturers",
-    "services": "Services"
+    "services": "Services",
+    "research_title":"Research",
+    "coming_soon":"Coming Soon",
+    "course_title":"Courses",
+    "upcoming_courses":"Upcoming Courses",
+    "most_popular":"Most Popular",
+    "most_viewed":"Most Viewed",
+    "video_title":"Videos",
+    "trending_videos":"Trending Videos",
+    "new_videos":"New Videos",
+    "video_lectures":"Video Lectures",
+    "library":"Library"
 }

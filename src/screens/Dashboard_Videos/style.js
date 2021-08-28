@@ -27,11 +27,29 @@ const styles = ({Colors}) =>
       flex: 1,
       textAlign: 'center',
     },
-    comingSoonText: {
-      fontSize: Typography.FONT_SIZE_20,
+    iconBackground: {
+      width: Spacing.SCALE_100,
+      height: Spacing.SCALE_100,
+    },
+    iconvideo: {
+      position: 'absolute',
+      margin: Spacing.SCALE_10,
+      width: Spacing.SCALE_80,
+      height: Spacing.SCALE_80,
+    },
+    categoryText: {
+      color: Colors.white,
+      textAlign: 'center',
+    },
+    videoTitle: {
       color: Colors.primary,
+      margin: Spacing.SCALE_20,
+      fontSize: Typography.FONT_SIZE_20,
+    },
+    videoText: {
+      color: Colors.primary,
+      textAlign: 'center',
     },
   });
 
 export default styles;
-

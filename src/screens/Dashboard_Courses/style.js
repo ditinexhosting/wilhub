@@ -4,7 +4,7 @@ import {Mixins, Spacing, Typography} from 'src/styles';
 const styles = ({Colors}) =>
   StyleSheet.create({
     headerBar: {
-      height: Mixins.scaleSize(100),
+      height: Mixins.scaleSize(200),
       borderBottomLeftRadius: Spacing.SCALE_30,
       borderBottomRightRadius: Spacing.SCALE_30,
     },
@@ -27,11 +27,29 @@ const styles = ({Colors}) =>
       flex: 1,
       textAlign: 'center',
     },
-    comingSoonText: {
-      fontSize: Typography.FONT_SIZE_20,
+    iconBackground: {
+      width: Spacing.SCALE_100,
+      height: Spacing.SCALE_100,
+    },
+    iconCourse: {
+      position: 'absolute',
+      margin: Spacing.SCALE_10,
+      width: Spacing.SCALE_80,
+      height: Spacing.SCALE_80,
+    },
+    categoryText: {
+      color: Colors.white,
+      textAlign: 'center',
+    },
+    courseTitle: {
       color: Colors.primary,
+      margin: Spacing.SCALE_20,
+      fontSize: Typography.FONT_SIZE_20,
+    },
+    courseText: {
+      color: Colors.primary,
+      textAlign: 'center',
     },
   });
 
 export default styles;
-
