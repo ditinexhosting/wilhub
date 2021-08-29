@@ -18,40 +18,35 @@ const styles = ({Colors}) =>
     backButton: {
       position: 'absolute',
       top: Spacing.SCALE_20,
-      left: Spacing.SCALE_20,
+      left: Spacing.SCALE_20
     },
     headerText: {
+      width: Mixins.scaleSize(280),
+      alignSelf: 'center',
       marginVertical: Spacing.SCALE_15,
       fontSize: Typography.FONT_SIZE_25,
       color: Colors.white,
-      flex: 1,
       textAlign: 'center',
     },
-    iconBackground: {
-      width: Spacing.SCALE_100,
-      height: Spacing.SCALE_100,
-      justifyContent: 'center',
-      alignItems: 'center'
+    button:{
+      backgroundColor: Colors.secondary,
+      width: Mixins.scaleSize(150),
+      padding: Spacing.SCALE_8,
+      borderRadius: Spacing.SCALE_15
     },
-    iconCourse: {
-      width: Spacing.SCALE_80,
-      height: Spacing.SCALE_80,
-      borderTopRightRadius: 30,
-      borderBottomLeftRadius: 30
+    button2:{
+      backgroundColor: Colors.secondary,
+      width: Mixins.scaleSize(250),
+      padding: Spacing.SCALE_8,
+      borderRadius: Spacing.SCALE_15
     },
-    categoryText: {
+    buttonText:{
+      fontSize: Typography.FONT_SIZE_14,
+      textAlign: 'center',
       color: Colors.white,
-      textAlign: 'center',
-    },
-    courseTitle: {
-      color: Colors.primary,
-      margin: Spacing.SCALE_20,
-      fontSize: Typography.FONT_SIZE_20,
-    },
-    courseText: {
-      color: Colors.primary,
-      textAlign: 'center',
-    },
+      fontWeight: 'bold'
+    }
+    
   });
 
 export default styles;

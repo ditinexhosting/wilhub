@@ -51,7 +51,7 @@ export default () => {
       tabBar={props => keyboardStatus!=true ? <CustomTabBar {...props} /> : null}
     >
       <Tab.Screen name="Home" options={{ tabBarLabel: translate('home') }} component={Screen.Dashboard} />
-      <Tab.Screen name="Favorite" options={{ tabBarLabel: translate('favorite') }} component={Screen.Dashboard} />
+      {/*<Tab.Screen name="Favorite" options={{ tabBarLabel: translate('favorite') }} component={Screen.Dashboard} />*/}
       <Tab.Screen name="Search" options={{ tabBarLabel: translate('search') }} component={Screen.Dashboard} />
       <Tab.Screen name="Settings" options={{ tabBarLabel: translate('settings') }} component={Screen.Dashboard} />
     </Tab.Navigator>

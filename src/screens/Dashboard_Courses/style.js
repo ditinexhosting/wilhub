@@ -19,6 +19,7 @@ const styles = ({Colors}) =>
       position: 'absolute',
       top: Spacing.SCALE_20,
       left: Spacing.SCALE_20,
+      zIndex: 9999
     },
     headerText: {
       marginVertical: Spacing.SCALE_15,

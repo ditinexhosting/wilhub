@@ -36,9 +36,13 @@ export default ({ navigation }) => {
         <Container isTransparentStatusBar={false}>
             <ImageBackground source={about_us_background} style={styles.background} >
                 <ScrollView>
-                    <TouchableOpacity style={styles.backButton} onPress={() => navigation.pop()}>
-                        <Icon name={'chevron-left'} size={20} color={Colors.white} style={styles.headerIcon} />
-                    </TouchableOpacity>
+                    <View
+                        style={styles.backButton}
+                    >
+                        <TouchableOpacity onPress={() => navigation.pop()}>
+                            <Icon name={'chevron-left'} size={20} color={Colors.white} />
+                        </TouchableOpacity>
+                    </View>
                     <View style={[styles.header]}>
                         <Text style={styles.headerText}>{translate('about_us_title')}</Text>
                     </View>

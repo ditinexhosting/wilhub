@@ -10,7 +10,8 @@ const styles =({Colors})=> StyleSheet.create({
     backButton:{
         position: 'absolute',
         top: Spacing.SCALE_20,
-        left: Spacing.SCALE_20
+        left: Spacing.SCALE_20,
+        zIndex: 999
     },
     headerText:{
         fontSize: Typography.FONT_SIZE_25,
