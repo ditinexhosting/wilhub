@@ -43,6 +43,9 @@ const styles = ({Colors}) =>
       color: Colors.white,
       textAlign: 'center',
     },
+    videoItem:{
+      width: Mixins.scaleSize(120)
+    },
     videoTitle: {
       color: Colors.primary,
       margin: Spacing.SCALE_20,

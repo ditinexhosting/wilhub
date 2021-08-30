@@ -108,8 +108,8 @@ export default ({ navigation }) => {
 
 
         <Text style={styles.videoTitle}>{translate('new_videos')}</Text>
-        <View style={[styles.flexRow, styles.justifyCenter]}>
-          <TouchableOpacity onPress={() => setModalVideo(VIDEOS['new'][0])} style={[styles.flex1, styles.paddingHorizontal10, styles.alignCenter]}>
+        <View style={[styles.flexRow]}>
+          <TouchableOpacity onPress={() => setModalVideo(VIDEOS['new'][0])} style={[styles.paddingHorizontal10, styles.alignCenter,styles.videoItem]}>
             <ImageBackground
               source={video_icon_background_blue}
               style={styles.iconBackground}
@@ -118,7 +118,7 @@ export default ({ navigation }) => {
             </ImageBackground>
             <Text numberOfLines={2} style={styles.videoText}>{VIDEOS['new'][0].name}</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setModalVideo(VIDEOS['new'][1])} style={[styles.flex1, styles.paddingHorizontal10, styles.alignCenter]}>
+          <TouchableOpacity onPress={() => setModalVideo(VIDEOS['new'][1])} style={[styles.videoItem, styles.paddingHorizontal10, styles.alignCenter]}>
             <ImageBackground
               source={video_icon_background_blue}
               style={styles.iconBackground}
@@ -132,8 +132,8 @@ export default ({ navigation }) => {
 
 
         <Text style={styles.videoTitle}>{translate('video_lectures')}</Text>
-        <View style={[styles.flexRow, styles.justifyCenter]}>
-          <TouchableOpacity onPress={() => setModalVideo(VIDEOS['lectures'][0])} style={[styles.flex1, styles.paddingHorizontal10, styles.alignCenter]}>
+        <View style={[styles.flexRow]}>
+          <TouchableOpacity onPress={() => setModalVideo(VIDEOS['lectures'][0])} style={[styles.videoItem, styles.paddingHorizontal10, styles.alignCenter]}>
             <ImageBackground
               source={video_icon_background_blue}
               style={styles.iconBackground}

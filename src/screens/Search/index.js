@@ -50,7 +50,6 @@ export default ({ navigation }) => {
   }
 
   const renderItem = ({item}) => {
-    console.log(item)
     return (
       <TouchableOpacity onPress={() => navigation.navigate('Dashboard_Courses_Details', { id: item.id, title: item.title })} style={[styles.flex1, styles.paddingHorizontal10, styles.alignCenter]}>
         <ImageBackground

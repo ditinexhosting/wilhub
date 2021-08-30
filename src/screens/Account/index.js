@@ -48,6 +48,11 @@ export default ({ navigation }) => {
     await AsyncStorage.setItem('@userSession',JSON.stringify(response.data.user))
   }
 
+  const logout = async()=>{
+    dispatch(ACTION.loggedin(null))
+    await AsyncStorage.removeItem('@userSession')
+  }
+
 
 
   const login_render = ()=>{
@@ -98,7 +103,7 @@ export default ({ navigation }) => {
           <LinearGradient
             colors={[Colors.primary, Colors.secondary]}
             style={styles.loginButton}>
-            <TouchableOpacity onPress={()=>login()} style={[styles.flexRow, styles.centerAll]}>
+            <TouchableOpacity onPress={()=>logout()} style={[styles.flexRow, styles.centerAll]}>
               <Text style={styles.headerText}>LOGOUT</Text>
             </TouchableOpacity>
           </LinearGradient>
