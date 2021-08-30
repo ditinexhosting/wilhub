@@ -6,3 +6,6 @@ export {default as Research} from './Dashboard_Research';
 export {default as Courses} from './Dashboard_Courses';
 export {default as Videos} from './Dashboard_Videos';
 export {default as Dashboard_Courses_Details} from './Dashboard_Courses_Details';
+export {default as Search} from './Search';
+export {default as Account} from './Account';
+export {default as Registration} from './Registration';

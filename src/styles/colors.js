@@ -4,7 +4,8 @@ const LIGHT_THEME = {
     secondary: '#10C3D7',
     background: '#FBFBFB',
     white: '#FFF',
-    gray_dark: '#444444'
+    gray_dark: '#444444',
+    gray_light: '#D7DDE2'
 }
 
 const DARK_THEME = {

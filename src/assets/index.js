@@ -37,3 +37,7 @@ export const video_icon_background_white = require('src/assets/images/course_ico
 export const video1 = require('src/assets/images/course1.png');
 export const video2 = require('src/assets/images/video2.png');
 export const video3 = require('src/assets/images/course3.png');
+
+
+/*Profile*/
+export const profile = require('src/assets/images/profile.png');

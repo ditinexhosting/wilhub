@@ -1,56 +1,11 @@
 import { handleResponse, API } from './utils';
 
 const auth = {
-    sendOtp : async (mobile) => {
+    signUp : async (body) => {
         let response = null
-        try{
-            response = await API.post('/auth/login',{
-                mobile: mobile
-            })
-        }
-        catch(e){
-            response = e
-        }
-        return handleResponse(response);
-    },
-    verifyOtp : async (mobile,otp) => {
-        let response = null
-        try{
-            response = await API.post('/auth/login',{
-                mobile: mobile,
-                otp: otp
-            })
-        }
-        catch(e){
-            response = e
-        }
-        return handleResponse(response);
-    },
-    checkUsername : async (username) => {
-        let response = null
-        try{
-            response = await API.get('/auth/check-username/'+username)
-        }
-        catch(e){
-            response = e
-        }
-        return handleResponse(response);
-    },
-    signUp : async (body,dp) => {
-        let response = null
-		const data = new FormData();
 		try{
-            data.append('profile_picture', {
-                uri: dp.uri, name: 'photo.jpg', type: 'image/jpg'
-            });
-            
-            Object.keys(body).forEach(key => {
-                if(body[key])
-                    data.append(key, body[key]);
-            });
-
-            await API.post('/auth/signup', data,{
-                'Content-Type': 'multipart/form-data'
+            await API.post('/user/register', body,{
+                'Content-Type': 'application/json'
             })
             .then(function (res) {
                 response = res
@@ -64,33 +19,11 @@ const auth = {
 		}
         return handleResponse(response);
     },
-    loginByToken : async (mobile,refresh_token)=>{
+    login : async (body) => {
         let response = null
-        await API.get('/auth/login-by-token/'+mobile+'/'+refresh_token)
-        .then(function (res) {
-            response = res
-        })
-        .catch(function (error) {
-            // console.log(error.response)
-            response = error
-        })
-        return handleResponse(response);
-	},
-    editProfile : async (body,dp) => {
-        let response = null
-		const data = new FormData();
 		try{
-            data.append('profile_picture', {
-                uri: dp.uri, name: 'photo.jpg', type: 'image/jpg'
-            });
-            
-            Object.keys(body).forEach(key => {
-                if(body[key])
-                    data.append(key, body[key]);
-            });
-
-            await API.post('/auth/edit-profile', data,{
-                'Content-Type': 'multipart/form-data'
+            await API.post('/user/login', body,{
+                'Content-Type': 'application/json'
             })
             .then(function (res) {
                 response = res
@@ -103,7 +36,7 @@ const auth = {
 			response = e
 		}
         return handleResponse(response);
-    },
+    }
 }
 
 export default auth

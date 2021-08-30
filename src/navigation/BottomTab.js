@@ -15,7 +15,7 @@ const IconList = {
   'Home': 'home',
   'Favorite': 'heart',
   'Search': 'search',
-  'Settings': 'user'
+  'Account': 'user'
 }
 
 
@@ -52,8 +52,8 @@ export default () => {
     >
       <Tab.Screen name="Home" options={{ tabBarLabel: translate('home') }} component={Screen.Dashboard} />
       {/*<Tab.Screen name="Favorite" options={{ tabBarLabel: translate('favorite') }} component={Screen.Dashboard} />*/}
-      <Tab.Screen name="Search" options={{ tabBarLabel: translate('search') }} component={Screen.Dashboard} />
-      <Tab.Screen name="Settings" options={{ tabBarLabel: translate('settings') }} component={Screen.Dashboard} />
+      <Tab.Screen name="Search" options={{ tabBarLabel: translate('search') }} component={Screen.Search} />
+      <Tab.Screen name="Account" options={{ tabBarLabel: translate('account') }} component={Screen.Account} />
     </Tab.Navigator>
   );
 }

@@ -9,7 +9,7 @@
     "home": "Home",
     "favorite": "Favorite",
     "search": "Search",
-    "settings": "Settings",
+    "account": "Account",
     "search_placeholder": "What do you wnat to learn today ?",
     "dashboard_item_title_1": "About WilHub",
     "dashboard_item_title_2": "Courses",
@@ -33,5 +33,7 @@
     "trending_videos":"Trending Videos",
     "new_videos":"New Videos",
     "video_lectures":"Video Lectures",
-    "library":"Library"
+    "library":"Library",
+    "login_title": "Login / Signup",
+    "registration_title": "Admission Form"
 }

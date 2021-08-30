@@ -27,6 +27,10 @@ export default ({ navigation }) => {
 
     const initialize = async () => {
         try {
+          const userSession = await AsyncStorage.getItem('@userSession')
+          if(userSession)
+          dispatch(ACTION.loggedin(JSON.parse(userSession)))
+
           const isUserOnboarded = await AsyncStorage.getItem('@isUserOnboarded')
           if(isUserOnboarded){
             setTimeout(()=>navigation.replace('Dashboard'),2000)
