@@ -52,7 +52,9 @@ const styles =({Colors})=> StyleSheet.create({
     },
     imageContainer:{
         paddingHorizontal:Spacing.SCALE_10,
-        flex: 1
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: Mixins.scaleSize(120)
     },
     personImage:{
         width:Spacing.SCALE_100,
@@ -62,6 +64,11 @@ const styles =({Colors})=> StyleSheet.create({
     },
     personTitle:{
         fontSize:Typography.FONT_SIZE_14,
+        color:Colors.white,
+        textAlign:'center'
+    },
+    personDesignation:{
+        fontSize:Typography.FONT_SIZE_10,
         color:Colors.white,
         textAlign:'center'
     },

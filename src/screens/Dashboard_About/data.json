@@ -1,0 +1,212 @@
+{
+    "advisory_board": [
+        {
+            "image": "https://wilhub.com/theme/images/about/advirsory/1.jpg",
+            "name": "Sayed Rasheed Ali Thangal"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/advirsory/M%20Muhammad%20Madani.jpg",
+            "name": "M M Muhammed Madani"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/advirsory/4.jpg",
+            "name": "Dr. Bahauddeen Nadwi"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/advirsory/2.jpg",
+            "name": "Aliyar Qasimi"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/advirsory/7.jpg",
+            "name": "Kunji Muhammed Madani"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/advirsory/ilyas%20moulavi.jpg",
+            "name": "Illyas Moulavi"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/advirsory/8.jpg",
+            "name": "Anas Moulavi"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/advirsory/3.jpg",
+            "name": "M M Akbar"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/advirsory/pk%20jamal.jpg",
+            "name": "P K Jamal"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/advirsory/17.jpg",
+            "name": "Atheeq Rahman Faizy"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/advirsory/15.jpg",
+            "name": "Sulaiman Melpathur"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/advirsory/rahmathunnisa.jpg",
+            "name": "Rahmathunnisa Teacher"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/faculty/5.jpg",
+            "name": "PMA Gafoor"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/advirsory/10.jpg",
+            "name": "Suhail K K"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/advirsory/5.jpg",
+            "name": "Adv. S Mammu"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/advirsory/P%20Rukhsana.jpg",
+            "name": "P Ruksana"
+        }
+    ],
+    "our_team": [
+        {
+            "image": "https://wilhub.com/theme/images/about/team/manzoor.jpg",
+            "name": "Ali Manzoor",
+            "designation": "Founder & CEO"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/nihas.jpg",
+            "name": "Nihas Basheer",
+            "designation": "Project Administrator"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/javad.jpg",
+            "name": "Javad Ameer",
+            "designation": "HR Manager"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/thabsheera.jpg",
+            "name": "Thabsheera Suhail",
+            "designation": "Academic Director"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/jubin%20sha.jpg",
+            "name": "Jubin Shah",
+            "designation": "Project Co-ordinator"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/adhil.jpg",
+            "name": "Adhil PK",
+            "designation": "Chief Accountant"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/zaheen.jpg",
+            "name": "Zaheen Muhammed",
+            "designation": "Creative Head"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/anfal.jpg",
+            "name": "Anfal Bayani",
+            "designation": "Project Developer"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/sahath.jpg",
+            "name": "Sadath Ali",
+            "designation": "Events & Marketing Manager"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/fathima.jpg",
+            "name": "Fathima Rafiya",
+            "designation": "Customer Relations Manager"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/inthihab.jpg",
+            "name": "Inthihab Mahmood",
+            "designation": "Public Relations Officer"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/huda.jpg",
+            "name": "Hudha Abdullah",
+            "designation": "Faculty Head"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/shafeeq.jpg",
+            "name": "Muhammed Shafeeq",
+            "designation": "Director\nDepartment of Clinical & Counselling"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/ameer.jpg",
+            "name": "Ameer Rahman",
+            "designation": "Director\nDepartment of Islamic Studies"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/shahanasa.jpg",
+            "name": "Shahanaza N",
+            "designation": "Director\nDepartment of Psychology"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/hana.jpg",
+            "name": "Hanna Zakariya",
+            "designation": "Director\nDepartment of Home Science"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/hira.jpg",
+            "name": "Hira P",
+            "designation": "Director\nDepartment of English"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/muju.jpg",
+            "name": "Mujthaba Yaseen",
+            "designation": "Programme Director Mawadha"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/safa.jpg",
+            "name": "Safa Abdussalam",
+            "designation": "Programme Director Women Empowerment"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/musabiha.jpg",
+            "name": "Musabbiha Arafa",
+            "designation": "Team Member"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/marwa.jpg",
+            "name": "Marwa Abdussalam",
+            "designation": "Team Member"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/team/bilal.jpg",
+            "name": "Bilal Ibnu Abdulla",
+            "designation": "Team Member"
+        }
+    ],
+    "guest_lecturer": [
+        {
+            "image": "https://wilhub.com/theme/images/about/faculty/2.jpg",
+            "name": "Dr. Jabir Amani",
+            "designation": "HOD, Arabic & Islamic Finance\nSullamu Salam College"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/faculty/3.jpg",
+            "name": "Mujeeb Rahman Kinaloor",
+            "designation": "Author, Orator"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/faculty/6.jpg",
+            "name": "Sulaiman Melpathur",
+            "designation": "International Trainer"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/faculty/5.jpg",
+            "name": "PMA Gafoor",
+            "designation": "Author, Orator"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/faculty/1.jpg",
+            "name": "Dr. Abdul Vasih",
+            "designation": "Dean, Faculty of Shari'a\nAl Jamia Al Islamiya"
+        },
+        {
+            "image": "https://wilhub.com/theme/images/about/faculty/4.jpg",
+            "name": "Dr. Ajmal Mueen",
+            "designation": "HOD, History\nMAMO College"
+        }
+    ]
+}

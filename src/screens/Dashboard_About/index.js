@@ -20,6 +20,7 @@ import { Container } from 'src/components'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Icon2 from 'react-native-vector-icons/Entypo'
 import LinearGradient from 'react-native-linear-gradient'
+import jsonData from './data.json'
 
 export default ({ navigation }) => {
 
@@ -31,6 +32,16 @@ export default ({ navigation }) => {
     useEffect(() => {
 
     }, [])
+
+    const renderItem = ({ item }) => {
+        return (
+            <View style={styles.imageContainer}>
+                <Image source={{uri: item.image}} style={styles.personImage} />
+                <Text numberOfLines={2} style={styles.personTitle}>{item.name}</Text>
+                {item.designation && <Text numberOfLines={2} style={styles.personDesignation}>{item.designation}</Text>}
+            </View>
+        )
+    }
 
     return (
         <Container isTransparentStatusBar={false}>
@@ -55,60 +66,38 @@ export default ({ navigation }) => {
                         <Image source={advisory_board} style={styles.iconImage} />
                         <Text style={styles.iconText}>{translate('advisory_board')}</Text>
                     </View>
-                    <View style={[styles.flexRow, styles.justifyStart]}>
-                        <View style={styles.imageContainer}>
-                            <Image source={about_person} style={styles.personImage} />
-                            <Text numberOfLines={2} style={styles.personTitle}>{translate('about_person_image_title')}</Text>
-                        </View>
-                        <View style={styles.imageContainer}>
-                            <Image source={about_person} style={styles.personImage} />
-                            <Text numberOfLines={2} style={styles.personTitle}>{translate('about_person_image_title')}</Text>
-                        </View>
-                        <View style={styles.imageContainer}>
-                            <Image source={about_person} style={styles.personImage} />
-                            <Text numberOfLines={2} style={styles.personTitle}>{translate('about_person_image_title')}</Text>
-                        </View>
-                    </View>
+                    <FlatList
+                        data={jsonData.advisory_board}
+                        renderItem={renderItem}
+                        keyExtractor={(item, index) => index}
+                        horizontal={true}
+                    />
+                    
                     {/*Our Team*/}
                     <View style={[styles.flexRow, styles.alignCenter, styles.contentHeader]}>
                         <Image source={our_team} style={styles.iconImage} />
                         <Text style={styles.iconText}>{translate('our_team')}</Text>
                     </View>
-                    <View style={[styles.flexRow, styles.justifyStart]}>
-                        <View style={styles.imageContainer}>
-                            <Image source={about_person} style={styles.personImage} />
-                            <Text numberOfLines={2} style={styles.personTitle}>{translate('about_person_image_title')}</Text>
-                        </View>
-                        <View style={styles.imageContainer}>
-                            <Image source={about_person} style={styles.personImage} />
-                            <Text numberOfLines={2} style={styles.personTitle}>{translate('about_person_image_title')}</Text>
-                        </View>
-                        <View style={styles.imageContainer}>
-                            <Image source={about_person} style={styles.personImage} />
-                            <Text numberOfLines={2} style={styles.personTitle}>{translate('about_person_image_title')}</Text>
-                        </View>
-                    </View>
+                    <FlatList
+                        data={jsonData.our_team}
+                        renderItem={renderItem}
+                        keyExtractor={(item, index) => index}
+                        horizontal={true}
+                    />
                     {/*Guest lecturer */}
                     <View style={[styles.flexRow, styles.alignCenter, styles.contentHeader]}>
                         <Image source={guest_lecturer} style={styles.iconImage} />
                         <Text style={styles.iconText}>{translate('guest_lecturers')}</Text>
                     </View>
-                    <View style={[styles.flexRow, styles.justifyStart]}>
-                        <View style={styles.imageContainer}>
-                            <Image source={about_person} style={styles.personImage} />
-                            <Text numberOfLines={2} style={styles.personTitle}>{translate('about_person_image_title')}</Text>
-                        </View>
-                        <View style={styles.imageContainer}>
-                            <Image source={about_person} style={styles.personImage} />
-                            <Text numberOfLines={2} style={styles.personTitle}>{translate('about_person_image_title')}</Text>
-                        </View>
-                        <View style={styles.imageContainer}>
-                            <Image source={about_person} style={styles.personImage} />
-                            <Text numberOfLines={2} style={styles.personTitle}>{translate('about_person_image_title')}</Text>
-                        </View>
-                    </View>
+                    <FlatList
+                        data={jsonData.guest_lecturer}
+                        renderItem={renderItem}
+                        keyExtractor={(item, index) => index}
+                        horizontal={true}
+                    />
+                    <View style={styles.marginBottom60}></View>
                     {/*Services */}
-                    <View style={[styles.flexRow, styles.alignCenter, styles.contentHeader]}>
+                    {/*<View style={[styles.flexRow, styles.alignCenter, styles.contentHeader]}>
                         <Image source={services} style={styles.iconImage} />
                         <Text style={styles.iconText}>{translate('services')}</Text>
                     </View>
@@ -125,7 +114,7 @@ export default ({ navigation }) => {
                             <Image source={online_course} style={styles.serviceImage} />
                             <Text style={styles.serviceText}>Video Lecture</Text>
                         </View>
-                    </View>
+                    </View>*/}
                 </ScrollView>
             </ImageBackground>
         </Container>
