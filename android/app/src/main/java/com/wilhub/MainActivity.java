@@ -1,4 +1,4 @@
-package com.willhub;
+package com.wilhub;
 
 import com.facebook.react.ReactActivity;
   /*
@@ -14,7 +14,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "willhub";
+    return "Wilhub";
   }
   /*
    * Code for react navigation 

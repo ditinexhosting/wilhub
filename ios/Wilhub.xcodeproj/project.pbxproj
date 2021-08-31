@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* willhubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* willhubTests.m */; };
+		00E356F31AD99517003FC87E /* WilhubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* WilhubTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		51DBB6D45943728BCC92A6F6 /* libPods-willhub-willhubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9297E1DFA50EC5879509CDBD /* libPods-willhub-willhubTests.a */; };
+		51DBB6D45943728BCC92A6F6 /* libPods-Wilhub-WilhubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9297E1DFA50EC5879509CDBD /* libPods-Wilhub-WilhubTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		995F8F40F437BE34BED5D619 /* libPods-willhub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B28021686A20B511ACF6C05E /* libPods-willhub.a */; };
+		995F8F40F437BE34BED5D619 /* libPods-Wilhub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B28021686A20B511ACF6C05E /* libPods-Wilhub.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,27 +22,27 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = willhub;
+			remoteInfo = Wilhub;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* willhubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = willhubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* WilhubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WilhubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* willhubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = willhubTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* willhub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = willhub.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = willhub/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = willhub/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = willhub/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = willhub/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = willhub/main.m; sourceTree = "<group>"; };
-		79063AA817A899F2512E7535 /* Pods-willhub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-willhub.release.xcconfig"; path = "Target Support Files/Pods-willhub/Pods-willhub.release.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = willhub/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9297E1DFA50EC5879509CDBD /* libPods-willhub-willhubTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-willhub-willhubTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B28021686A20B511ACF6C05E /* libPods-willhub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-willhub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6E9575DB5F681C9C4EC05D9 /* Pods-willhub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-willhub.debug.xcconfig"; path = "Target Support Files/Pods-willhub/Pods-willhub.debug.xcconfig"; sourceTree = "<group>"; };
-		B76DA66125E1BCD3CAE95DBF /* Pods-willhub-willhubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-willhub-willhubTests.debug.xcconfig"; path = "Target Support Files/Pods-willhub-willhubTests/Pods-willhub-willhubTests.debug.xcconfig"; sourceTree = "<group>"; };
-		BB66563E86FB064E674CDBD9 /* Pods-willhub-willhubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-willhub-willhubTests.release.xcconfig"; path = "Target Support Files/Pods-willhub-willhubTests/Pods-willhub-willhubTests.release.xcconfig"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* WilhubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WilhubTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Wilhub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wilhub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Wilhub/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Wilhub/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Wilhub/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Wilhub/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Wilhub/main.m; sourceTree = "<group>"; };
+		79063AA817A899F2512E7535 /* Pods-Wilhub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wilhub.release.xcconfig"; path = "Target Support Files/Pods-Wilhub/Pods-Wilhub.release.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Wilhub/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9297E1DFA50EC5879509CDBD /* libPods-Wilhub-WilhubTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Wilhub-WilhubTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B28021686A20B511ACF6C05E /* libPods-Wilhub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Wilhub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6E9575DB5F681C9C4EC05D9 /* Pods-Wilhub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wilhub.debug.xcconfig"; path = "Target Support Files/Pods-Wilhub/Pods-Wilhub.debug.xcconfig"; sourceTree = "<group>"; };
+		B76DA66125E1BCD3CAE95DBF /* Pods-Wilhub-WilhubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wilhub-WilhubTests.debug.xcconfig"; path = "Target Support Files/Pods-Wilhub-WilhubTests/Pods-Wilhub-WilhubTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BB66563E86FB064E674CDBD9 /* Pods-Wilhub-WilhubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wilhub-WilhubTests.release.xcconfig"; path = "Target Support Files/Pods-Wilhub-WilhubTests/Pods-Wilhub-WilhubTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51DBB6D45943728BCC92A6F6 /* libPods-willhub-willhubTests.a in Frameworks */,
+				51DBB6D45943728BCC92A6F6 /* libPods-Wilhub-WilhubTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,20 +59,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				995F8F40F437BE34BED5D619 /* libPods-willhub.a in Frameworks */,
+				995F8F40F437BE34BED5D619 /* libPods-Wilhub.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* willhubTests */ = {
+		00E356EF1AD99517003FC87E /* WilhubTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* willhubTests.m */,
+				00E356F21AD99517003FC87E /* WilhubTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = willhubTests;
+			path = WilhubTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -83,7 +83,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* willhub */ = {
+		13B07FAE1A68108700A75B9A /* Wilhub */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -93,15 +93,15 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = willhub;
+			name = Wilhub;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				B28021686A20B511ACF6C05E /* libPods-willhub.a */,
-				9297E1DFA50EC5879509CDBD /* libPods-willhub-willhubTests.a */,
+				B28021686A20B511ACF6C05E /* libPods-Wilhub.a */,
+				9297E1DFA50EC5879509CDBD /* libPods-Wilhub-WilhubTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,9 +116,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* willhub */,
+				13B07FAE1A68108700A75B9A /* Wilhub */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* willhubTests */,
+				00E356EF1AD99517003FC87E /* WilhubTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				DED340B1A7D7079C9D39AC9B /* Pods */,
@@ -131,8 +131,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* willhub.app */,
-				00E356EE1AD99517003FC87E /* willhubTests.xctest */,
+				13B07F961A680F5B00A75B9A /* Wilhub.app */,
+				00E356EE1AD99517003FC87E /* WilhubTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,10 +140,10 @@
 		DED340B1A7D7079C9D39AC9B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B6E9575DB5F681C9C4EC05D9 /* Pods-willhub.debug.xcconfig */,
-				79063AA817A899F2512E7535 /* Pods-willhub.release.xcconfig */,
-				B76DA66125E1BCD3CAE95DBF /* Pods-willhub-willhubTests.debug.xcconfig */,
-				BB66563E86FB064E674CDBD9 /* Pods-willhub-willhubTests.release.xcconfig */,
+				B6E9575DB5F681C9C4EC05D9 /* Pods-Wilhub.debug.xcconfig */,
+				79063AA817A899F2512E7535 /* Pods-Wilhub.release.xcconfig */,
+				B76DA66125E1BCD3CAE95DBF /* Pods-Wilhub-WilhubTests.debug.xcconfig */,
+				BB66563E86FB064E674CDBD9 /* Pods-Wilhub-WilhubTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -152,9 +152,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* willhubTests */ = {
+		00E356ED1AD99517003FC87E /* WilhubTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "willhubTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "WilhubTests" */;
 			buildPhases = (
 				894143A12659179C172E171E /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -168,14 +168,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = willhubTests;
-			productName = willhubTests;
-			productReference = 00E356EE1AD99517003FC87E /* willhubTests.xctest */;
+			name = WilhubTests;
+			productName = WilhubTests;
+			productReference = 00E356EE1AD99517003FC87E /* WilhubTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* willhub */ = {
+		13B07F861A680F5B00A75B9A /* Wilhub */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "willhub" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Wilhub" */;
 			buildPhases = (
 				9182138849B3BA2739114EA4 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -190,9 +190,9 @@
 			);
 			dependencies = (
 			);
-			name = willhub;
-			productName = willhub;
-			productReference = 13B07F961A680F5B00A75B9A /* willhub.app */;
+			name = Wilhub;
+			productName = Wilhub;
+			productReference = 13B07F961A680F5B00A75B9A /* Wilhub.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -212,7 +212,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "willhub" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Wilhub" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -225,8 +225,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* willhub */,
-				00E356ED1AD99517003FC87E /* willhubTests */,
+				13B07F861A680F5B00A75B9A /* Wilhub */,
+				00E356ED1AD99517003FC87E /* WilhubTests */,
 			);
 		};
 /* End PBXProject section */
@@ -271,15 +271,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-willhub/Pods-willhub-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Wilhub/Pods-Wilhub-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-willhub/Pods-willhub-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Wilhub/Pods-Wilhub-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-willhub/Pods-willhub-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wilhub/Pods-Wilhub-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		894143A12659179C172E171E /* [CP] Check Pods Manifest.lock */ = {
@@ -297,7 +297,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-willhub-willhubTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Wilhub-WilhubTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -310,15 +310,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-willhub/Pods-willhub-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Wilhub/Pods-Wilhub-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-willhub/Pods-willhub-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Wilhub/Pods-Wilhub-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-willhub/Pods-willhub-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wilhub/Pods-Wilhub-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9182138849B3BA2739114EA4 /* [CP] Check Pods Manifest.lock */ = {
@@ -336,7 +336,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-willhub-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Wilhub-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -349,15 +349,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-willhub-willhubTests/Pods-willhub-willhubTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Wilhub-WilhubTests/Pods-Wilhub-WilhubTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-willhub-willhubTests/Pods-willhub-willhubTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Wilhub-WilhubTests/Pods-Wilhub-WilhubTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-willhub-willhubTests/Pods-willhub-willhubTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wilhub-WilhubTests/Pods-Wilhub-WilhubTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DA6CEC97AA273981690B68BB /* [CP] Embed Pods Frameworks */ = {
@@ -366,15 +366,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-willhub-willhubTests/Pods-willhub-willhubTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Wilhub-WilhubTests/Pods-Wilhub-WilhubTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-willhub-willhubTests/Pods-willhub-willhubTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Wilhub-WilhubTests/Pods-Wilhub-WilhubTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-willhub-willhubTests/Pods-willhub-willhubTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wilhub-WilhubTests/Pods-Wilhub-WilhubTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -403,7 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* willhubTests.m in Sources */,
+				00E356F31AD99517003FC87E /* WilhubTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +421,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* willhub */;
+			target = 13B07F861A680F5B00A75B9A /* Wilhub */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -429,14 +429,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B76DA66125E1BCD3CAE95DBF /* Pods-willhub-willhubTests.debug.xcconfig */;
+			baseConfigurationReference = B76DA66125E1BCD3CAE95DBF /* Pods-Wilhub-WilhubTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = willhubTests/Info.plist;
+				INFOPLIST_FILE = WilhubTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,17 +450,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/willhub.app/willhub";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wilhub.app/Wilhub";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB66563E86FB064E674CDBD9 /* Pods-willhub-willhubTests.release.xcconfig */;
+			baseConfigurationReference = BB66563E86FB064E674CDBD9 /* Pods-Wilhub-WilhubTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = willhubTests/Info.plist;
+				INFOPLIST_FILE = WilhubTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -474,19 +474,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/willhub.app/willhub";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wilhub.app/Wilhub";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B6E9575DB5F681C9C4EC05D9 /* Pods-willhub.debug.xcconfig */;
+			baseConfigurationReference = B6E9575DB5F681C9C4EC05D9 /* Pods-Wilhub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = willhub/Info.plist;
+				INFOPLIST_FILE = Wilhub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -497,7 +497,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = willhub;
+				PRODUCT_NAME = Wilhub;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -506,12 +506,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 79063AA817A899F2512E7535 /* Pods-willhub.release.xcconfig */;
+			baseConfigurationReference = 79063AA817A899F2512E7535 /* Pods-Wilhub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = willhub/Info.plist;
+				INFOPLIST_FILE = Wilhub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -522,7 +522,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = willhub;
+				PRODUCT_NAME = Wilhub;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -654,7 +654,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "willhubTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "WilhubTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -663,7 +663,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "willhub" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Wilhub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -672,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "willhub" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Wilhub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
