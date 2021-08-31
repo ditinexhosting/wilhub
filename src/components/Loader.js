@@ -6,16 +6,27 @@ import {
   Easing,
   Dimensions,
   Image,
-  ActivityIndicator
+  ActivityIndicator,
+  Text
 } from 'react-native';
 import { loader_image } from 'src/assets'
 import { Styles, Colors, Spacing, Mixins } from 'src/styles'
+import AnimatedLoader from "react-native-animated-loader";
 
 const Loader=()=>{
 
 	return (
 		<View style={styles.backgroundContainer}>
-			<ActivityIndicator size={'large'} color={Colors.primary} style={styles.marginBottom20} />
+			{/*<ActivityIndicator size={'large'} color={Colors.primary} style={styles.marginBottom20} />*/}
+      <AnimatedLoader
+        visible={true}
+        overlayColor="rgba(255,255,255,0)"
+        source={require("./loader.json")}
+        animationStyle={styles.lottie}
+        speed={1}
+      >
+        <Text style={styles.loadingText}>Loading Please wait ...</Text>
+      </AnimatedLoader>
 		</View>
     );
 }
@@ -38,6 +49,13 @@ const styles = StyleSheet.create({
   },
   marginBottom20:{
     marginBottom: Spacing.SCALE_20
+  },
+  lottie: {
+    width: 100,
+    height: 100
+  },
+  loadingText:{
+    color: '#0C98B6'
   }
 });
 
