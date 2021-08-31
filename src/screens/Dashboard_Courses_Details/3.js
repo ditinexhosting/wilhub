@@ -164,16 +164,16 @@ const data = `<!DOCTYPE html>
 
 
 <body id="bg">
-    <div class="container">
-
+<div class="container">
+    
 
 <div class="row mt-5">
-        <div class="col-md-12">
-            <div class="card" style="background-color:#fff;">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                    <h3>Introduction</h3>
+    <div class="col-md-12">
+        <div class="card" style="background-color:#fff;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                <h3>Introduction</h3>
 <p>Marriage is the sweetest core of life. Every marriage is a tie capable of
 transforming the bitterness of life into sweetness. It's a lovely sensation when
 two people become one. Marriage is also a binding agreement between
@@ -192,7 +192,7 @@ comprehend these beautiful lessons.</p>
 <!--<div class="col-md-4" style="padding-top:50px;padding-bottom:50px;">-->
 <!--                    <div class="course-detail-bx" style="border: 3px solid rgba(0,0,0,0.1);">-->
 <!--								<div class="course-price">-->
-                            <!--<del>$190</del>-->
+                        <!--<del>$190</del>-->
 <!--									<h5 class="price"> ₹1755/-</h5>-->
 <!--									<br><br>-->
 <!--									<h5>(Include GST)</h5>-->
@@ -204,7 +204,7 @@ comprehend these beautiful lessons.</p>
 <!--								</div>-->
 <!--							</div>-->
 
-                    <!--<img src="https://wilhub.com/theme/images/courses/parenting/Wedding-Ring.jpg" alt="" style="padding-top:10px;"><br><br>-->
+                <!--<img src="https://wilhub.com/theme/images/courses/parenting/Wedding-Ring.jpg" alt="" style="padding-top:10px;"><br><br>-->
 
 <!--</div>-->
 </div>
@@ -221,7 +221,7 @@ an established family structure. So it is better to make our marriage and
 our life after marriage according to the ideals we uphold.</p>
 <div class="row">
 <div class="col-md-12">
-                        <img src="https://wilhub.com/theme/images/courses/parenting/original2.png" alt="">
+                    <img src="https://wilhub.com/theme/images/courses/parenting/original2.png" alt="">
 
 </div>
 <!-- <div class="col-md-6">-->
@@ -229,7 +229,7 @@ our life after marriage according to the ideals we uphold.</p>
 
 <!--</div>-->
 </div><br><br>
-               <p> Our married life should be based on the living conditions and habits
+           <p> Our married life should be based on the living conditions and habits
 that would nurture culturally and morally developed generations.</p>
 <p>This course explains the approaches and models that we must use as
 individuals, as well as our responsibilities to accomplish such a married life.</p>
@@ -255,7 +255,7 @@ constant study and understanding. By joining this course you will have
 classes with fixed sessions. At the same time, study materials, articles, blogs,
 podcasts and videos related to the course can be accessed from the site
 app.</p>
-                        <img src="https://wilhub.com/theme/images/courses/parenting/7be9513a-86b6-4dbb-a201-cbf903ca91c8.jpg" alt=""><br><br>
+                    <img src="https://wilhub.com/theme/images/courses/parenting/7be9513a-86b6-4dbb-a201-cbf903ca91c8.jpg" alt=""><br><br>
 <h3>Counselling</h3>
 Counselling by eminent psychologists and religious scholars is available on
 demand. for those pursuing pre-marital, marital and post-marital courses.<p></p>
@@ -285,7 +285,7 @@ forever.</p>
 <h5>PREMARITAL</h5>
 <p>Those who have reached the age of marriage, are engaged or
 newlyweds.</p>
-                        <img src="https://wilhub.com/theme/images/courses/parenting/453806_429233-rouge-01.jpg" alt=""><br><br>
+                    <img src="https://wilhub.com/theme/images/courses/parenting/453806_429233-rouge-01.jpg" alt=""><br><br>
 
 <h5>MARITAL</h5>
 <p>Those who are worried about losing the early pleasures of married life.</p>
@@ -306,15 +306,14 @@ There will be workshops with residential and non-residential facilities.<br><br>
 Arrangements will be made in areas where center facilities are possible.<br><br>
 <b>Mahals focused workshop.</b><br>
 Workshops on fixed time in collaboration with the Mahals.
-                </div>
             </div>
         </div>
-
     </div>
+
+</div>
 
 
 </div>
- 
 </body>`
 
 export default data

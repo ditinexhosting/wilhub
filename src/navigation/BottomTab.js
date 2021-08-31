@@ -13,7 +13,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 
 const IconList = {
   'Home': 'home',
-  'Favorite': 'heart',
+  'Quiz': 'list-alt',
   'Search': 'search',
   'Account': 'user'
 }
@@ -51,7 +51,7 @@ export default () => {
       tabBar={props => keyboardStatus!=true ? <CustomTabBar {...props} /> : null}
     >
       <Tab.Screen name="Home" options={{ tabBarLabel: translate('home') }} component={Screen.Dashboard} />
-      {/*<Tab.Screen name="Favorite" options={{ tabBarLabel: translate('favorite') }} component={Screen.Dashboard} />*/}
+      <Tab.Screen name="Quiz" options={{ tabBarLabel: translate('quiz') }} component={Screen.Quiz} />
       <Tab.Screen name="Search" options={{ tabBarLabel: translate('search') }} component={Screen.Search} />
       <Tab.Screen name="Account" options={{ tabBarLabel: translate('account') }} component={Screen.Account} />
     </Tab.Navigator>

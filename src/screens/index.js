@@ -9,3 +9,4 @@ export {default as Dashboard_Courses_Details} from './Dashboard_Courses_Details'
 export {default as Search} from './Search';
 export {default as Account} from './Account';
 export {default as Registration} from './Registration';
+export {default as Quiz} from './Quiz';

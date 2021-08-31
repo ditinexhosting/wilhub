@@ -44,8 +44,8 @@ export default ({ navigation }) => {
     dispatch(ACTION.loadingCompleted())
     if(!response.status || response.data == undefined)
       return Toast.show({type: 'error', message: response.error})
-    dispatch(ACTION.loggedin(response.data.user))
-    await AsyncStorage.setItem('@userSession',JSON.stringify(response.data.user))
+    dispatch(ACTION.loggedin({...response.data.user,password}))
+    await AsyncStorage.setItem('@userSession',JSON.stringify({...response.data.user,password}))
   }
 
   const logout = async()=>{
