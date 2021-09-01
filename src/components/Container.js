@@ -15,6 +15,7 @@ const Container = ({ isTransparentStatusBar = false, ...props }) => {
         {isTransparentStatusBar==false && <MyStatusBar />}
         <View style={[styles.container, props.style, Config.isIos ? styles.paddingBottom10 : null,{height: isTransparentStatusBar==false ? Mixins.DEVICE_HEIGHT : Mixins.DEVICE_HEIGHT + Mixins.STATUSBAR_HEIGHT}]}>
             {props.children}
+            <SafeAreaView></SafeAreaView>
         </View>
         </>
     );
