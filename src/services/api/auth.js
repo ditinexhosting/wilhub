@@ -36,6 +36,24 @@ const auth = {
 			response = e
 		}
         return handleResponse(response);
+    },
+    callback : async (body) => {
+        let response = null
+		try{
+            await API.post('/courses/req_call/2', body,{
+                'Content-Type': 'application/json'
+            })
+            .then(function (res) {
+                response = res
+            })
+            .catch(function (error) {
+                response = error
+            })
+		}
+		catch(e){
+			response = e
+		}
+        return handleResponse(response);
     }
 }
 

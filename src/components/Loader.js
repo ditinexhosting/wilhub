@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
       position: "absolute",
       width: Mixins.DEVICE_WIDTH,
       height: Mixins.DEVICE_HEIGHT + Mixins.STATUSBAR_HEIGHT,
-      zIndex: 99
+      zIndex: 9999999
   },
   loader:{
       resizeMode: "cover",

@@ -37,11 +37,18 @@ export default ({ navigation }) => {
 
     useFocusEffect(
         useCallback(() => {
-            dispatch(ACTION.loadingStarted())
-            setOpacity(0)
-            const redirectTo = 'window.location = "https://wilhub.com/user/quizzes"'
-            webView.current.injectJavaScript(redirectTo)
-        }, [])
+            if (username && password) {
+                dispatch(ACTION.loadingStarted())
+                setOpacity(0)
+                const redirectTo = 'window.location = "https://wilhub.com/user/quizzes"; true;'
+                webView.current.injectJavaScript(redirectTo)
+            }
+            else {
+                dispatch(ACTION.loadingCompleted())
+                Toast.show({ type: 'info', message: 'Please login first.' })
+                navigation.navigate('Account')
+            }
+        }, [username,password])
     )
 
     useEffect(() => {
@@ -63,13 +70,12 @@ export default ({ navigation }) => {
 
         if (url.includes('user/video/buy') || url == 'https://wilhub.com/') {
             const newURL = 'https://wilhub.com/user/quizzes';
-            const redirectTo = 'window.location = "' + newURL + '"';
+            const redirectTo = 'window.location = "' + newURL + '"; true;';
             webView.current.injectJavaScript(redirectTo);
 
         }
 
         if (url.includes('user/quizzes') && url.includes('start')) {
-            console.log("Calling quiz start")
             setOpacity(0)
             dispatch(ACTION.loadingStarted())
             setTimeout(() => {
@@ -80,7 +86,6 @@ export default ({ navigation }) => {
 
 
         if (url == 'https://wilhub.com/user/quizzes') {
-            console.log("Calling only quiz")
             setTimeout(() => {
                 setOpacity(1)
                 dispatch(ACTION.loadingCompleted())
@@ -107,26 +112,13 @@ export default ({ navigation }) => {
                 });
             true;
             `
-            if(username && password){
+            if (username && password) {
                 webView.current.injectJavaScript(loginScript);
-            }
-            else{
-                dispatch(ACTION.loadingCompleted())
-                Toast.show({ type: 'info', message: 'Please login first.' })
-                navigation.navigate('Account')
             }
         }
     }
 
 
-
-
-    const onLoad = (syntheticEvent) => {
-        const { nativeEvent } = syntheticEvent;
-        const url = nativeEvent.url;
-        //console.log('url >>>',url)
-    }
-    
     const runGlobalInject = `
     $(document).ready(function(){
         $("footer").hide()
