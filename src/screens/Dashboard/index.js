@@ -47,12 +47,12 @@ export default ({navigation}) => {
       image: courses,
       navigating_to: 'Courses',
     },
-    {
+    /*{
       id: '58694a0f-3da1-471f-bd96-145571e29d72',
       title: translate('dashboard_item_title_3'),
       image: research,
       navigating_to: 'Research',
-    },
+    },*/
     {
       id: '58694a0f-3da1-471f-bd96-145571e29d73',
       title: translate('dashboard_item_title_4'),
@@ -104,7 +104,7 @@ export default ({navigation}) => {
         keyExtractor={item => item.id}
         numColumns={2}
         ListHeaderComponent={<View style={styles.marginTop30}></View>}
-        ListFooterComponent={<View style={styles.marginBottom80}></View>}
+        ListFooterComponent={<View style={styles.marginBottom100}></View>}
       />
     </Container>
   );

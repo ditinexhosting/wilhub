@@ -11,6 +11,9 @@ import {
 import { Mixins, Spacing, Typography } from 'src/styles'
 import * as Screen from 'src/screens';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
+import { useDispatch, useSelector } from 'react-redux';
+import * as ACTION from 'src/reduxData/action';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { useTheme, useLanguage } from 'src/hooks'
@@ -28,14 +31,14 @@ export default () => {
         <Drawer.Navigator
             screenOptions={{
                 headerShown: false,
-                drawerStyle: {backgroundColor: 'transparent'}
+                drawerStyle: { backgroundColor: 'transparent' }
             }}
             drawerContent={(props) => <CustomDrawerContent {...props} />}
             initialRouteName="Dashboard_Home">
             <Drawer.Screen name="Dashboard_Home" >
                 {props => <BottomTab {...props} />}
             </Drawer.Screen>
-            <Drawer.Screen name="Notifications" component={Screen.Dashboard} />
+
         </Drawer.Navigator>
     );
 }
@@ -43,8 +46,16 @@ export default () => {
 const CustomDrawerContent = (props) => {
 
     const { navigation } = props
+    const userSession = useSelector(state => state.sessionReducer.userSession)
 
     const [Colors, styles] = useTheme(style)
+
+    const dispatch = useDispatch();
+
+    const logout = async () => {
+        dispatch(ACTION.loggedin(null))
+        await AsyncStorage.removeItem('@userSession')
+    }
 
     return (
         <DrawerContentScrollView
@@ -57,18 +68,14 @@ const CustomDrawerContent = (props) => {
                     <Image source={logo_white} style={styles.logo} />
                 </View>
                 {/*<DrawerItemList {...props} />*/}
+                <View style={[styles.flexRow, styles.centerAll, styles.marginBottom20]}><Text style={[styles.drawerItem, { fontSize: 14, textAlign: 'center' }]}>Version 1.0</Text></View>
+
                 <DrawerItem
-                    label={({ focused, color }) => <View style={[styles.flexRow,styles.spaceBetween]}><Text style={styles.drawerItem}>CAREER</Text><Icon color={Colors.white} size={30} name='angle-right' /></View>}
-                    onPress={() => Linking.openURL('https://wilhub.com/')}
+                    label={({ focused, color }) => <View style={[styles.flexRow, styles.spaceBetween]}><Text style={styles.drawerItem}>{userSession == null ? 'Login' : 'Logout'}</Text><Icon color={Colors.white} size={30} name='angle-right' /></View>}
+                    onPress={() => userSession == null ? navigation.navigate('Account') : logout()}
                     style={styles.drawerItemWrapper}
                 />
-                
-                <DrawerItem
-                    label={({ focused, color }) => <View style={[styles.flexRow,styles.spaceBetween]}><Text style={styles.drawerItem}>Gallery</Text><Icon color={Colors.white} size={30} name='angle-right' /></View>}
-                    onPress={() => Linking.openURL('https://wilhub.com/')}
-                    style={styles.drawerItemWrapper}
-                />
-                
+                {/*
                 <DrawerItem
                     label={({ focused, color }) => <View style={[styles.flexRow,styles.spaceBetween]}><Text style={styles.drawerItem}>Article</Text><Icon color={Colors.white} size={30} name='angle-right' /></View>}
                     onPress={() => Linking.openURL('https://wilhub.com/')}
@@ -105,7 +112,7 @@ const CustomDrawerContent = (props) => {
                     label={({ focused, color }) => <View style={[styles.flexRow,styles.spaceBetween]}><Text style={styles.drawerItem}>FAQ</Text><Icon color={Colors.white} size={30} name='angle-right' /></View>}
                     onPress={() => Linking.openURL('https://wilhub.com/faq')}
                     style={styles.drawerItemWrapper}
-                />
+                />*/}
             </LinearGradient>
         </DrawerContentScrollView>
     );
@@ -118,25 +125,25 @@ const style = ({ Colors }) => StyleSheet.create({
         height: Mixins.DEVICE_HEIGHT + Mixins.STATUSBAR_HEIGHT,
         paddingTop: Mixins.STATUSBAR_HEIGHT + Spacing.SCALE_20,
     },
-    header:{
+    header: {
         alignItems: 'center',
         justifyContent: 'center',
         borderBottomColor: Colors.background,
         borderBottomWidth: 4,
         marginBottom: Spacing.SCALE_30
     },
-    logo:{
+    logo: {
         width: Mixins.scaleSize(200),
         height: Mixins.scaleSize(50),
         resizeMode: 'contain',
         marginBottom: Spacing.SCALE_20
     },
-    drawerItem:{
+    drawerItem: {
         textTransform: 'uppercase',
         fontSize: Typography.FONT_SIZE_25,
         color: Colors.white
     },
-    drawerItemWrapper:{
+    drawerItemWrapper: {
         borderBottomColor: Colors.white,
         borderBottomWidth: 2,
         marginHorizontal: 0
