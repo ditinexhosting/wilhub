@@ -40,7 +40,9 @@ export default ({ navigation }) => {
             if (username && password) {
                 dispatch(ACTION.loadingStarted())
                 setOpacity(0)
-                const redirectTo = 'window.location = "https://wilhub.com/user/quizzes"; true;'
+                const redirectTo = `
+                    window.location = "https://wilhub.com/user/quizzes";
+                true;`
                 webView.current.injectJavaScript(redirectTo)
             }
             else {
@@ -92,6 +94,7 @@ export default ({ navigation }) => {
             }, 5000)
 
             const openQuizScript = `
+            setTimeout(() => {
             $(document).ready(function(){
                 $(".text-center a").click(function(e){
                     e.preventDefault();
@@ -99,17 +102,20 @@ export default ({ navigation }) => {
                     window.location = url
                 })
             });
+            },100);
             true;
             `
             webView.current.injectJavaScript(openQuizScript);
         }
         if (url == 'https://wilhub.com/login') {
             const loginScript = `
+            setTimeout(() => {
                 $(document).ready(function(){
                     $("input[name*='username']").val("`+ username + `")
                     $("input[name*='password']").val("`+ password + `")
                     $(".btn-register-user-r").click()
                 });
+            },100);
             true;
             `
             if (username && password) {
@@ -120,13 +126,11 @@ export default ({ navigation }) => {
 
 
     const runGlobalInject = `
-    $(document).ready(function(){
-        $("footer").hide()
-        $("#show_button").hide()
-        $(".ucp-menu-item").hide()
-        $(".sticky-header").hide()
-        $(".middle-header").hide()
-    });
+    document.querySelector("footer").style.display = 'none'
+    document.querySelector("#show_button").style.display = 'none'
+    document.querySelector(".ucp-menu-item").style.display = 'none'
+    document.querySelector(".sticky-header").style.display = 'none'
+    document.querySelector(".middle-header").style.display = 'none'
     true;
     `
 
@@ -137,6 +141,7 @@ export default ({ navigation }) => {
             <ImageBackground source={about_us_background} style={styles.background} >
                 <WebView
                     ref={webView}
+                    onMessage={()=>null}
                     style={{ flex: 1, opacity: opacity }}
                     containerStyle={{ borderRadius: 20, marginBottom: 70, marginTop: 5 }}
                     originWhitelist={['*']}
