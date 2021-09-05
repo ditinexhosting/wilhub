@@ -94,7 +94,6 @@ export default ({ navigation }) => {
             }, 5000)
 
             const openQuizScript = `
-            setTimeout(() => {
             $(document).ready(function(){
                 $(".text-center a").click(function(e){
                     e.preventDefault();
@@ -102,20 +101,16 @@ export default ({ navigation }) => {
                     window.location = url
                 })
             });
-            },100);
             true;
             `
             webView.current.injectJavaScript(openQuizScript);
         }
         if (url == 'https://wilhub.com/login') {
             const loginScript = `
-            setTimeout(() => {
-                $(document).ready(function(){
-                    $("input[name*='username']").val("`+ username + `")
-                    $("input[name*='password']").val("`+ password + `")
-                    $(".btn-register-user-r").click()
-                });
-            },100);
+                
+            document.querySelector("input[name*='username']").value = "`+ username + `"
+            document.querySelector("input[name*='password']").value = "`+ password + `"
+            document.querySelector(".btn-register-user-r").click()
             true;
             `
             if (username && password) {
