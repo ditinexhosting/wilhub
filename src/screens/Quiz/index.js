@@ -53,11 +53,6 @@ export default ({ navigation }) => {
         }, [username,password])
     )
 
-    useEffect(() => {
-        //dispatch(ACTION.loadingStarted())
-        //Toast.show({ type: 'info', message: 'Please login again to start quiz.' })
-    }, [])
-
     const handleWebViewNavigationStateChange = (newNavState) => {
         // newNavState looks something like this:
         // {
@@ -91,10 +86,10 @@ export default ({ navigation }) => {
             setTimeout(() => {
                 setOpacity(1)
                 dispatch(ACTION.loadingCompleted())
-            }, 5000)
+            }, 10000)
 
             const openQuizScript = `
-            $(document).ready(function(){
+            (function(){
                 $(".text-center a").click(function(e){
                     e.preventDefault();
                     const url = "https://wilhub.com"+$(this).attr("href")

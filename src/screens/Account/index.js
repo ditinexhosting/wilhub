@@ -64,6 +64,7 @@ export default ({ navigation }) => {
               style={styles.searchInput}
               onChangeText={(text) => setUsername(text)}
               value={username}
+              placeholderTextColor={Colors.gray_light}
               placeholder={'Username or Email'}
             />
           </View>
@@ -74,6 +75,7 @@ export default ({ navigation }) => {
               style={styles.searchInput}
               onChangeText={(text) => setPassword(text)}
               value={password}
+              placeholderTextColor={Colors.gray_light}
               placeholder={'Password'}
             />
           </View>
