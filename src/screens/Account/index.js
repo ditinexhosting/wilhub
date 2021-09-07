@@ -43,7 +43,7 @@ export default ({ navigation }) => {
     const response = await API.login({username: username, password: password})
     dispatch(ACTION.loadingCompleted())
     if(!response.status || response.data == undefined)
-      return Toast.show({type: 'error', message: response.error})
+      return Toast.show({type: 'error', message: "Invalid username or password."})
     dispatch(ACTION.loggedin({...response.data.user,password}))
     await AsyncStorage.setItem('@userSession',JSON.stringify({...response.data.user,password}))
   }
