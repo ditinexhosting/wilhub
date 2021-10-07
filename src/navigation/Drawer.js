@@ -75,7 +75,19 @@ const CustomDrawerContent = (props) => {
                     onPress={() => userSession == null ? navigation.navigate('Account') : logout()}
                     style={styles.drawerItemWrapper}
                 />
-                {/*
+
+                <DrawerItem
+                    label={({ focused, color }) => <View style={[styles.flexRow,styles.spaceBetween]}><Text style={styles.drawerItem}>Career</Text><Icon color={Colors.white} size={30} name='angle-right' /></View>}
+                    onPress={() => navigation.navigate('Career')}
+                    style={styles.drawerItemWrapper}
+                />
+
+                <DrawerItem
+                    label={({ focused, color }) => <View style={[styles.flexRow,styles.spaceBetween]}><Text style={styles.drawerItem}>FAQs</Text><Icon color={Colors.white} size={30} name='angle-right' /></View>}
+                    onPress={() => navigation.navigate('Faqs')}
+                    style={styles.drawerItemWrapper}
+                />
+                
                 <DrawerItem
                     label={({ focused, color }) => <View style={[styles.flexRow,styles.spaceBetween]}><Text style={styles.drawerItem}>Article</Text><Icon color={Colors.white} size={30} name='angle-right' /></View>}
                     onPress={() => Linking.openURL('https://wilhub.com/')}
@@ -112,7 +124,7 @@ const CustomDrawerContent = (props) => {
                     label={({ focused, color }) => <View style={[styles.flexRow,styles.spaceBetween]}><Text style={styles.drawerItem}>FAQ</Text><Icon color={Colors.white} size={30} name='angle-right' /></View>}
                     onPress={() => Linking.openURL('https://wilhub.com/faq')}
                     style={styles.drawerItemWrapper}
-                />*/}
+                />
             </LinearGradient>
         </DrawerContentScrollView>
     );

@@ -28,11 +28,13 @@ const Router = () => {
           {props => <Drawer {...props} />}
         </Stack.Screen>
         <Stack.Screen name="About" component={Screen.About} />
-        <Stack.Screen name="Research" component={Screen.Research} />
+        <Stack.Screen name="Career" component={Screen.Career} />
         <Stack.Screen name="Courses" component={Screen.Courses} />
         <Stack.Screen name="Dashboard_Courses_Details" component={Screen.Dashboard_Courses_Details} />
+        <Stack.Screen name="Faqs" component={Screen.Faqs} />
+        <Stack.Screen name="Research" component={Screen.Research} />
+        <Stack.Screen name="Registration" component={Screen.Registration} />        
         <Stack.Screen name="Videos" component={Screen.Videos} />
-        <Stack.Screen name="Registration" component={Screen.Registration} />
       </Stack.Navigator>
     </NavigationContainer>
   );
