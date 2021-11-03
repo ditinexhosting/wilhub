@@ -165,11 +165,11 @@ const CustomDrawerContent = props => {
           <DrawerItem
             label={({focused, color}) => (
               <View style={[styles.flexRow, styles.spaceBetween]}>
-                <Text style={styles.drawerItem}>Course</Text>
+                <Text style={styles.drawerItem}>Courses</Text>
                 <Icon color={Colors.white} size={30} name="angle-right" />
               </View>
             )}
-            onPress={() => Linking.openURL('https://google.com')}
+            onPress={() => navigation.navigate('Courses')}
             style={styles.drawerItemWrapper}
           />
 
