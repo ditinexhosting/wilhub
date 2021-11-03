@@ -81,7 +81,7 @@ const CustomDrawerContent = props => {
           </Text>
         </View>
         <ScrollView>
-          <DrawerItem
+          {/* <DrawerItem
             label={({focused, color}) => (
               <View style={[styles.flexRow, styles.spaceBetween]}>
                 <Text style={styles.drawerItem}>
@@ -94,7 +94,51 @@ const CustomDrawerContent = props => {
               userSession == null ? navigation.navigate('Account') : logout()
             }
             style={styles.drawerItemWrapper}
-          />
+          /> */}
+
+          {/* <DrawerItem
+            label={({focused, color}) => (
+              <View style={[styles.flexRow, styles.spaceBetween]}>
+                <Text style={styles.drawerItem}>FAQs</Text>
+                <Icon color={Colors.white} size={30} name="angle-right" />
+              </View>
+            )}
+            onPress={() => navigation.navigate('Faqs')}
+            style={styles.drawerItemWrapper}
+          /> */}
+
+          {/* <DrawerItem
+            label={({focused, color}) => (
+              <View style={[styles.flexRow, styles.spaceBetween]}>
+                <Text style={styles.drawerItem}>Article</Text>
+                <Icon color={Colors.white} size={30} name="angle-right" />
+              </View>
+            )}
+            onPress={() => Linking.openURL('https://wilhub.com/')}
+            style={styles.drawerItemWrapper}
+          /> */}
+
+          {/* <DrawerItem
+            label={({focused, color}) => (
+              <View style={[styles.flexRow, styles.spaceBetween]}>
+                <Text style={styles.drawerItem}>News</Text>
+                <Icon color={Colors.white} size={30} name="angle-right" />
+              </View>
+            )}
+            onPress={() => Linking.openURL('https://wilhub.com/')}
+            style={styles.drawerItemWrapper}
+          /> */}
+
+          {/* <DrawerItem
+            label={({focused, color}) => (
+              <View style={[styles.flexRow, styles.spaceBetween]}>
+                <Text style={styles.drawerItem}>FAQ</Text>
+                <Icon color={Colors.white} size={30} name="angle-right" />
+              </View>
+            )}
+            onPress={() => Linking.openURL('https://wilhub.com/faq')}
+            style={styles.drawerItemWrapper}
+          /> */}
 
           <DrawerItem
             label={({focused, color}) => (
@@ -110,22 +154,33 @@ const CustomDrawerContent = props => {
           <DrawerItem
             label={({focused, color}) => (
               <View style={[styles.flexRow, styles.spaceBetween]}>
-                <Text style={styles.drawerItem}>FAQs</Text>
+                <Text style={styles.drawerItem}>Gallery</Text>
                 <Icon color={Colors.white} size={30} name="angle-right" />
               </View>
             )}
-            onPress={() => navigation.navigate('Faqs')}
+            onPress={() => Linking.openURL('https://google.com')}
             style={styles.drawerItemWrapper}
           />
 
           <DrawerItem
             label={({focused, color}) => (
               <View style={[styles.flexRow, styles.spaceBetween]}>
-                <Text style={styles.drawerItem}>Article</Text>
+                <Text style={styles.drawerItem}>Course</Text>
                 <Icon color={Colors.white} size={30} name="angle-right" />
               </View>
             )}
-            onPress={() => Linking.openURL('https://wilhub.com/')}
+            onPress={() => Linking.openURL('https://google.com')}
+            style={styles.drawerItemWrapper}
+          />
+
+          <DrawerItem
+            label={({focused, color}) => (
+              <View style={[styles.flexRow, styles.spaceBetween]}>
+                <Text style={styles.drawerItem}>Quiz</Text>
+                <Icon color={Colors.white} size={30} name="angle-right" />
+              </View>
+            )}
+            onPress={() => Linking.openURL('https://google.com')}
             style={styles.drawerItemWrapper}
           />
 
@@ -143,16 +198,6 @@ const CustomDrawerContent = props => {
           <DrawerItem
             label={({focused, color}) => (
               <View style={[styles.flexRow, styles.spaceBetween]}>
-                <Text style={styles.drawerItem}>News</Text>
-                <Icon color={Colors.white} size={30} name="angle-right" />
-              </View>
-            )}
-            onPress={() => Linking.openURL('https://wilhub.com/')}
-            style={styles.drawerItemWrapper}
-          />
-          <DrawerItem
-            label={({focused, color}) => (
-              <View style={[styles.flexRow, styles.spaceBetween]}>
                 <Text style={styles.drawerItem}>Feedback</Text>
                 <Icon color={Colors.white} size={30} name="angle-right" />
               </View>
@@ -160,6 +205,7 @@ const CustomDrawerContent = props => {
             onPress={() => Linking.openURL('https://wilhub.com/')}
             style={styles.drawerItemWrapper}
           />
+
           <DrawerItem
             label={({focused, color}) => (
               <View style={[styles.flexRow, styles.spaceBetween]}>
@@ -170,6 +216,7 @@ const CustomDrawerContent = props => {
             onPress={() => Linking.openURL('https://wilhub.com/')}
             style={styles.drawerItemWrapper}
           />
+
           <DrawerItem
             label={({focused, color}) => (
               <View style={[styles.flexRow, styles.spaceBetween]}>
@@ -179,36 +226,6 @@ const CustomDrawerContent = props => {
             )}
             onPress={() => Linking.openURL('https://wilhub.com/event')}
             style={styles.drawerItemWrapper}
-          />
-          <DrawerItem
-            label={({focused, color}) => (
-              <View style={[styles.flexRow, styles.spaceBetween]}>
-                <Text style={styles.drawerItem}>FAQ</Text>
-                <Icon color={Colors.white} size={30} name="angle-right" />
-              </View>
-            )}
-            onPress={() => Linking.openURL('https://wilhub.com/faq')}
-            style={styles.drawerItemWrapper}
-          />
-          <DrawerItem
-            label={({focused, color}) => (
-              <View style={[styles.flexRow, styles.spaceBetween]}>
-                <Text style={styles.drawerItem}>Courses</Text>
-                <Icon color={Colors.white} size={30} name="angle-right" />
-              </View>
-            )}
-            onPress={() => Linking.openURL('https://google.com')}
-            style={styles.drawerItemWrapper}
-          />
-          <DrawerItem
-            label={({focused, color}) => (
-              <View style={[styles.flexRow, styles.spaceBetween]}>
-                <Text style={styles.drawerItem}>Quiz</Text>
-                <Icon color={Colors.white} size={30} name="angle-right" />
-              </View>
-            )}
-            onPress={() => Linking.openURL('https://google.com')}
-            style={styles.drawerLastItemWrapper}
           />
         </ScrollView>
       </LinearGradient>
@@ -245,11 +262,5 @@ const style = ({Colors}) =>
       borderBottomColor: Colors.white,
       borderBottomWidth: 2,
       marginHorizontal: 0,
-    },
-    drawerLastItemWrapper: {
-      borderBottomColor: Colors.white,
-      borderBottomWidth: 2,
-      marginHorizontal: 0,
-      marginBottom: Platform.OS == 'ios' ? 60 : 40,
     },
   });
