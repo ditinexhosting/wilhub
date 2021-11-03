@@ -90,7 +90,11 @@ export default ({navigation}) => {
 
   return (
     <Container isTransparentStatusBar={false}>
-      <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
+      <StatusBar
+        backgroundColor={Colors.secondary}
+        barStyle="light-content"
+        translucent={true}
+      />
       <ImageBackground source={background} style={styles.background} />
 
       {/* App Header View start*/}
