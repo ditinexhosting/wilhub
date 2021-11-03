@@ -30,8 +30,8 @@ const styles = ({Colors}) =>
       fontWeight: '500',
     },
     iconBackground: {
-      width: Spacing.SCALE_100,
-      height: Spacing.SCALE_100,
+      width: 115,
+      height: 110,
       justifyContent: 'center',
       alignItems: 'center',
     },
@@ -46,6 +46,12 @@ const styles = ({Colors}) =>
       marginHorizontal: Spacing.SCALE_5,
     },
     iconCourse: {
+      width: Spacing.SCALE_70,
+      height: Spacing.SCALE_70,
+      borderTopRightRadius: 30,
+      borderBottomLeftRadius: 30,
+    },
+    headerIconCourse: {
       width: Spacing.SCALE_80,
       height: Spacing.SCALE_80,
       borderTopRightRadius: 30,
@@ -57,8 +63,10 @@ const styles = ({Colors}) =>
     },
     courseTitle: {
       color: Colors.primary,
-      margin: Spacing.SCALE_20,
-      fontSize: Typography.FONT_SIZE_20,
+      marginLeft: Spacing.SCALE_20,
+      marginVertical: Spacing.SCALE_8,
+      fontSize: Typography.FONT_SIZE_16,
+      fontWeight: '600',
     },
     headerCourseTitle: {
       color: Colors.white,
@@ -70,6 +78,7 @@ const styles = ({Colors}) =>
     courseText: {
       color: Colors.primary,
       textAlign: 'center',
+      fontSize: Typography.FONT_SIZE_10,
     },
     headerCourseText: {
       color: Colors.white,
