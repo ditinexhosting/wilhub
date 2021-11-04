@@ -1,12 +1,14 @@
-import { StyleSheet } from 'react-native';
-import { Mixins, Spacing, Typography } from 'src/styles';
+import {StyleSheet} from 'react-native';
+import {Mixins, Spacing, Typography} from 'src/styles';
 
-const styles = ({ Colors }) =>
+const styles = ({Colors}) =>
   StyleSheet.create({
     headerBar: {
-      height: Mixins.scaleSize(100),
+      height: 140,
       borderBottomLeftRadius: Spacing.SCALE_30,
       borderBottomRightRadius: Spacing.SCALE_30,
+      backgroundColor: Colors.primary,
+      position: 'relative',
     },
     background: {
       position: 'absolute',
@@ -17,8 +19,8 @@ const styles = ({ Colors }) =>
     },
     backButton: {
       position: 'absolute',
+      left: Spacing.SCALE_20,
       top: Spacing.SCALE_20,
-      left: Spacing.SCALE_20
     },
     headerText: {
       width: Mixins.scaleSize(280),
@@ -29,26 +31,26 @@ const styles = ({ Colors }) =>
       textAlign: 'center',
     },
     button: {
-      backgroundColor: Colors.secondary,
+      // backgroundColor: Colors.secondary,
       width: Mixins.scaleSize(250),
-      padding: Spacing.SCALE_8,
-      borderRadius: Spacing.SCALE_15
+      // padding: Spacing.SCALE_8,
+      borderRadius: Spacing.SCALE_15,
     },
     button2: {
-      backgroundColor: Colors.secondary,
+      // backgroundColor: Colors.secondary,
       width: Mixins.scaleSize(250),
-      padding: Spacing.SCALE_8,
-      borderRadius: Spacing.SCALE_15
+      // padding: Spacing.SCALE_8,
+      borderRadius: Spacing.SCALE_15,
     },
     buttonText: {
       fontSize: Typography.FONT_SIZE_14,
       textAlign: 'center',
       color: Colors.white,
-      fontWeight: 'bold'
+      fontWeight: 'bold',
     },
     scrollView: {
       backgroundColor: Colors.white,
-      borderRadius: 10
+      borderRadius: 10,
     },
     searchHolder: {
       backgroundColor: Colors.white,
@@ -61,7 +63,7 @@ const styles = ({ Colors }) =>
       alignSelf: 'center',
       borderWidth: 2,
       borderColor: Colors.primary,
-      marginBottom: Spacing.SCALE_20
+      marginBottom: Spacing.SCALE_20,
     },
     pickerInput: {
       fontSize: 16,
@@ -77,22 +79,25 @@ const styles = ({ Colors }) =>
       flex: 1,
       marginVertical: 0,
       paddingVertical: 0,
-      fontSize: Typography.FONT_SIZE_18
+      fontSize: Typography.FONT_SIZE_18,
     },
-    loginButton:{
+    loginButton: {
       width: Mixins.scaleSize(260),
       borderRadius: 50,
       alignSelf: 'center',
-      marginBottom: Spacing.SCALE_30
+      // marginBottom: Spacing.SCALE_30,
+      height: 30,
+      justifyContent: 'center',
+      marginTop: 20,
     },
-    signupHolder:{
+    signupHolder: {
       alignSelf: 'center',
     },
-    create:{
-      fontSize: Typography.FONT_SIZE_18
+    create: {
+      fontSize: Typography.FONT_SIZE_18,
     },
-    signup:{
-      color: Colors.primary
+    signup: {
+      color: Colors.primary,
     },
     headerText: {
       marginVertical: Spacing.SCALE_15,
@@ -100,8 +105,40 @@ const styles = ({ Colors }) =>
       color: Colors.white,
       flex: 1,
       textAlign: 'center',
-    }
-
+    },
+    headerImageView: {
+      width: '100%',
+      height: '100%',
+      opacity: 0.3,
+      borderBottomLeftRadius: Spacing.SCALE_30,
+      borderBottomRightRadius: Spacing.SCALE_30,
+    },
+    headerTitle: {
+      position: 'absolute',
+      alignItems: 'center',
+      width: '100%',
+    },
+    topHeaderText: {
+      marginVertical: Spacing.SCALE_15,
+      fontSize: Typography.FONT_SIZE_20,
+      color: Colors.white,
+      fontWeight: '500',
+    },
+    courseHeaderTitle: {
+      fontSize: Typography.FONT_SIZE_30,
+      color: Colors.white,
+      textAlign: 'center',
+      fontWeight: 'bold',
+      marginBottom: Spacing.SCALE_12,
+    },
+    mainHeaderTitle: {
+      position: 'absolute',
+      alignItems: 'center',
+      height: 140,
+      width: '100%',
+      justifyContent: 'flex-end',
+      paddingHorizontal: Spacing.SCALE_8,
+    },
   });
 
 export default styles;
