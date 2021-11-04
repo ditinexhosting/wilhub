@@ -93,7 +93,13 @@ export default ({navigation}) => {
       <>
         <Text style={styles.courseTitle}>{translate(headerTitle)}</Text>
         <View style={[styles.flexRow, styles.centerAll]}>
-          <TouchableOpacity onPress={() => alert('yes 1')}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('Dashboard_Courses_Details', {
+                id: 1,
+                title: 'Course Details 1',
+              })
+            }>
             <ImageBackground
               source={course_icon_background_blue}
               style={styles.iconBackground}>
@@ -102,7 +108,13 @@ export default ({navigation}) => {
             <Text style={styles.courseText}>Course 1</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => alert('yes 2')}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('Dashboard_Courses_Details', {
+                id: 2,
+                title: 'Course Details 2',
+              })
+            }>
             <ImageBackground
               source={course_icon_background_blue}
               style={styles.iconBackground}>
@@ -111,7 +123,13 @@ export default ({navigation}) => {
             <Text style={styles.courseText}>Course 2</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => alert('yes 3')}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('Dashboard_Courses_Details', {
+                id: 3,
+                title: 'Course Details 3',
+              })
+            }>
             <ImageBackground
               source={course_icon_background_blue}
               style={styles.iconBackground}>
@@ -126,22 +144,20 @@ export default ({navigation}) => {
 
   return (
     <Container isTransparentStatusBar={false}>
-      <StatusBar
-        backgroundColor={Colors.secondary}
-        barStyle="light-content"
-        translucent={true}
-      />
+      <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
       <ImageBackground source={background} style={styles.background} />
 
-      {/* App Header View start*/}
+      {/* App Header View */}
       {AppHeader()}
 
+      {/* Main Body */}
       <ScrollView>
         <View style={{height: 10}} />
         {rowCardView('New Courses')}
         {rowCardView('Most Popular')}
         {rowCardView('Most Viewed')}
         <View style={{height: 50}} />
+
         {/* <Text style={styles.courseTitle}>{translate('upcoming_courses')}</Text>
         <View style={[styles.flexRow, styles.centerAll]}>
           <TouchableOpacity>
