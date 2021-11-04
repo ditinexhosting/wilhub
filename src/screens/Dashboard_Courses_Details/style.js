@@ -21,6 +21,7 @@ const styles = ({Colors}) =>
       position: 'absolute',
       left: Spacing.SCALE_20,
       top: Spacing.SCALE_20,
+      zIndex: 1,
     },
     headerText: {
       width: Mixins.scaleSize(280),
@@ -31,15 +32,11 @@ const styles = ({Colors}) =>
       textAlign: 'center',
     },
     button: {
-      // backgroundColor: Colors.secondary,
       width: Mixins.scaleSize(250),
-      // padding: Spacing.SCALE_8,
       borderRadius: Spacing.SCALE_15,
     },
     button2: {
-      // backgroundColor: Colors.secondary,
       width: Mixins.scaleSize(250),
-      // padding: Spacing.SCALE_8,
       borderRadius: Spacing.SCALE_15,
     },
     buttonText: {
@@ -85,10 +82,15 @@ const styles = ({Colors}) =>
       width: Mixins.scaleSize(260),
       borderRadius: 50,
       alignSelf: 'center',
-      // marginBottom: Spacing.SCALE_30,
       height: 30,
       justifyContent: 'center',
-      marginTop: 20,
+      marginTop: 10,
+    },
+    modalLoginButton: {
+      width: Mixins.scaleSize(260),
+      borderRadius: 50,
+      alignSelf: 'center',
+      marginBottom: Spacing.SCALE_30,
     },
     signupHolder: {
       alignSelf: 'center',
@@ -138,6 +140,23 @@ const styles = ({Colors}) =>
       width: '100%',
       justifyContent: 'flex-end',
       paddingHorizontal: Spacing.SCALE_8,
+    },
+    container: {
+      width: '100%',
+      height: '100%',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    topContainer: {
+      width: '100%',
+      height: '62%',
+      paddingHorizontal: Spacing.SCALE_20,
+      marginTop: Spacing.SCALE_15,
+    },
+    bottomContainer: {
+      width: '100%',
+      height: '38%',
+      paddingTop: 10,
     },
   });
 
