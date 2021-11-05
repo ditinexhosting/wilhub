@@ -12,6 +12,7 @@ import {
   Alert,
   PermissionsAndroid,
   StyleSheet,
+  StatusBar,
 } from 'react-native';
 import style from './style';
 import Config, {API_STORAGE} from 'src/config';
@@ -178,6 +179,7 @@ export default ({route, navigation}) => {
   return (
     <Container isTransparentStatusBar={false}>
       <ImageBackground source={background} style={styles.background} />
+      <StatusBar backgroundColor={Colors.primary} barStyle="light-content" />
 
       {/* App Header */}
       {AppHeader(title)}
@@ -247,7 +249,7 @@ export default ({route, navigation}) => {
               <TouchableOpacity
                 onPress={() => setShowModal(true)}
                 style={styles.button}>
-                <Text style={styles.buttonText}>REQUEST CALLBACK</Text>
+                <Text style={styles.buttonText}>REG CALL BACK</Text>
               </TouchableOpacity>
             </View>
           </LinearGradient>
@@ -258,8 +260,8 @@ export default ({route, navigation}) => {
             <View>
               <TouchableOpacity
                 onPress={() => applyCourse()}
-                style={styles.button2}>
-                <Text style={styles.buttonText}> Apply</Text>
+                style={styles.button}>
+                <Text style={styles.buttonText}>APPLY</Text>
               </TouchableOpacity>
             </View>
           </LinearGradient>

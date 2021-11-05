@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   FlatList,
   ImageBackground,
+  StatusBar,
 } from 'react-native';
 import style from './style';
 import {background} from 'src/assets';
@@ -55,8 +56,9 @@ export default ({navigation}) => {
   return (
     <Container isTransparentStatusBar={false}>
       <ImageBackground source={background} style={styles.background} />
+      <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
       <LinearGradient
-        colors={[Colors.primary, Colors.secondary]}
+        colors={[Colors.secondary, Colors.primary]}
         style={styles.headerBar}>
         <View style={[styles.flexRow, styles.centerAll]}>
           <View style={styles.backButton}>
@@ -67,11 +69,12 @@ export default ({navigation}) => {
           <Text style={styles.headerText}>{translate('Gallery')}</Text>
         </View>
       </LinearGradient>
-      <View style={{paddingHorizontal: 20, paddingTop: 10}}>
+      <View style={styles.listViewStyle}>
         <FlatList
           data={data}
           renderItem={renderItem}
           keyExtractor={item => item.id}
+          contentContainerStyle={{paddingBottom: 160}}
         />
       </View>
     </Container>

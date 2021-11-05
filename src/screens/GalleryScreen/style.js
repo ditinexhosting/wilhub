@@ -4,9 +4,10 @@ import {Mixins, Spacing, Typography} from 'src/styles';
 const styles = ({Colors}) =>
   StyleSheet.create({
     headerBar: {
-      height: Mixins.scaleSize(100),
-      borderBottomLeftRadius: Spacing.SCALE_30,
-      borderBottomRightRadius: Spacing.SCALE_30,
+      height: Mixins.scaleSize(85),
+      borderBottomLeftRadius: Spacing.SCALE_40,
+      borderBottomRightRadius: Spacing.SCALE_40,
+      justifyContent: 'center',
     },
     background: {
       position: 'absolute',
@@ -19,7 +20,7 @@ const styles = ({Colors}) =>
       position: 'absolute',
       top: Spacing.SCALE_20,
       left: Spacing.SCALE_20,
-      zIndex: 999,
+      zIndex: 1,
     },
     headerText: {
       marginVertical: Spacing.SCALE_15,
@@ -31,9 +32,13 @@ const styles = ({Colors}) =>
     },
     imagesCardView: {
       width: '100%',
-      height: 180,
+      height: 175,
       borderRadius: 20,
-      marginVertical: 5,
+      marginVertical: Spacing.SCALE_5,
+    },
+    listViewStyle: {
+      paddingHorizontal: Spacing.SCALE_22,
+      paddingTop: Spacing.SCALE_10,
     },
   });
 

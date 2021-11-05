@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
   ImageBackground,
+  StatusBar,
 } from 'react-native';
 import style from './style';
 import Config, {API_STORAGE} from 'src/config';
@@ -49,7 +50,7 @@ export default ({navigation}) => {
   const AppHeader = () => {
     return (
       <LinearGradient
-        colors={[Colors.primary, Colors.secondary]}
+        colors={[Colors.secondary, Colors.primary]}
         style={styles.headerBar}>
         <View style={styles.backButton}>
           <TouchableOpacity onPress={() => navigation.pop()}>
@@ -143,6 +144,7 @@ export default ({navigation}) => {
   return (
     <Container isTransparentStatusBar={false}>
       <ImageBackground source={background} style={styles.background} />
+      <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
 
       {/* App Header View */}
       {AppHeader()}
