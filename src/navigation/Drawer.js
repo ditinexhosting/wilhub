@@ -158,7 +158,7 @@ const CustomDrawerContent = props => {
                 <Icon color={Colors.white} size={30} name="angle-right" />
               </View>
             )}
-            onPress={() => Linking.openURL('https://google.com')}
+            onPress={() => navigation.navigate('GalleryScreen')}
             style={styles.drawerItemWrapper}
           />
 

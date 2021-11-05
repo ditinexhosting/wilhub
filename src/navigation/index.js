@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  SafeAreaView
-} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -30,11 +28,15 @@ const Router = () => {
         <Stack.Screen name="About" component={Screen.About} />
         <Stack.Screen name="Career" component={Screen.Career} />
         <Stack.Screen name="Courses" component={Screen.Courses} />
-        <Stack.Screen name="Dashboard_Courses_Details" component={Screen.Dashboard_Courses_Details} />
+        <Stack.Screen
+          name="Dashboard_Courses_Details"
+          component={Screen.Dashboard_Courses_Details}
+        />
         <Stack.Screen name="Faqs" component={Screen.Faqs} />
         <Stack.Screen name="Research" component={Screen.Research} />
-        <Stack.Screen name="Registration" component={Screen.Registration} />        
+        <Stack.Screen name="Registration" component={Screen.Registration} />
         <Stack.Screen name="Videos" component={Screen.Videos} />
+        <Stack.Screen name="GalleryScreen" component={Screen.GalleryScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
