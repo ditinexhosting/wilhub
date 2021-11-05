@@ -22,7 +22,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Icon2 from 'react-native-vector-icons/Entypo';
 import LinearGradient from 'react-native-linear-gradient';
 import RNFetchBlob from 'rn-fetch-blob';
 import {WebView} from 'react-native-webview';
@@ -175,6 +174,7 @@ export default ({route, navigation}) => {
       </>
     );
   };
+
   return (
     <Container isTransparentStatusBar={false}>
       <ImageBackground source={background} style={styles.background} />
@@ -257,7 +257,7 @@ export default ({route, navigation}) => {
             style={styles.loginButton}>
             <View>
               <TouchableOpacity
-                onPress={() => alert('apply')}
+                onPress={() => applyCourse()}
                 style={styles.button2}>
                 <Text style={styles.buttonText}> Apply</Text>
               </TouchableOpacity>

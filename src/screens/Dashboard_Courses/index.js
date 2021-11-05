@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   ScrollView,
   ImageBackground,
-  StatusBar,
 } from 'react-native';
 import style from './style';
 import Config, {API_STORAGE} from 'src/config';
@@ -24,7 +23,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Icon2 from 'react-native-vector-icons/Entypo';
 import LinearGradient from 'react-native-linear-gradient';
 
 export default ({navigation}) => {
@@ -51,7 +49,7 @@ export default ({navigation}) => {
   const AppHeader = () => {
     return (
       <LinearGradient
-        colors={[Colors.secondary, Colors.primary]}
+        colors={[Colors.primary, Colors.secondary]}
         style={styles.headerBar}>
         <View style={styles.backButton}>
           <TouchableOpacity onPress={() => navigation.pop()}>
@@ -144,7 +142,6 @@ export default ({navigation}) => {
 
   return (
     <Container isTransparentStatusBar={false}>
-      <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
       <ImageBackground source={background} style={styles.background} />
 
       {/* App Header View */}
