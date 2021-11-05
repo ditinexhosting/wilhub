@@ -24,7 +24,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Icon2 from 'react-native-vector-icons/Entypo';
 import LinearGradient from 'react-native-linear-gradient';
 
 export default ({navigation}) => {
@@ -144,8 +143,8 @@ export default ({navigation}) => {
 
   return (
     <Container isTransparentStatusBar={false}>
-      <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
       <ImageBackground source={background} style={styles.background} />
+      <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
 
       {/* App Header View */}
       {AppHeader()}

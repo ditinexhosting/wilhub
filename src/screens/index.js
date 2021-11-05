@@ -12,3 +12,4 @@ export {default as Registration} from './Registration';
 export {default as Quiz} from './Quiz';
 export {default as Career} from './Career';
 export {default as Faqs} from './Faqs';
+export {default as GalleryScreen} from './GalleryScreen';

@@ -4,7 +4,7 @@ import {Mixins, Spacing, Typography} from 'src/styles';
 const styles = ({Colors}) =>
   StyleSheet.create({
     headerBar: {
-      height: 140,
+      height: 150,
       borderBottomLeftRadius: Spacing.SCALE_30,
       borderBottomRightRadius: Spacing.SCALE_30,
       backgroundColor: Colors.primary,
@@ -64,13 +64,13 @@ const styles = ({Colors}) =>
     },
     pickerInput: {
       fontSize: 16,
-      paddingVertical: 12,
-      paddingHorizontal: 10,
+      paddingVertical: Spacing.SCALE_12,
+      paddingHorizontal: Spacing.SCALE_10,
       borderWidth: 1,
       borderColor: 'gray',
       borderRadius: 4,
       color: 'black',
-      paddingRight: 30,
+      paddingRight: Spacing.SCALE_30,
     },
     searchInput: {
       flex: 1,
@@ -82,9 +82,9 @@ const styles = ({Colors}) =>
       width: Mixins.scaleSize(260),
       borderRadius: 50,
       alignSelf: 'center',
-      height: 30,
+      height: Spacing.SCALE_30,
       justifyContent: 'center',
-      marginTop: 10,
+      marginTop: Spacing.SCALE_10,
     },
     modalLoginButton: {
       width: Mixins.scaleSize(260),
@@ -136,7 +136,7 @@ const styles = ({Colors}) =>
     mainHeaderTitle: {
       position: 'absolute',
       alignItems: 'center',
-      height: 140,
+      height: 150,
       width: '100%',
       justifyContent: 'flex-end',
       paddingHorizontal: Spacing.SCALE_8,
@@ -156,7 +156,7 @@ const styles = ({Colors}) =>
     bottomContainer: {
       width: '100%',
       height: '38%',
-      paddingTop: 10,
+      paddingTop: Spacing.SCALE_10,
     },
   });
 

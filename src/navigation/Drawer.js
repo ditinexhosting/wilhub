@@ -36,7 +36,9 @@ export default () => {
     <Drawer.Navigator
       screenOptions={{
         headerShown: false,
-        drawerStyle: {backgroundColor: 'transparent'},
+        drawerStyle: {
+          backgroundColor: 'transparent',
+        },
       }}
       drawerContent={props => <CustomDrawerContent {...props} />}
       initialRouteName="Dashboard_Home">
@@ -68,7 +70,7 @@ const CustomDrawerContent = props => {
       }}
       {...props}>
       <LinearGradient
-        colors={[Colors.primary, Colors.secondary]}
+        colors={[Colors.secondary, Colors.primary]}
         style={styles.drawer}>
         <View style={styles.header}>
           <Image source={logo_white} style={styles.logo} />
@@ -158,7 +160,7 @@ const CustomDrawerContent = props => {
                 <Icon color={Colors.white} size={30} name="angle-right" />
               </View>
             )}
-            onPress={() => Linking.openURL('https://google.com')}
+            onPress={() => navigation.navigate('GalleryScreen')}
             style={styles.drawerItemWrapper}
           />
 
@@ -225,7 +227,7 @@ const CustomDrawerContent = props => {
               </View>
             )}
             onPress={() => Linking.openURL('https://wilhub.com/event')}
-            style={styles.drawerItemWrapper}
+            style={styles.lastDrawerItemWrapper}
           />
         </ScrollView>
       </LinearGradient>
@@ -239,6 +241,7 @@ const style = ({Colors}) =>
       flex: 1,
       height: Mixins.DEVICE_HEIGHT + Mixins.STATUSBAR_HEIGHT,
       paddingTop: Mixins.STATUSBAR_HEIGHT + Spacing.SCALE_20,
+      borderBottomRightRadius: Platform.OS == 'ios' ? 0 : 90,
     },
     header: {
       alignItems: 'center',
@@ -261,6 +264,9 @@ const style = ({Colors}) =>
     drawerItemWrapper: {
       borderBottomColor: Colors.white,
       borderBottomWidth: 2,
+      marginHorizontal: 0,
+    },
+    lastDrawerItemWrapper: {
       marginHorizontal: 0,
     },
   });
