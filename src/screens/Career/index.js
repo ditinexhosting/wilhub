@@ -52,16 +52,27 @@ export default ({navigation}) => {
     return (
       <View style={styles.cardView}>
         <View style={styles.cardTopView}>
-          <Text style={{fontWeight: 'bold'}}>{item?.jobTitle}</Text>
+          <Text style={styles.cardHeadingTitle}>{item?.jobTitle}</Text>
         </View>
         <View style={styles.cardCenterView}>
-          <Text style={{fontSize: 13}} ellipsizeMode={'tail'} numberOfLines={4}>
+          <Text
+            style={styles.cardDescText}
+            ellipsizeMode={'tail'}
+            numberOfLines={4}>
             {item?.jobDesc}
           </Text>
+          <View style={styles.loadMoreView}>
+            <TouchableOpacity style={styles.loadMoreBtn}>
+              <Text style={styles.loadMoreText}>Load more</Text>
+              <Icon name={'chevron-down'} size={8} color={Colors.gray_dark} />
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.cardBottomView}>
-          <TouchableOpacity style={styles.applyBtnView}>
-            <Text style={{color: 'white', fontSize: 13}}>Apply</Text>
+          <TouchableOpacity
+            style={styles.applyBtnView}
+            onPress={() => navigation.navigate('ApplyScreen')}>
+            <Text style={styles.applyTextStytle}>Apply</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -83,7 +94,7 @@ export default ({navigation}) => {
           <Text style={styles.headerText}>{translate('Career')}</Text>
         </View>
       </LinearGradient>
-      <View style={{paddingHorizontal: 24, justifyContent: 'center'}}>
+      <View style={styles.container}>
         <Image
           source={require('../../assets/images/weAreHiring.png')}
           style={styles.weAreHiringImgView}
@@ -93,6 +104,7 @@ export default ({navigation}) => {
           renderItem={renderItem}
           keyExtractor={item => item.id}
           contentContainerStyle={{paddingBottom: 250}}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     </Container>

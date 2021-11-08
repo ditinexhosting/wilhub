@@ -39,35 +39,63 @@ const styles = ({Colors}) =>
     },
     cardView: {
       width: '100%',
-      height: 145,
+      height: 140,
       backgroundColor: Colors.gray_medium,
-      marginVertical: 10,
+      marginVertical: Spacing.SCALE_5,
       borderRadius: 10,
     },
     cardTopView: {
       width: '100%',
-      height: '29%',
-      justifyContent: 'center',
+      height: '25%',
       paddingLeft: Spacing.SCALE_8,
+      paddingTop: Spacing.SCALE_12,
     },
     cardCenterView: {
       width: '100%',
-      height: '50%',
+      height: '55%',
       paddingLeft: Spacing.SCALE_8,
     },
     cardBottomView: {
       width: '100%',
-      height: '21%',
+      height: '20%',
       alignItems: 'center',
-      justifyContent: 'center',
+      paddingTop: Spacing.SCALE_4,
     },
     applyBtnView: {
       width: 120,
-      height: 18,
+      height: Spacing.SCALE_16,
       backgroundColor: Colors.primary,
       borderRadius: 10,
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    container: {
+      paddingHorizontal: Spacing.SCALE_23,
+      justifyContent: 'center',
+    },
+    cardHeadingTitle: {
+      fontWeight: 'bold',
+      fontSize: Typography.FONT_SIZE_14,
+    },
+    cardDescText: {
+      fontSize: Typography.FONT_SIZE_13,
+    },
+    applyTextStytle: {
+      color: Colors.white,
+      fontSize: Typography.FONT_SIZE_12,
+    },
+    loadMoreView: {
+      alignItems: 'flex-end',
+      justifyContent: 'center',
+      marginRight: Spacing.SCALE_18,
+    },
+    loadMoreText: {
+      fontSize: Typography.FONT_SIZE_9,
+      marginRight: Spacing.SCALE_4,
+      color: Colors.gray_dark,
+    },
+    loadMoreBtn: {
+      flexDirection: 'row',
     },
   });
 
