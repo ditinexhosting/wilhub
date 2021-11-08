@@ -75,6 +75,7 @@ export default ({navigation}) => {
           renderItem={renderItem}
           keyExtractor={item => item.id}
           contentContainerStyle={{paddingBottom: 160}}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     </Container>

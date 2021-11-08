@@ -1,70 +1,112 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
-    View,
-    Image,
-    Text,
-    TouchableOpacity,
-    TextInput,
-    FlatList,
-    ScrollView,
-    ImageBackground
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+  FlatList,
+  ImageBackground,
+  StatusBar,
 } from 'react-native';
-import style from './style'
-import Config from 'src/config'
-import { about_us_background } from 'src/assets'
-import API from 'src/services/api'
-import * as ACTION from 'src/reduxData/action'
-import { useDispatch, useSelector } from 'react-redux'
-import { useTheme, useLanguage } from 'src/hooks'
-import { Container } from 'src/components'
-import Icon from 'react-native-vector-icons/FontAwesome'
-import Icon2 from 'react-native-vector-icons/Entypo'
-import LinearGradient from 'react-native-linear-gradient'
+import style from './style';
+import {background} from 'src/assets';
+import {useDispatch, useSelector} from 'react-redux';
+import {useTheme, useLanguage} from 'src/hooks';
+import {Container} from 'src/components';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import LinearGradient from 'react-native-linear-gradient';
 
-export default ({ navigation }) => {
+export default ({navigation}) => {
+  const [Colors, styles] = useTheme(style);
+  const translate = useLanguage().t;
 
-    const [Colors, styles] = useTheme(style)
-    const translate = useLanguage().t
-    const dispatch = useDispatch()
-    const sessionReducer = useSelector(state => state.sessionReducer)
+  const data = [
+    {
+      jobTitle: 'Job Vacancy 1',
+      jobDesc:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has',
+    },
+    {
+      jobTitle: 'Job Vacancy 2',
+      jobDesc:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has',
+    },
+    {
+      jobTitle: 'Job Vacancy 3',
+      jobDesc:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has',
+    },
+    {
+      jobTitle: 'Job Vacancy 4',
+      jobDesc:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has',
+    },
+    {
+      jobTitle: 'Job Vacancy 5',
+      jobDesc:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has',
+    },
+  ];
 
-    useEffect(() => {
-
-    }, [])
-
+  const renderItem = ({item}) => {
     return (
-        <Container isTransparentStatusBar={false}>
-            <ImageBackground source={about_us_background} style={styles.background} >
-                <ScrollView>
-                    <View
-                        style={styles.backButton}
-                    >
-                        <TouchableOpacity onPress={() => navigation.pop()}>
-                            <Icon name={'chevron-left'} size={20} color={Colors.white} />
-                        </TouchableOpacity>
-                    </View>
-                    <View style={[styles.header]}>
-                        <Text style={styles.headerText}>Career</Text>
-                    </View>
-                    <Image source={{ uri: 'https://wilhub.com/assets/career 2.jpg' }} style={styles.logo} />
-                    <Text style={styles.titleText}>Welcome to WIL HUB'S Career!</Text>
-                    <Text style={styles.descriptionText}>
-                        Thank you for showing an interest in working at Wil Hub. The majority of the job openings are for online positions. Eligible candidates should send their most recent CVs to career@wilhub.com.
-                    </Text>
-                    <Text style={styles.descriptionText}>
-                        We are an exquisite team of scholars, academicians, teachers, psychologists, creative designers, visualizers, and other professionals. Wil Hub has a wide selection of job openings for both new and experienced applicants both online and offline.
-                    </Text>
-                    <Image source={{ uri: 'https://wilhub.com/assets/career.jpg' }} style={styles.logo} />
-                    <Text style={styles.titleText}>Online Learning Assistant</Text>
-                    <Text style={styles.descriptionText}>
-                        Qualified individuals with a desire to educate and the skill to coach and mentor online.
-                    </Text>
-                    <Text style={styles.titleText}>Customer Care Specialist</Text>
-                    <Text style={styles.descriptionText}>
-                    This position is open to candidates with good inter-personal communication skills in English and Malayalam, as well as the capacity to interact with clients and provide information from the institution to students.
-                    </Text>
-                </ScrollView>
-            </ImageBackground>
-        </Container>
-    )
-}
+      <View style={styles.cardView}>
+        <View style={styles.cardTopView}>
+          <Text style={styles.cardHeadingTitle}>{item?.jobTitle}</Text>
+        </View>
+        <View style={styles.cardCenterView}>
+          <Text
+            style={styles.cardDescText}
+            ellipsizeMode={'tail'}
+            numberOfLines={4}>
+            {item?.jobDesc}
+          </Text>
+          <View style={styles.loadMoreView}>
+            <TouchableOpacity style={styles.loadMoreBtn}>
+              <Text style={styles.loadMoreText}>Load more</Text>
+              <Icon name={'chevron-down'} size={8} color={Colors.gray_dark} />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.cardBottomView}>
+          <TouchableOpacity
+            style={styles.applyBtnView}
+            onPress={() => navigation.navigate('ApplyScreen')}>
+            <Text style={styles.applyTextStytle}>Apply</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  };
+  return (
+    <Container isTransparentStatusBar={false}>
+      <ImageBackground source={background} style={styles.background} />
+      <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
+      <LinearGradient
+        colors={[Colors.secondary, Colors.primary]}
+        style={styles.headerBar}>
+        <View style={[styles.flexRow, styles.centerAll]}>
+          <View style={styles.backButton}>
+            <TouchableOpacity onPress={() => navigation.pop()}>
+              <Icon name={'chevron-left'} size={20} color={Colors.white} />
+            </TouchableOpacity>
+          </View>
+          <Text style={styles.headerText}>{translate('Career')}</Text>
+        </View>
+      </LinearGradient>
+      <View style={styles.container}>
+        <Image
+          source={require('../../assets/images/weAreHiring.png')}
+          style={styles.weAreHiringImgView}
+        />
+        <FlatList
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          contentContainerStyle={{paddingBottom: 250}}
+          showsVerticalScrollIndicator={false}
+        />
+      </View>
+    </Container>
+  );
+};
