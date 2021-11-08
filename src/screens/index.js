@@ -13,3 +13,4 @@ export {default as Quiz} from './Quiz';
 export {default as Career} from './Career';
 export {default as Faqs} from './Faqs';
 export {default as GalleryScreen} from './GalleryScreen';
+export {default as ApplyScreen} from './ApplyScreen';
