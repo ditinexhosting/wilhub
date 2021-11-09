@@ -63,11 +63,10 @@ const styles = ({Colors}) =>
     },
     applyBtnView: {
       width: 120,
-      height: Spacing.SCALE_16,
+      height: Spacing.SCALE_17,
       backgroundColor: Colors.primary,
       borderRadius: 10,
       alignItems: 'center',
-      justifyContent: 'center',
     },
     container: {
       paddingHorizontal: Spacing.SCALE_23,
