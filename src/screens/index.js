@@ -14,3 +14,5 @@ export {default as Career} from './Career';
 export {default as Faqs} from './Faqs';
 export {default as GalleryScreen} from './GalleryScreen';
 export {default as ApplyScreen} from './ApplyScreen';
+export {default as ArticleScreen} from './ArticleScreen';
+export {default as ArticleDetailsScreen} from './ArticleDetailsScreen';

@@ -72,12 +72,12 @@ const styles = ({Colors}) =>
       height: Mixins.scaleSize(18),
       backgroundColor: Colors.gray_medium,
       borderRadius: 20,
-      justifyContent: 'center',
       alignItems: 'center',
       marginLeft: Spacing.SCALE_10,
     },
     chooseFileText: {
       fontSize: Typography.FONT_SIZE_13,
+      fontWeight: '500',
     },
   });
 

@@ -38,6 +38,11 @@ const Router = () => {
         <Stack.Screen name="Videos" component={Screen.Videos} />
         <Stack.Screen name="GalleryScreen" component={Screen.GalleryScreen} />
         <Stack.Screen name="ApplyScreen" component={Screen.ApplyScreen} />
+        <Stack.Screen name="ArticleScreen" component={Screen.ArticleScreen} />
+        <Stack.Screen
+          name="ArticleDetailsScreen"
+          component={Screen.ArticleDetailsScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
