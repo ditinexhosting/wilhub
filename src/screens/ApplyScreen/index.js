@@ -14,6 +14,7 @@ import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
+import DocumentPicker from 'react-native-document-picker';
 
 export default ({navigation}) => {
   const [Colors, styles] = useTheme(style);
@@ -27,8 +28,24 @@ export default ({navigation}) => {
     alert('handleSubmit');
   };
 
-  const handleChooseFile = () => {
-    alert('handleChooseFile');
+  const handleChooseFile = async () => {
+    try {
+      const res = await DocumentPicker.pick({
+        type: [DocumentPicker.types.images],
+      });
+      console.log(
+        res.uri,
+        res.type, // mime type
+        res.name,
+        res.size,
+      );
+    } catch (err) {
+      if (DocumentPicker.isCancel(err)) {
+        // User cancelled the picker, exit any dialogs or menus and move on
+      } else {
+        throw err;
+      }
+    }
   };
   return (
     <Container isTransparentStatusBar={false}>
