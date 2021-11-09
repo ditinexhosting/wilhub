@@ -40,7 +40,7 @@ export default ({navigation}) => {
               headerImg: img,
             })
           }>
-          <Icon name={'chevron-right'} size={20} color={Colors.black} />
+          <Icon name={'chevron-right'} size={20} color={Colors.gray_dark} />
         </TouchableOpacity>
         <View style={styles.darkLayeriew} />
         <Text

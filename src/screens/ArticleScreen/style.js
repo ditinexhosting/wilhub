@@ -38,7 +38,6 @@ const styles = ({Colors}) =>
       height: Mixins.scaleSize(230),
       borderRadius: 15,
       marginTop: Spacing.SCALE_15,
-      opacity: 0.9,
       marginBottom: Spacing.SCALE_6,
       justifyContent: 'flex-end',
       position: 'relative',
@@ -48,7 +47,6 @@ const styles = ({Colors}) =>
       height: Mixins.scaleSize(200),
       borderRadius: 15,
       marginTop: Spacing.SCALE_5,
-      opacity: 0.9,
       justifyContent: 'flex-end',
       position: 'relative',
     },
@@ -62,7 +60,6 @@ const styles = ({Colors}) =>
       fontSize: Typography.FONT_SIZE_20,
       marginBottom: Spacing.SCALE_15,
       marginHorizontal: Spacing.SCALE_15,
-      opacity: 0.9,
     },
     topCardViewBtnView: {
       width: Mixins.scaleSize(30),
