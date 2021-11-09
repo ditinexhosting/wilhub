@@ -193,7 +193,7 @@ const CustomDrawerContent = props => {
                 <Icon color={Colors.white} size={30} name="angle-right" />
               </View>
             )}
-            onPress={() => Linking.openURL('https://wilhub.com/blog')}
+            onPress={() => navigation.navigate('ArticleScreen')}
             style={styles.drawerItemWrapper}
           />
 
