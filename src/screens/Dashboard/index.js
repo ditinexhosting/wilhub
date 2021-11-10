@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   TextInput,
   FlatList,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  StatusBar
 } from 'react-native';
 import style from './style';
 import Config from 'src/config';
@@ -77,8 +78,9 @@ export default ({navigation}) => {
   return (
     <Container isTransparentStatusBar={false}>
       <Image source={background} style={styles.background} />
+      <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
       <LinearGradient
-        colors={[Colors.primary, Colors.secondary]}
+        colors={[Colors.secondary, Colors.primary]}
         style={styles.headerBar}>
         <Image source={logo_white} style={styles.logo} />
         <View style={[styles.flexRow, styles.centerAll]}>

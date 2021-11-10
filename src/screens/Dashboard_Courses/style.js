@@ -4,7 +4,6 @@ import {Mixins, Spacing, Typography} from 'src/styles';
 const styles = ({Colors}) =>
   StyleSheet.create({
     headerBar: {
-      // height: Mixins.scaleSize(100),
       borderBottomLeftRadius: Spacing.SCALE_30,
       borderBottomRightRadius: Spacing.SCALE_30,
     },
@@ -19,7 +18,7 @@ const styles = ({Colors}) =>
       position: 'absolute',
       top: Spacing.SCALE_20,
       left: Spacing.SCALE_20,
-      zIndex: 9999,
+      zIndex: 1,
     },
     headerText: {
       marginVertical: Spacing.SCALE_15,
@@ -46,8 +45,8 @@ const styles = ({Colors}) =>
       marginHorizontal: Spacing.SCALE_5,
     },
     iconCourse: {
-      width: Spacing.SCALE_70,
-      height: Spacing.SCALE_70,
+      width: 90,
+      height: 90,
       borderTopRightRadius: 30,
       borderBottomLeftRadius: 30,
     },

@@ -3,7 +3,8 @@ import {
     View,
     Image,
     Text,
-    ActivityIndicator
+    ActivityIndicator,
+    StatusBar
 } from 'react-native';
 import style from './style'
 import Config from 'src/config'
@@ -45,6 +46,7 @@ export default ({ navigation }) => {
 
     return (
         <Container isTransparentStatusBar={false}>
+          <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
             <View style={styles.backgroundContainer}>
                 <Image source={logo} style={styles.logo} />
             </View>

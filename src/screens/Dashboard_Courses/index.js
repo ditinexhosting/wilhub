@@ -34,9 +34,9 @@ export default ({navigation}) => {
 
   const [courseList, setCourseList] = useState([]);
 
-  // useEffect(() => {
-  //   getCourses();
-  // }, []);
+  useEffect(() => {
+    getCourses();
+  }, []);
 
   const getCourses = async () => {
     dispatch(ACTION.loadingStarted());
@@ -62,21 +62,21 @@ export default ({navigation}) => {
         </View>
         <Text style={styles.headerCourseTitle}>{translate('Category')}</Text>
         <View style={[styles.flexRow, styles.centerAll]}>
-          <TouchableOpacity onPress={() => alert('yes 1')}>
+          <TouchableOpacity onPress={() => alert('Category 1')}>
             <View style={styles.headerIconBackground}>
               <Image source={course1} style={styles.headerIconCourse} />
             </View>
             <Text style={styles.headerCourseText}>Category 1</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => alert('yes 2')}>
+          <TouchableOpacity onPress={() => alert('Category 2')}>
             <View style={styles.headerIconBackground}>
               <Image source={course2} style={styles.headerIconCourse} />
             </View>
             <Text style={styles.headerCourseText}>Category 2</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => alert('yes 3')}>
+          <TouchableOpacity onPress={() => alert('Category 3')}>
             <View style={styles.headerIconBackground}>
               <Image source={course3} style={styles.headerIconCourse} />
             </View>
@@ -84,60 +84,6 @@ export default ({navigation}) => {
           </TouchableOpacity>
         </View>
       </LinearGradient>
-    );
-  };
-
-  const rowCardView = headerTitle => {
-    return (
-      <>
-        <Text style={styles.courseTitle}>{translate(headerTitle)}</Text>
-        <View style={[styles.flexRow, styles.centerAll]}>
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate('Dashboard_Courses_Details', {
-                id: 1,
-                title: 'Course Details 1',
-              })
-            }>
-            <ImageBackground
-              source={course_icon_background_blue}
-              style={styles.iconBackground}>
-              <Image source={course1} style={styles.iconCourse} />
-            </ImageBackground>
-            <Text style={styles.courseText}>Course 1</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate('Dashboard_Courses_Details', {
-                id: 2,
-                title: 'Course Details 2',
-              })
-            }>
-            <ImageBackground
-              source={course_icon_background_blue}
-              style={styles.iconBackground}>
-              <Image source={course2} style={styles.iconCourse} />
-            </ImageBackground>
-            <Text style={styles.courseText}>Course 2</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate('Dashboard_Courses_Details', {
-                id: 3,
-                title: 'Course Details 3',
-              })
-            }>
-            <ImageBackground
-              source={course_icon_background_blue}
-              style={styles.iconBackground}>
-              <Image source={course3} style={styles.iconCourse} />
-            </ImageBackground>
-            <Text style={styles.courseText}>Course 3</Text>
-          </TouchableOpacity>
-        </View>
-      </>
     );
   };
 
@@ -152,40 +98,7 @@ export default ({navigation}) => {
       {/* Main Body */}
       <ScrollView>
         <View style={{height: 10}} />
-        {rowCardView('New Courses')}
-        {rowCardView('Most Popular')}
-        {rowCardView('Most Viewed')}
-        <View style={{height: 50}} />
-
-        {/* <Text style={styles.courseTitle}>{translate('upcoming_courses')}</Text>
-        <View style={[styles.flexRow, styles.centerAll]}>
-          <TouchableOpacity>
-            <Image
-              source={course_icon_background_blue}
-              style={styles.iconBackground}
-            />
-            <Image source={course1} style={styles.iconCourse} />
-            <Text style={styles.courseText}>Course1</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image
-              source={course_icon_background_blue}
-              style={styles.iconBackground}
-            />
-            <Image source={course1} style={styles.iconCourse} />
-            <Text style={styles.courseText}>Course1</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Image
-              source={course_icon_background_blue}
-              style={styles.iconBackground}
-            />
-            <Image source={course3} style={styles.iconCourse} />
-            <Text style={styles.courseText}>Course1</Text>
-          </TouchableOpacity>
-        </View> */}
-
-        {/* <Text style={styles.courseTitle}>{translate('most_popular')}</Text>
+        <Text style={styles.courseTitle}>{translate('most_popular')}</Text>
         {courseList.length > 0 ? (
           <View style={[styles.flexRow, styles.justifyCenter]}>
             <TouchableOpacity
@@ -263,9 +176,9 @@ export default ({navigation}) => {
           </View>
         ) : (
           <View></View>
-        )} */}
+        )}
 
-        {/* <Text style={styles.courseTitle}>{translate('most_viewed')}</Text>
+        <Text style={styles.courseTitle}>{translate('most_viewed')}</Text>
         {courseList.length > 0 ? (
           <View style={[styles.flexRow, styles.justifyCenter]}>
             <TouchableOpacity
@@ -343,7 +256,7 @@ export default ({navigation}) => {
           </View>
         ) : (
           <View></View>
-        )} */}
+        )}
       </ScrollView>
     </Container>
   );
