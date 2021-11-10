@@ -94,7 +94,7 @@ export default ({navigation}) => {
               <Icon name={'chevron-left'} size={20} color={Colors.white} />
             </TouchableOpacity>
           </View>
-          <Text style={styles.headerText}>{translate('Article')}</Text>
+          <Text style={styles.headerText}>{translate('Blog')}</Text>
         </View>
       </LinearGradient>
       <View style={styles.container}>

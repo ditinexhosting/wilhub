@@ -7,7 +7,8 @@ import {
     TextInput,
     FlatList,
     ScrollView,
-    ImageBackground
+    ImageBackground,
+    StatusBar
 } from 'react-native';
 import style from './style'
 import Config from 'src/config'
@@ -46,6 +47,7 @@ export default ({ navigation }) => {
     return (
         <Container isTransparentStatusBar={false}>
             <ImageBackground source={about_us_background} style={styles.background} >
+            <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
                 <ScrollView>
                     <View
                         style={styles.backButton}

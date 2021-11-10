@@ -4,9 +4,10 @@ import {Mixins, Spacing, Typography} from 'src/styles';
 const styles = ({Colors}) =>
   StyleSheet.create({
     headerBar: {
-      height: Mixins.scaleSize(100),
-      borderBottomLeftRadius: Spacing.SCALE_30,
-      borderBottomRightRadius: Spacing.SCALE_30,
+      height: Mixins.scaleSize(85),
+      borderBottomLeftRadius: Spacing.SCALE_40,
+      borderBottomRightRadius: Spacing.SCALE_40,
+      justifyContent: 'center',
     },
     background: {
       position: 'absolute',
@@ -19,15 +20,15 @@ const styles = ({Colors}) =>
       position: 'absolute',
       top: Spacing.SCALE_20,
       left: Spacing.SCALE_20,
-      zIndex: 999
-
+      zIndex: 1,
     },
     headerText: {
       marginVertical: Spacing.SCALE_15,
-      fontSize: Typography.FONT_SIZE_25,
+      fontSize: Typography.FONT_SIZE_20,
       color: Colors.white,
       flex: 1,
       textAlign: 'center',
+      fontWeight: '500',
     },
     iconBackground: {
       width: Spacing.SCALE_100,

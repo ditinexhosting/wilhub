@@ -78,6 +78,7 @@ const styles = ({Colors}) =>
     chooseFileText: {
       fontSize: Typography.FONT_SIZE_13,
       fontWeight: '500',
+      color:Colors.gray_dark
     },
   });
 
