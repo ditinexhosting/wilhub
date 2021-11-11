@@ -34,7 +34,7 @@ const styles = ({Colors}) =>
       width: Spacing.SCALE_100,
       height: Spacing.SCALE_100,
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
     },
     iconvideo: {
       width: Spacing.SCALE_80,
@@ -44,8 +44,8 @@ const styles = ({Colors}) =>
       color: Colors.white,
       textAlign: 'center',
     },
-    videoItem:{
-      width: Mixins.scaleSize(120)
+    videoItem: {
+      width: Mixins.scaleSize(120),
     },
     videoTitle: {
       color: Colors.primary,

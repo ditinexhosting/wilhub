@@ -7,7 +7,7 @@ import {
   TextInput,
   FlatList,
   TouchableWithoutFeedback,
-  StatusBar
+  StatusBar,
 } from 'react-native';
 import style from './style';
 import Config from 'src/config';
@@ -88,14 +88,16 @@ export default ({navigation}) => {
             <Icon2 name={'menu'} size={60} color={Colors.white} />
           </TouchableOpacity>
           <View style={styles.searchHolder}>
-            <TouchableOpacity activeOpacity={1} onPress={()=>navigation.navigate('Search')}>
-            <TextInput
-              style={styles.searchInput}
-              onChangeText={text => setSearchQuery(text)}
-              value={searchQuery}
-              editable={false}
-              placeholder={translate('search_placeholder')}
-            />
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => navigation.navigate('Search')}>
+              <TextInput
+                style={styles.searchInput}
+                onChangeText={text => setSearchQuery(text)}
+                value={searchQuery}
+                editable={false}
+                placeholder={translate('search_placeholder')}
+              />
             </TouchableOpacity>
           </View>
         </View>

@@ -4,9 +4,10 @@ import {Mixins, Spacing, Typography} from 'src/styles';
 const styles = ({Colors}) =>
   StyleSheet.create({
     headerBar: {
-      height: Mixins.scaleSize(100),
-      borderBottomLeftRadius: Spacing.SCALE_30,
-      borderBottomRightRadius: Spacing.SCALE_30,
+      height: Mixins.scaleSize(85),
+      borderBottomLeftRadius: Spacing.SCALE_40,
+      borderBottomRightRadius: Spacing.SCALE_40,
+      justifyContent: 'center',
     },
     background: {
       position: 'absolute',
@@ -19,18 +20,19 @@ const styles = ({Colors}) =>
       position: 'absolute',
       top: Spacing.SCALE_20,
       left: Spacing.SCALE_20,
-      zIndex: 9999
+      zIndex: 1,
     },
     headerText: {
       marginVertical: Spacing.SCALE_15,
-      fontSize: Typography.FONT_SIZE_25,
+      fontSize: Typography.FONT_SIZE_20,
       color: Colors.white,
       flex: 1,
       textAlign: 'center',
+      fontWeight: '500',
     },
     searchHolder: {
       backgroundColor: Colors.white,
-      width: Mixins.scaleSize(260),
+      width: '80%',
       height: Mixins.scaleSize(50),
       flexDirection: 'row',
       alignItems: 'center',
@@ -39,40 +41,54 @@ const styles = ({Colors}) =>
       alignSelf: 'center',
       borderWidth: 2,
       borderColor: Colors.primary,
-      marginBottom: Spacing.SCALE_20
+      marginBottom: Spacing.SCALE_12,
     },
     searchInput: {
       flex: 1,
       marginVertical: 0,
       paddingVertical: 0,
-      fontSize: Typography.FONT_SIZE_18
+      fontSize: Typography.FONT_SIZE_15,
     },
-    loginButton:{
-      width: Mixins.scaleSize(260),
+    loginButton: {
+      width: '80%',
+      height: Mixins.scaleSize(45),
       borderRadius: 50,
       alignSelf: 'center',
-      marginBottom: Spacing.SCALE_30
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: Spacing.SCALE_30,
+      marginBottom: Spacing.SCALE_10,
     },
-    signupHolder:{
-      alignSelf: 'center',
+    signupHolder: {
+      justifyContent: 'center',
+      alignItems: 'center',
     },
-    create:{
-      fontSize: Typography.FONT_SIZE_18
+    create: {
+      fontSize: Typography.FONT_SIZE_14,
+      fontWeight: '600',
     },
-    signup:{
-      color: Colors.primary
+    signup: {
+      color: Colors.primary,
     },
-    profile:{
+    profile: {
       width: Mixins.scaleSize(100),
-      height: Mixins.scaleSize(100)
+      height: Mixins.scaleSize(100),
     },
-    username:{
+    username: {
       fontSize: Typography.FONT_SIZE_18,
-      fontWeight: 'bold'
+      fontWeight: 'bold',
     },
-    courseDetails:{
+    courseDetails: {
       fontSize: Typography.FONT_SIZE_16,
-      textAlign: 'center'
+      textAlign: 'center',
+    },
+    marginLeft: {
+      marginLeft: Spacing.SCALE_10,
+    },
+    submitBtnText: {
+      color: Colors.white,
+      fontWeight: '500',
+      fontSize: Typography.FONT_SIZE_14,
     },
   });
 
