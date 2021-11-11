@@ -30,31 +30,29 @@ const styles = ({Colors}) =>
       textAlign: 'center',
       fontWeight: '500',
     },
-    iconBackground: {
-      width: Spacing.SCALE_100,
-      height: Spacing.SCALE_100,
-      alignItems: 'center',
+    cardView: {
+      width: Mixins.scaleSize(165),
+      height: Mixins.scaleSize(165),
+      backgroundColor: Colors.primary,
+      borderRadius: 20,
+      marginVertical: Spacing.SCALE_20,
       justifyContent: 'center',
+      alignItems: 'center',
     },
-    iconvideo: {
-      width: Spacing.SCALE_80,
-      height: Spacing.SCALE_80,
+    container: {
+      width: '100%',
+      height: '85%',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
-    categoryText: {
-      color: Colors.white,
-      textAlign: 'center',
+    cardViewImg: {
+      width: Mixins.scaleSize(105),
+      height: Mixins.scaleSize(85),
     },
-    videoItem: {
-      width: Mixins.scaleSize(120),
-    },
-    videoTitle: {
-      color: Colors.primary,
-      margin: Spacing.SCALE_20,
-      fontSize: Typography.FONT_SIZE_20,
-    },
-    videoText: {
-      color: Colors.primary,
-      textAlign: 'center',
+    titleText: {
+      fontWeight: '600',
+      fontSize: Typography.FONT_SIZE_13,
+      marginTop: Spacing.SCALE_15,
     },
   });
 

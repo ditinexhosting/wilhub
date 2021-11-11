@@ -52,7 +52,7 @@ export default ({route, navigation}) => {
   return (
     <Container isTransparentStatusBar={false}>
       <ImageBackground source={background} style={styles.background} />
-      <StatusBar backgroundColor={Colors.primary} barStyle="light-content" />
+      <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
 
       {/* App Header */}
       {AppHeader(title)}

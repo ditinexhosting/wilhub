@@ -38,6 +38,8 @@ export const video1 = require('src/assets/images/course1.png');
 export const video2 = require('src/assets/images/video2.png');
 export const video3 = require('src/assets/images/course3.png');
 
+export const computerIcon = require('src/assets/images/computerIcon.png');
+export const videoCameraIcon = require('src/assets/images/videoCameraIcon.png');
 
 /*Profile*/
 export const profile = require('src/assets/images/profile.png');
