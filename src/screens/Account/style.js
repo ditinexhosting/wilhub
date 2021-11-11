@@ -9,6 +9,12 @@ const styles = ({Colors}) =>
       borderBottomRightRadius: Spacing.SCALE_40,
       justifyContent: 'center',
     },
+    profileHeaderBar: {
+      // height: Mixins.scaleSize(85),
+      borderBottomLeftRadius: Spacing.SCALE_40,
+      borderBottomRightRadius: Spacing.SCALE_40,
+      justifyContent: 'center',
+    },
     background: {
       position: 'absolute',
       bottom: 0,
@@ -71,12 +77,14 @@ const styles = ({Colors}) =>
       color: Colors.primary,
     },
     profile: {
-      width: Mixins.scaleSize(100),
-      height: Mixins.scaleSize(100),
+      width: Mixins.scaleSize(120),
+      height: Mixins.scaleSize(120),
     },
     username: {
       fontSize: Typography.FONT_SIZE_18,
-      fontWeight: 'bold',
+      fontWeight: '600',
+      marginBottom: Spacing.SCALE_25,
+      marginTop: Spacing.SCALE_3,
     },
     courseDetails: {
       fontSize: Typography.FONT_SIZE_16,
@@ -89,6 +97,35 @@ const styles = ({Colors}) =>
       color: Colors.white,
       fontWeight: '500',
       fontSize: Typography.FONT_SIZE_14,
+    },
+    container: {
+      alignItems: 'center',
+    },
+    courseCard: {
+      width: '80%',
+      height: Mixins.scaleSize(50),
+      backgroundColor: Colors.primary,
+      borderRadius: 30,
+      justifyContent: 'center',
+      alignItems: 'flex-start',
+      paddingLeft: Spacing.SCALE_16,
+      marginBottom: Spacing.SCALE_12,
+    },
+    headerView: {
+      width: '100%',
+      height: Mixins.scaleSize(80),
+      justifyContent: 'center',
+      paddingLeft: Spacing.SCALE_20,
+    },
+    containerHeaderText: {
+      color: 'black',
+      fontWeight: '600',
+      fontSize: Typography.FONT_SIZE_17,
+    },
+    courseCardText: {
+      color: Colors.white,
+      fontSize: Typography.FONT_SIZE_17,
+      fontWeight: '500',
     },
   });
 
