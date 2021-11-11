@@ -43,6 +43,7 @@ const Router = () => {
           name="ArticleDetailsScreen"
           component={Screen.ArticleDetailsScreen}
         />
+        <Stack.Screen name="CourseScreen" component={Screen.CourseScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

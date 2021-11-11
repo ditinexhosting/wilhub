@@ -162,12 +162,20 @@ export default ({navigation}) => {
         <View style={styles.container}>
           <TouchableOpacity
             style={styles.courseCard}
-            onPress={() => alert('ok')}>
+            onPress={() =>
+              navigation.navigate('CourseScreen', {
+                title: 'Mawadha',
+              })
+            }>
             <Text style={styles.courseCardText}>Mawadha</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.courseCard}
-            onPress={() => alert('ok')}>
+            onPress={() =>
+              navigation.navigate('CourseScreen', {
+                title: 'Diploma in islamic studies',
+              })
+            }>
             <Text style={styles.courseCardText}>
               Diploma in islamic studies
             </Text>
