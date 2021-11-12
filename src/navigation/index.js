@@ -44,6 +44,10 @@ const Router = () => {
           component={Screen.ArticleDetailsScreen}
         />
         <Stack.Screen name="CourseScreen" component={Screen.CourseScreen} />
+        <Stack.Screen
+          name="ViewRecordedScreen"
+          component={Screen.ViewRecordedScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

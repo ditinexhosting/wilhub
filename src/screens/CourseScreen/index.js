@@ -49,7 +49,9 @@ export default ({route, navigation}) => {
           <Image source={videoCameraIcon} style={styles.cardViewImg} />
           <Text style={styles.titleText}>View Live Session</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.cardView}>
+        <TouchableOpacity
+          style={styles.cardView}
+          onPress={() => navigation.navigate('ViewRecordedScreen')}>
           <Image source={computerIcon} style={styles.cardViewImg} />
           <Text style={styles.titleText}>View Recorded Session</Text>
         </TouchableOpacity>
