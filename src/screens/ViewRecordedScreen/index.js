@@ -47,7 +47,7 @@ export default ({route, navigation}) => {
       id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
       title: translate('Activity'),
       image: activityIcon,
-      navigating_to: 'Activity',
+      navigating_to: 'ActivityScreen',
     },
     {
       id: '58694a0f-3da1-471f-bd96-145571e29d72',
