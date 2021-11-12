@@ -18,3 +18,5 @@ export {default as ArticleScreen} from './ArticleScreen';
 export {default as ArticleDetailsScreen} from './ArticleDetailsScreen';
 export {default as CourseScreen} from './CourseScreen';
 export {default as ViewRecordedScreen} from './ViewRecordedScreen';
+export {default as ClassScreen} from './ClassScreen';
+export {default as ActivityScreen} from './ActivityScreen';
