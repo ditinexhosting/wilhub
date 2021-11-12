@@ -41,7 +41,13 @@ export default ({route, navigation}) => {
   ];
   const renderItem = ({item}) => {
     return (
-      <TouchableOpacity style={styles.cardView}>
+      <TouchableOpacity
+        style={styles.cardView}
+        onPress={() =>
+          navigation.navigate('SubjectScreen', {
+            index: item?.id,
+          })
+        }>
         <Text style={styles.cardViewText}>{item?.title}</Text>
       </TouchableOpacity>
     );

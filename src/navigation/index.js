@@ -55,6 +55,7 @@ const Router = () => {
           component={Screen.StudyMaterialScreen}
         />
         <Stack.Screen name="LibraryScreen" component={Screen.LibraryScreen} />
+        <Stack.Screen name="SubjectScreen" component={Screen.SubjectScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
