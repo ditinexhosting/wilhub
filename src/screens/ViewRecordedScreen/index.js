@@ -28,7 +28,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon2 from 'react-native-vector-icons/Entypo';
 import LinearGradient from 'react-native-linear-gradient';
 
-export default ({navigation}) => {
+export default ({route, navigation}) => {
+  const {title} = route.params;
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ export default ({navigation}) => {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
       title: translate('Class'),
       image: classIcon,
-      navigating_to: 'About',
+      navigating_to: 'ClassScreen',
     },
     {
       id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
@@ -68,7 +69,11 @@ export default ({navigation}) => {
     <View style={styles.itemContainer}>
       <TouchableOpacity
         style={[styles.flex1, styles.centerAll]}
-        onPress={() => navigation.navigate(item.navigating_to)}>
+        onPress={() =>
+          navigation.navigate(item.navigating_to, {
+            title: title,
+          })
+        }>
         <Image style={styles.image} source={item.image} />
         <Text style={styles.title}>{item.title}</Text>
       </TouchableOpacity>

@@ -48,6 +48,7 @@ const Router = () => {
           name="ViewRecordedScreen"
           component={Screen.ViewRecordedScreen}
         />
+        <Stack.Screen name="ClassScreen" component={Screen.ClassScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
