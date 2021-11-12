@@ -50,6 +50,10 @@ const Router = () => {
         />
         <Stack.Screen name="ClassScreen" component={Screen.ClassScreen} />
         <Stack.Screen name="ActivityScreen" component={Screen.ActivityScreen} />
+        <Stack.Screen
+          name="StudyMaterialScreen"
+          component={Screen.StudyMaterialScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

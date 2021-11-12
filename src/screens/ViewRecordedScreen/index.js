@@ -53,7 +53,7 @@ export default ({route, navigation}) => {
       id: '58694a0f-3da1-471f-bd96-145571e29d72',
       title: translate('Study Materials'),
       image: studyMaterialsIcon,
-      navigating_to: 'Research',
+      navigating_to: 'StudyMaterialScreen',
     },
     {
       id: '58694a0f-3da1-471f-bd96-145571e29d73',

@@ -45,6 +45,7 @@ export const libraryIcon = require('src/assets/images/libraryIcon.png');
 export const studyMaterialsIcon = require('src/assets/images/studyMaterialsIcon.png');
 export const activityIcon = require('src/assets/images/activityIcon.png');
 export const classIcon = require('src/assets/images/classIcon.png');
+export const pdfIcon = require('src/assets/images/pdfIcon.png');
 
 /*Profile*/
 export const profile = require('src/assets/images/profile.png');
