@@ -189,7 +189,7 @@ export default ({navigation}) => {
     <Container isTransparentStatusBar={false}>
       <ImageBackground source={background} style={styles.background} />
       <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
-      {false ? login_render() : profile_render()}
+      {true ? login_render() : profile_render()}
     </Container>
   );
 };
