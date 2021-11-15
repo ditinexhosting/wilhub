@@ -4,8 +4,10 @@ import {Mixins, Spacing, Typography} from 'src/styles';
 const styles = ({Colors}) =>
   StyleSheet.create({
     headerBar: {
-      borderBottomLeftRadius: Spacing.SCALE_30,
-      borderBottomRightRadius: Spacing.SCALE_30,
+      height: Mixins.scaleSize(85),
+      borderBottomLeftRadius: Spacing.SCALE_40,
+      borderBottomRightRadius: Spacing.SCALE_40,
+      justifyContent: 'center',
     },
     background: {
       position: 'absolute',
