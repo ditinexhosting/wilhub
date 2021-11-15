@@ -15,40 +15,47 @@ import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
+import {pdfIcon} from 'src/assets';
 
-export default ({route, navigation}) => {
-  const {title} = route.params;
+export default ({navigation}) => {
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
 
   const data = [
     {
       id: 1,
-      title: 'Module 1',
+      title: 'Study Material 1',
     },
     {
       id: 2,
-      title: 'Module 2',
+      title: 'Study Material 2',
     },
     {
       id: 3,
-      title: 'Module 3',
+      title: 'Study Material 3',
     },
     {
       id: 4,
-      title: 'Module 4',
+      title: 'Study Material 4',
+    },
+    {
+      id: 5,
+      title: 'Study Material 5',
+    },
+    {
+      id: 6,
+      title: 'Study Material 6',
     },
   ];
   const renderItem = ({item}) => {
     return (
-      <TouchableOpacity
-        style={styles.cardView}
-        onPress={() =>
-          navigation.navigate('SubjectScreen', {
-            index: item?.id,
-          })
-        }>
-        <Text style={styles.cardViewText}>{item?.title}</Text>
+      <TouchableOpacity style={styles.itemContainer}>
+        <LinearGradient
+          colors={[Colors.secondary, Colors.primary]}
+          style={styles.cardView}>
+          <Image source={pdfIcon} style={styles.cardViewImg} />
+        </LinearGradient>
+        <Text style={styles.cardViewTitle}>{item?.title}</Text>
       </TouchableOpacity>
     );
   };
@@ -56,7 +63,6 @@ export default ({route, navigation}) => {
     <Container isTransparentStatusBar={false}>
       <ImageBackground source={background} style={styles.background} />
       <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
-
       <LinearGradient
         colors={[Colors.secondary, Colors.primary]}
         style={styles.headerBar}>
@@ -66,20 +72,9 @@ export default ({route, navigation}) => {
               <Icon name={'chevron-left'} size={20} color={Colors.white} />
             </TouchableOpacity>
           </View>
-          <Text style={styles.headerText}>
-            <Text style={styles.headerText}>Class</Text>
-          </Text>
-        </View>
-        <View style={[styles.centerAll]}>
-          <Text
-            style={styles.headerTitleText}
-            ellipsizeMode={'tail'}
-            numberOfLines={2}>
-            {title.toUpperCase()}
-          </Text>
+          <Text style={styles.headerText}>{translate('Library')}</Text>
         </View>
       </LinearGradient>
-
       <View style={styles.listViewStyle}>
         <FlatList
           data={data}
@@ -87,6 +82,8 @@ export default ({route, navigation}) => {
           keyExtractor={item => item.id}
           contentContainerStyle={{paddingBottom: 160}}
           showsVerticalScrollIndicator={false}
+          numColumns="3"
+          columnWrapperStyle={{justifyContent: 'space-between'}}
         />
       </View>
     </Container>
