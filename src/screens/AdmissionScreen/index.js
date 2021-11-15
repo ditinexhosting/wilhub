@@ -25,11 +25,7 @@ export default ({navigation}) => {
   const translate = useLanguage().t;
   const dispatch = useDispatch();
   const sessionReducer = useSelector(state => state.sessionReducer);
-  // const [username, setUsername] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [retypePassword, setRetypePassword] = useState('');
-  // const [name, setName] = useState('');
-  // const [email, setEmail] = useState('');
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [address, setAddress] = useState('');
@@ -40,22 +36,6 @@ export default ({navigation}) => {
   const [schoolName, setSchoolName] = useState('');
 
   useEffect(() => {}, []);
-
-  const register = async () => {
-    dispatch(ACTION.loadingStarted());
-    const response = await API.signUp({
-      username: username,
-      email: email,
-      password: password,
-      re_password: retypePassword,
-    });
-    dispatch(ACTION.loadingCompleted());
-    if (!response.status)
-      return Toast.show({type: 'error', message: response.error});
-
-    Toast.show({type: 'success', message: response.data.description});
-    navigation.pop();
-  };
 
   return (
     <Container isTransparentStatusBar={false}>
@@ -74,89 +54,6 @@ export default ({navigation}) => {
         </View>
       </LinearGradient>
       <ScrollView keyboardShouldPersistTaps={'handled'}>
-        {/* <View style={[styles.marginTop40]}>
-          <View style={styles.searchHolder}>
-            <Icon
-              name={'user'}
-              size={25}
-              color={Colors.gray_light}
-              style={styles.marginRight8}
-            />
-            <TextInput
-              style={styles.searchInput}
-              onChangeText={text => setUsername(text)}
-              value={username}
-              placeholder={'Username'}
-            />
-          </View>
-          <View style={styles.searchHolder}>
-            <Icon
-              name={'lock'}
-              size={25}
-              color={Colors.gray_light}
-              style={styles.marginRight8}
-            />
-            <TextInput
-              secureTextEntry={true}
-              style={styles.searchInput}
-              onChangeText={text => setPassword(text)}
-              value={password}
-              placeholder={'Password'}
-            />
-          </View>
-          <View style={styles.searchHolder}>
-            <Icon
-              name={'lock'}
-              size={25}
-              color={Colors.gray_light}
-              style={styles.marginRight8}
-            />
-            <TextInput
-              secureTextEntry={true}
-              style={styles.searchInput}
-              onChangeText={text => setRetypePassword(text)}
-              value={retypePassword}
-              placeholder={'Retype Password'}
-            />
-          </View>
-          <View style={styles.searchHolder}>
-            <Icon
-              name={'user-circle-o'}
-              size={25}
-              color={Colors.gray_light}
-              style={styles.marginRight8}
-            />
-            <TextInput
-              style={styles.searchInput}
-              onChangeText={text => setName(text)}
-              value={name}
-              placeholder={'Name'}
-            />
-          </View>
-          <View style={styles.searchHolder}>
-            <Icon
-              name={'envelope'}
-              size={25}
-              color={Colors.gray_light}
-              style={styles.marginRight8}
-            />
-            <TextInput
-              style={styles.searchInput}
-              onChangeText={text => setEmail(text)}
-              value={email}
-              placeholder={'Email'}
-            />
-          </View>
-          <LinearGradient
-            colors={[Colors.secondary, Colors.primary]}
-            style={styles.loginButton}>
-            <TouchableOpacity
-              onPress={() => register()}
-              style={[styles.flexRow, styles.centerAll]}>
-              <Text style={styles.submitBtnText}>SIGN UP</Text>
-            </TouchableOpacity>
-          </LinearGradient>
-        </View> */}
         <View style={[styles.marginTop40]}>
           <View style={styles.searchHolder}>
             <TextInput
@@ -210,7 +107,7 @@ export default ({navigation}) => {
             <TextInput
               style={styles.searchInput}
               onChangeText={text => setPhonenumber(text)}
-              value={dob}
+              value={phonenumber}
               placeholder={'Phone number'}
               keyboardType="numeric"
             />

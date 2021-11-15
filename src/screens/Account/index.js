@@ -96,7 +96,7 @@ export default ({navigation}) => {
             />
           </View>
           <LinearGradient
-            colors={[Colors.primary, Colors.secondary]}
+            colors={[Colors.secondary, Colors.primary]}
             style={styles.loginButton}>
             <TouchableOpacity
               onPress={() => login()}

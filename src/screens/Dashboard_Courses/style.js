@@ -31,28 +31,12 @@ const styles = ({Colors}) =>
       fontWeight: '500',
     },
     iconBackground: {
-      width: 115,
-      height: 110,
+      width: Spacing.SCALE_100,
+      height: Spacing.SCALE_100,
       justifyContent: 'center',
       alignItems: 'center',
-    },
-    headerIconBackground: {
-      width: 115,
-      height: 115,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: Colors.white,
-      borderTopRightRadius: Spacing.SCALE_30,
-      borderBottomLeftRadius: Spacing.SCALE_30,
-      marginHorizontal: Spacing.SCALE_5,
     },
     iconCourse: {
-      width: 90,
-      height: 90,
-      borderTopRightRadius: 30,
-      borderBottomLeftRadius: 30,
-    },
-    headerIconCourse: {
       width: Spacing.SCALE_80,
       height: Spacing.SCALE_80,
       borderTopRightRadius: 30,
@@ -64,29 +48,12 @@ const styles = ({Colors}) =>
     },
     courseTitle: {
       color: Colors.primary,
-      marginLeft: Spacing.SCALE_20,
-      marginVertical: Spacing.SCALE_8,
-      fontSize: Typography.FONT_SIZE_16,
-      fontWeight: '600',
-    },
-    headerCourseTitle: {
-      color: Colors.white,
-      marginLeft: Spacing.SCALE_20,
-      fontSize: Typography.FONT_SIZE_23,
-      marginBottom: Spacing.SCALE_20,
-      fontWeight: '600',
+      margin: Spacing.SCALE_20,
+      fontSize: Typography.FONT_SIZE_20,
     },
     courseText: {
       color: Colors.primary,
       textAlign: 'center',
-      fontSize: Typography.FONT_SIZE_10,
-    },
-    headerCourseText: {
-      color: Colors.white,
-      textAlign: 'center',
-      fontSize: Typography.FONT_SIZE_10,
-      marginTop: Spacing.SCALE_4,
-      marginBottom: Spacing.SCALE_18,
     },
   });
 
