@@ -29,9 +29,12 @@ export default ({navigation}) => {
   const translate = useLanguage().t;
   const dispatch = useDispatch();
   const userSession = useSelector(state => state.sessionReducer.userSession);
+  const sessionReducer = useSelector(state => state.sessionReducer);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  // useEffect(() => {
+  //   logout();
+  // }, []);
   const login = async () => {
     dispatch(ACTION.loadingStarted());
     const response = await API.login({username: username, password: password});
@@ -46,6 +49,9 @@ export default ({navigation}) => {
       '@userSession',
       JSON.stringify({...response.data.user, password}),
     );
+    if (sessionReducer?.isApplyToLogin) {
+      navigation.navigate('AdmissionScreen');
+    }
   };
 
   const logout = async () => {
