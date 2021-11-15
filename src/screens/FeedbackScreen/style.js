@@ -74,6 +74,19 @@ const styles = ({Colors}) =>
       fontWeight: '500',
       fontSize: Typography.FONT_SIZE_14,
     },
+    multilineTextView: {
+      backgroundColor: Colors.white,
+      width: '80%',
+      height: Mixins.scaleSize(100),
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingHorizontal: Spacing.SCALE_10,
+      borderRadius: 20,
+      alignSelf: 'center',
+      borderWidth: 2,
+      borderColor: Colors.primary,
+      marginBottom: Spacing.SCALE_12,
+    },
   });
 
 export default styles;

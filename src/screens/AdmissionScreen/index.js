@@ -1,30 +1,22 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {
   View,
-  Image,
   Text,
   TouchableOpacity,
   TextInput,
-  FlatList,
   ScrollView,
   ImageBackground,
+  StatusBar,
 } from 'react-native';
 import style from './style';
 import Config, {API_STORAGE} from 'src/config';
-import {
-  background,
-  course_icon_background_white,
-  course_icon_background_blue,
-  course1,
-  course3,
-} from 'src/assets';
+import {background} from 'src/assets';
 import API from 'src/services/api';
 import * as ACTION from 'src/reduxData/action';
 import {useDispatch, useSelector} from 'react-redux';
 import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Icon2 from 'react-native-vector-icons/Entypo';
 import LinearGradient from 'react-native-linear-gradient';
 import {Toast} from 'src/components';
 
@@ -33,35 +25,22 @@ export default ({navigation}) => {
   const translate = useLanguage().t;
   const dispatch = useDispatch();
   const sessionReducer = useSelector(state => state.sessionReducer);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [retypePassword, setRetypePassword] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
 
-  useEffect(() => {
-    //Toast.show({type: 'error', message: 'Error'})
-  }, []);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [address, setAddress] = useState('');
+  const [fatherName, setFatherName] = useState('');
+  const [motherName, setMotherName] = useState('');
+  const [dob, setDob] = useState('');
+  const [phonenumber, setPhonenumber] = useState('');
+  const [schoolName, setSchoolName] = useState('');
 
-  const register = async () => {
-    dispatch(ACTION.loadingStarted());
-    const response = await API.signUp({
-      username: username,
-      email: email,
-      password: password,
-      re_password: retypePassword,
-    });
-    dispatch(ACTION.loadingCompleted());
-    if (!response.status)
-      return Toast.show({type: 'error', message: response.error});
-
-    Toast.show({type: 'success', message: response.data.description});
-    navigation.pop();
-  };
+  useEffect(() => {}, []);
 
   return (
     <Container isTransparentStatusBar={false}>
       <ImageBackground source={background} style={styles.background} />
+      <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
       <LinearGradient
         colors={[Colors.secondary, Colors.primary]}
         style={styles.headerBar}>
@@ -75,77 +54,70 @@ export default ({navigation}) => {
         </View>
       </LinearGradient>
       <ScrollView keyboardShouldPersistTaps={'handled'}>
-        <View style={[styles.marginTop20]}>
+        <View style={[styles.marginTop40]}>
           <View style={styles.searchHolder}>
-            <Icon
-              name={'user'}
-              size={25}
-              color={Colors.gray_light}
-              style={styles.marginRight8}
-            />
             <TextInput
               style={styles.searchInput}
-              onChangeText={text => setUsername(text)}
-              value={username}
-              placeholder={'Username'}
+              onChangeText={text => setFirstName(text)}
+              value={firstName}
+              placeholder={'First name'}
             />
           </View>
           <View style={styles.searchHolder}>
-            <Icon
-              name={'lock'}
-              size={25}
-              color={Colors.gray_light}
-              style={styles.marginRight8}
-            />
             <TextInput
-              secureTextEntry={true}
               style={styles.searchInput}
-              onChangeText={text => setPassword(text)}
-              value={password}
-              placeholder={'Password'}
+              onChangeText={text => setLastName(text)}
+              value={lastName}
+              placeholder={'Last name'}
             />
           </View>
           <View style={styles.searchHolder}>
-            <Icon
-              name={'lock'}
-              size={25}
-              color={Colors.gray_light}
-              style={styles.marginRight8}
-            />
             <TextInput
-              secureTextEntry={true}
               style={styles.searchInput}
-              onChangeText={text => setRetypePassword(text)}
-              value={retypePassword}
-              placeholder={'Retype Password'}
+              onChangeText={text => setAddress(text)}
+              value={address}
+              placeholder={'Address'}
             />
           </View>
           <View style={styles.searchHolder}>
-            <Icon
-              name={'user-circle-o'}
-              size={25}
-              color={Colors.gray_light}
-              style={styles.marginRight8}
-            />
             <TextInput
               style={styles.searchInput}
-              onChangeText={text => setName(text)}
-              value={name}
-              placeholder={'Name'}
+              onChangeText={text => setFatherName(text)}
+              value={fatherName}
+              placeholder={`Father's name`}
             />
           </View>
           <View style={styles.searchHolder}>
-            <Icon
-              name={'envelope'}
-              size={25}
-              color={Colors.gray_light}
-              style={styles.marginRight8}
-            />
             <TextInput
               style={styles.searchInput}
-              onChangeText={text => setEmail(text)}
-              value={email}
-              placeholder={'Email'}
+              onChangeText={text => setMotherName(text)}
+              value={motherName}
+              placeholder={`Mother's name`}
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setDob(text)}
+              value={dob}
+              placeholder={'DD/MM/YY'}
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setPhonenumber(text)}
+              value={phonenumber}
+              placeholder={'Phone number'}
+              keyboardType="numeric"
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setSchoolName(text)}
+              value={schoolName}
+              placeholder={'School/Collage'}
             />
           </View>
           <LinearGradient

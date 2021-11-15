@@ -8,7 +8,6 @@ import {
   FlatList,
   ScrollView,
   ImageBackground,
-  StatusBar,
 } from 'react-native';
 import style from './style';
 import Config, {API_STORAGE} from 'src/config';
@@ -19,6 +18,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon2 from 'react-native-vector-icons/Entypo';
 import LinearGradient from 'react-native-linear-gradient';
 import {Toast} from 'src/components';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -31,9 +31,6 @@ export default ({navigation}) => {
   const userSession = useSelector(state => state.sessionReducer.userSession);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [phonenumber, setPhonenumber] = useState('');
-
-  useEffect(() => {}, []);
 
   const login = async () => {
     dispatch(ACTION.loadingStarted());
@@ -51,10 +48,10 @@ export default ({navigation}) => {
     );
   };
 
-  // const logout = async () => {
-  //   dispatch(ACTION.loggedin(null));
-  //   await AsyncStorage.removeItem('@userSession');
-  // };
+  const logout = async () => {
+    dispatch(ACTION.loggedin(null));
+    await AsyncStorage.removeItem('@userSession');
+  };
 
   const login_render = () => {
     return (
@@ -63,77 +60,58 @@ export default ({navigation}) => {
           colors={[Colors.secondary, Colors.primary]}
           style={styles.headerBar}>
           <View style={[styles.flexRow, styles.centerAll]}>
-            <Text style={styles.headerText}>Login / Signup</Text>
+            <Text style={styles.headerText}>{translate('login_title')}</Text>
           </View>
         </LinearGradient>
-        <ScrollView keyboardShouldPersistTaps={'handled'}>
-          <View style={[styles.marginTop60]}>
-            <View style={styles.searchHolder}>
-              <Icon
-                name={'user'}
-                size={20}
-                color={Colors.gray_medium}
-                style={[styles.marginRight8, styles.marginLeft]}
-              />
-              <TextInput
-                style={styles.searchInput}
-                onChangeText={text => setUsername(text)}
-                value={username}
-                placeholderTextColor={Colors.gray_light}
-                placeholder={'User name'}
-              />
-            </View>
-            <View style={styles.searchHolder}>
-              <Icon
-                name={'lock'}
-                size={20}
-                color={Colors.gray_medium}
-                style={[styles.marginRight8, styles.marginLeft]}
-              />
-              <TextInput
-                secureTextEntry={true}
-                style={styles.searchInput}
-                onChangeText={text => setPassword(text)}
-                value={password}
-                placeholderTextColor={Colors.gray_light}
-                placeholder={'Password'}
-              />
-            </View>
-            <View style={styles.searchHolder}>
-              <Icon
-                name={'phone'}
-                size={20}
-                color={Colors.gray_medium}
-                style={[styles.marginRight8, styles.marginLeft]}
-              />
-              <TextInput
-                style={styles.searchInput}
-                onChangeText={text => setPhonenumber(text)}
-                value={phonenumber}
-                placeholderTextColor={Colors.gray_light}
-                placeholder={'Phone Number'}
-                keyboardType="numeric"
-              />
-            </View>
-            <LinearGradient
-              colors={[Colors.secondary, Colors.primary]}
-              style={styles.loginButton}>
-              <TouchableOpacity
-                onPress={() => login()}
-                style={[styles.flexRow, styles.centerAll]}>
-                <Text style={styles.submitBtnText}>LOG IN</Text>
-              </TouchableOpacity>
-            </LinearGradient>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Registration')}
-              style={styles.signupHolder}>
-              <Text style={styles.create}>Forgetpassword?</Text>
-              <Text style={styles.create}>
-                Create Account <Text style={styles.signup}>Sign Up</Text>
-              </Text>
-            </TouchableOpacity>
+        <View style={[styles.marginTop60]}>
+          <View style={styles.searchHolder}>
+            <Icon
+              name={'user'}
+              size={25}
+              color={Colors.gray_light}
+              style={styles.marginRight8}
+            />
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setUsername(text)}
+              value={username}
+              placeholderTextColor={Colors.gray_light}
+              placeholder={'Username or Email'}
+            />
           </View>
-        </ScrollView>
+          <View style={styles.searchHolder}>
+            <Icon
+              name={'lock'}
+              size={25}
+              color={Colors.gray_light}
+              style={styles.marginRight8}
+            />
+            <TextInput
+              secureTextEntry={true}
+              style={styles.searchInput}
+              onChangeText={text => setPassword(text)}
+              value={password}
+              placeholderTextColor={Colors.gray_light}
+              placeholder={'Password'}
+            />
+          </View>
+          <LinearGradient
+            colors={[Colors.secondary, Colors.primary]}
+            style={styles.loginButton}>
+            <TouchableOpacity
+              onPress={() => login()}
+              style={[styles.flexRow, styles.centerAll]}>
+              <Text style={styles.submitBtnText}>LOG IN</Text>
+            </TouchableOpacity>
+          </LinearGradient>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Registration')}
+            style={styles.signupHolder}>
+            <Text style={styles.create}>
+              Create Account <Text style={styles.signup}>Sign Up</Text>
+            </Text>
+          </TouchableOpacity>
+        </View>
       </>
     );
   };
@@ -188,8 +166,10 @@ export default ({navigation}) => {
   return (
     <Container isTransparentStatusBar={false}>
       <ImageBackground source={background} style={styles.background} />
-      <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
-      {false ? login_render() : profile_render()}
+
+      <ScrollView keyboardShouldPersistTaps={'handled'}>
+        {userSession == null ? login_render() : profile_render()}
+      </ScrollView>
     </Container>
   );
 };

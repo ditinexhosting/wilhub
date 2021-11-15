@@ -23,3 +23,6 @@ export {default as ActivityScreen} from './ActivityScreen';
 export {default as StudyMaterialScreen} from './StudyMaterialScreen';
 export {default as LibraryScreen} from './LibraryScreen';
 export {default as SubjectScreen} from './SubjectScreen';
+export {default as FeedbackScreen} from './FeedbackScreen';
+export {default as AdmissionScreen} from './AdmissionScreen';
+export {default as LiveSessionScreen} from './LiveSessionScreen';

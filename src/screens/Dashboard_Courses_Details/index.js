@@ -12,7 +12,6 @@ import {
   Alert,
   PermissionsAndroid,
   StyleSheet,
-  StatusBar,
 } from 'react-native';
 import style from './style';
 import Config, {API_STORAGE} from 'src/config';
@@ -23,6 +22,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon2 from 'react-native-vector-icons/Entypo';
 import LinearGradient from 'react-native-linear-gradient';
 import RNFetchBlob from 'rn-fetch-blob';
 import {WebView} from 'react-native-webview';
@@ -64,9 +64,25 @@ export default ({route, navigation}) => {
     isla_class: '',
   });
 
+  const password = sessionReducer.userSession
+    ? sessionReducer.userSession.password
+    : null;
+  const username = sessionReducer.userSession
+    ? sessionReducer.userSession.username
+    : null;
+
   useEffect(() => {
     getCourseDetails();
   }, []);
+
+  const ApplyClicked = async () => {
+    if (username && password) {
+      navigation.navigate('AdmissionScreen');
+    } else {
+      Toast.show({type: 'info', message: 'Please login first.'});
+      navigation.navigate('Account');
+    }
+  };
 
   const getCourseDetails = async () => {
     if (id === 1) setCourseDetails(html1);
@@ -147,133 +163,23 @@ export default ({route, navigation}) => {
     return Toast.show({type: 'success', message: response.data.description});
   };
 
-  const AppHeader = title => {
-    return (
-      <>
-        <View style={styles.headerBar}>
-          <Image
-            source={require('../../assets/images/courseDetailsHeader.jpg')}
-            style={styles.headerImageView}
-          />
-        </View>
-        <TouchableOpacity
-          onPress={() => navigation.pop()}
-          style={styles.backButton}>
-          <Icon name={'chevron-left'} size={20} color={Colors.white} />
-        </TouchableOpacity>
-        <View style={styles.headerTitle}>
-          <Text style={styles.topHeaderText}>{translate('Courses')}</Text>
-          <View style={styles.mainHeaderTitle}>
-            <Text
-              style={styles.courseHeaderTitle}
-              ellipsizeMode={'tail'}
-              numberOfLines={2}>
-              {title}
-            </Text>
-          </View>
-        </View>
-      </>
-    );
-  };
-
   return (
     <Container isTransparentStatusBar={false}>
       <ImageBackground source={background} style={styles.background} />
-      <StatusBar backgroundColor={Colors.primary} barStyle="light-content" />
 
-      {/* App Header */}
-      {AppHeader(title)}
-
-      <View style={styles.container}>
-        {/* Top text view*/}
-        <View style={styles.topContainer}>
-          <ScrollView>
-            <Text style={{textAlign: 'center', marginTop: 10}}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry. Lorem Ipsum has been the industry's standard
-              dummy text ever since the 1500s, when an unknown printer took a
-              galley of type and scrambled it to make a type specimen book. It
-              has survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry. Lorem Ipsum has been the industry's standard
-              dummy text ever since the 1500s, when an unknown printer took a
-              galley of type and scrambled it to make a type specimen book. It
-              has survived not only five centuries, but also the leap into
-              electronic Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry. Lorem Ipsum has been the industry's standard
-              dummy text ever since the 1500s, when an unknown printer took a
-              galley of type and scrambled it to make a type specimen book. It
-              has survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry. Lorem Ipsum has been the industry's standard
-              dummy text ever since the 1500s, when an unknown printer took a
-              galley of type and scrambled it to make a type specimen book. It
-              has survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry. Lorem Ipsum has been the industry's standard
-              dummy text ever since the 1500s, when an unknown printer took a
-              galley of type and scrambled it to make a type specimen book. It
-              has survived not only five centuries, but also the leap into
-              electronic
-            </Text>
-          </ScrollView>
+      <LinearGradient
+        colors={[Colors.secondary, Colors.primary]}
+        style={styles.headerBar}>
+        <View style={[styles.flexRow, styles.centerAll]}>
+          <View style={styles.backButton}>
+            <TouchableOpacity onPress={() => navigation.pop()}>
+              <Icon name={'chevron-left'} size={20} color={Colors.white} />
+            </TouchableOpacity>
+          </View>
+          <Text style={styles.headerText}>{title}</Text>
         </View>
-
-        {/* Bottm button view*/}
-        <View style={styles.bottomContainer}>
-          <LinearGradient
-            colors={[Colors.secondary, Colors.primary]}
-            style={styles.loginButton}>
-            <View>
-              <TouchableOpacity
-                onPress={() => setShowModal(true)}
-                style={styles.button}>
-                <Text style={styles.buttonText}>REG CALL BACK</Text>
-              </TouchableOpacity>
-            </View>
-          </LinearGradient>
-
-          <LinearGradient
-            colors={[Colors.secondary, Colors.primary]}
-            style={styles.loginButton}>
-            <View>
-              <TouchableOpacity
-                onPress={() => applyCourse()}
-                style={styles.button}>
-                <Text style={styles.buttonText}>APPLY</Text>
-              </TouchableOpacity>
-            </View>
-          </LinearGradient>
-        </View>
-      </View>
-
-      {/* <TouchableOpacity
-          onPress={() => admissionAlert()}
-          style={styles.button}>
-          <Text style={styles.buttonText}>APPLY NOW</Text>
-        </TouchableOpacity> */}
-      {/* <View
+      </LinearGradient>
+      <View
         style={[styles.flexRow, styles.spaceAround, styles.marginVertical10]}>
         <TouchableOpacity
           onPress={() => setShowModal(true)}
@@ -290,12 +196,17 @@ export default ({route, navigation}) => {
             Download Brochure in Malayalam{' '}
           </Text>
         </TouchableOpacity>
-      </View> */}
-      {/* <WebView
+      </View>
+      <View style={[styles.flexRow, styles.spaceAround, styles.marginBottom10]}>
+        <TouchableOpacity onPress={() => ApplyClicked()} style={styles.button2}>
+          <Text style={styles.buttonText}>Apply Now</Text>
+        </TouchableOpacity>
+      </View>
+      <WebView
         containerStyle={{borderRadius: 20, marginBottom: 5}}
         originWhitelist={['*']}
         source={{html: courseDetails}}
-      /> */}
+      />
       <Modal
         isVisible={showModal}
         onBackButtonPress={() => setShowModal(false)}
@@ -456,7 +367,7 @@ export default ({route, navigation}) => {
 
           <LinearGradient
             colors={[Colors.primary, Colors.secondary]}
-            style={styles.modalLoginButton}>
+            style={styles.loginButton}>
             <TouchableOpacity
               onPress={() => applyCourse()}
               style={[styles.flexRow, styles.centerAll]}>

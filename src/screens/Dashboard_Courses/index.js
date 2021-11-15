@@ -4,9 +4,10 @@ import {
   Image,
   Text,
   TouchableOpacity,
+  TextInput,
+  FlatList,
   ScrollView,
   ImageBackground,
-  StatusBar,
 } from 'react-native';
 import style from './style';
 import Config, {API_STORAGE} from 'src/config';
@@ -15,7 +16,6 @@ import {
   course_icon_background_white,
   course_icon_background_blue,
   course1,
-  course2,
   course3,
 } from 'src/assets';
 import API from 'src/services/api';
@@ -24,6 +24,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon2 from 'react-native-vector-icons/Entypo';
 import LinearGradient from 'react-native-linear-gradient';
 
 export default ({navigation}) => {
@@ -31,7 +32,6 @@ export default ({navigation}) => {
   const translate = useLanguage().t;
   const dispatch = useDispatch();
   const sessionReducer = useSelector(state => state.sessionReducer);
-
   const [courseList, setCourseList] = useState([]);
 
   useEffect(() => {
@@ -47,57 +47,50 @@ export default ({navigation}) => {
     }
   };
 
-  const AppHeader = () => {
-    return (
-      <LinearGradient
-        colors={[Colors.secondary, Colors.primary]}
-        style={styles.headerBar}>
-        <View style={styles.backButton}>
-          <TouchableOpacity onPress={() => navigation.pop()}>
-            <Icon name={'chevron-left'} size={20} color={Colors.white} />
-          </TouchableOpacity>
-        </View>
-        <View style={[styles.flexRow, styles.centerAll]}>
-          <Text style={styles.headerText}>{translate('Courses')}</Text>
-        </View>
-        <Text style={styles.headerCourseTitle}>{translate('Category')}</Text>
-        <View style={[styles.flexRow, styles.centerAll]}>
-          <TouchableOpacity onPress={() => alert('Category 1')}>
-            <View style={styles.headerIconBackground}>
-              <Image source={course1} style={styles.headerIconCourse} />
-            </View>
-            <Text style={styles.headerCourseText}>Category 1</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => alert('Category 2')}>
-            <View style={styles.headerIconBackground}>
-              <Image source={course2} style={styles.headerIconCourse} />
-            </View>
-            <Text style={styles.headerCourseText}>Category 2</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => alert('Category 3')}>
-            <View style={styles.headerIconBackground}>
-              <Image source={course3} style={styles.headerIconCourse} />
-            </View>
-            <Text style={styles.headerCourseText}>Category 3</Text>
-          </TouchableOpacity>
-        </View>
-      </LinearGradient>
-    );
-  };
-
   return (
     <Container isTransparentStatusBar={false}>
       <ImageBackground source={background} style={styles.background} />
-      <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
-
-      {/* App Header View */}
-      {AppHeader()}
-
-      {/* Main Body */}
+      <LinearGradient
+        colors={[Colors.secondary, Colors.primary]}
+        style={styles.headerBar}>
+        <View style={[styles.flexRow, styles.centerAll]}>
+          <View style={styles.backButton}>
+            <TouchableOpacity onPress={() => navigation.pop()}>
+              <Icon name={'chevron-left'} size={20} color={Colors.white} />
+            </TouchableOpacity>
+          </View>
+          <Text style={styles.headerText}>{translate('Course')}</Text>
+        </View>
+      </LinearGradient>
       <ScrollView>
-        <View style={{height: 10}} />
+        {/*<Text style={styles.courseTitle}>{translate('upcoming_courses')}</Text>
+        <View style={[styles.flexRow, styles.centerAll]}>
+          <TouchableOpacity>
+            <Image
+              source={course_icon_background_blue}
+              style={styles.iconBackground}
+            />
+            <Image source={course1} style={styles.iconCourse} />
+            <Text style={styles.courseText}>Course1</Text>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image
+              source={course_icon_background_blue}
+              style={styles.iconBackground}
+            />
+            <Image source={course1} style={styles.iconCourse} />
+            <Text style={styles.courseText}>Course1</Text>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image
+              source={course_icon_background_blue}
+              style={styles.iconBackground}
+            />
+            <Image source={course3} style={styles.iconCourse} />
+            <Text style={styles.courseText}>Course1</Text>
+          </TouchableOpacity>
+        </View>*/}
+
         <Text style={styles.courseTitle}>{translate('most_popular')}</Text>
         {courseList.length > 0 ? (
           <View style={[styles.flexRow, styles.justifyCenter]}>

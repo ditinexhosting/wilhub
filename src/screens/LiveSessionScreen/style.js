@@ -30,30 +30,13 @@ const styles = ({Colors}) =>
       textAlign: 'center',
       fontWeight: '500',
     },
-    iconBackground: {
-      width: Spacing.SCALE_100,
-      height: Spacing.SCALE_100,
+    container: {
+      flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
     },
-    iconCourse: {
-      width: Spacing.SCALE_80,
-      height: Spacing.SCALE_80,
-      borderTopRightRadius: 30,
-      borderBottomLeftRadius: 30,
-    },
-    categoryText: {
-      color: Colors.white,
-      textAlign: 'center',
-    },
-    courseTitle: {
-      color: Colors.primary,
-      margin: Spacing.SCALE_20,
-      fontSize: Typography.FONT_SIZE_20,
-    },
-    courseText: {
-      color: Colors.primary,
-      textAlign: 'center',
+    textStyle: {
+      fontSize: Spacing.SCALE_17,
     },
   });
 
