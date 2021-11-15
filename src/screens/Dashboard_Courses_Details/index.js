@@ -64,9 +64,25 @@ export default ({route, navigation}) => {
     isla_class: '',
   });
 
+  const password = sessionReducer.userSession
+    ? sessionReducer.userSession.password
+    : null;
+  const username = sessionReducer.userSession
+    ? sessionReducer.userSession.username
+    : null;
+
   useEffect(() => {
     getCourseDetails();
   }, []);
+
+  const ApplyClicked = async () => {
+    if (username && password) {
+      navigation.navigate('AdmissionScreen');
+    } else {
+      Toast.show({type: 'info', message: 'Please login first.'});
+      navigation.navigate('Account');
+    }
+  };
 
   const getCourseDetails = async () => {
     if (id === 1) setCourseDetails(html1);
@@ -182,7 +198,7 @@ export default ({route, navigation}) => {
         </TouchableOpacity>
       </View>
       <View style={[styles.flexRow, styles.spaceAround, styles.marginBottom10]}>
-        <TouchableOpacity onPress={() => alert('apply')} style={styles.button2}>
+        <TouchableOpacity onPress={() => ApplyClicked()} style={styles.button2}>
           <Text style={styles.buttonText}>Apply Now</Text>
         </TouchableOpacity>
       </View>

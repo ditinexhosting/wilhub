@@ -58,6 +58,10 @@ const Router = () => {
         <Stack.Screen name="SubjectScreen" component={Screen.SubjectScreen} />
         <Stack.Screen name="quiz" component={Screen.Quiz} />
         <Stack.Screen name="FeedbackScreen" component={Screen.FeedbackScreen} />
+        <Stack.Screen
+          name="AdmissionScreen"
+          component={Screen.AdmissionScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

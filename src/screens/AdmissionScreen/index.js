@@ -1,30 +1,22 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {
   View,
-  Image,
   Text,
   TouchableOpacity,
   TextInput,
-  FlatList,
   ScrollView,
   ImageBackground,
+  StatusBar,
 } from 'react-native';
 import style from './style';
 import Config, {API_STORAGE} from 'src/config';
-import {
-  background,
-  course_icon_background_white,
-  course_icon_background_blue,
-  course1,
-  course3,
-} from 'src/assets';
+import {background} from 'src/assets';
 import API from 'src/services/api';
 import * as ACTION from 'src/reduxData/action';
 import {useDispatch, useSelector} from 'react-redux';
 import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Icon2 from 'react-native-vector-icons/Entypo';
 import LinearGradient from 'react-native-linear-gradient';
 import {Toast} from 'src/components';
 
@@ -33,15 +25,21 @@ export default ({navigation}) => {
   const translate = useLanguage().t;
   const dispatch = useDispatch();
   const sessionReducer = useSelector(state => state.sessionReducer);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [retypePassword, setRetypePassword] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  // const [username, setUsername] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [retypePassword, setRetypePassword] = useState('');
+  // const [name, setName] = useState('');
+  // const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [address, setAddress] = useState('');
+  const [fatherName, setFatherName] = useState('');
+  const [motherName, setMotherName] = useState('');
+  const [dob, setDob] = useState('');
+  const [phonenumber, setPhonenumber] = useState('');
+  const [schoolName, setSchoolName] = useState('');
 
-  useEffect(() => {
-    //Toast.show({type: 'error', message: 'Error'})
-  }, []);
+  useEffect(() => {}, []);
 
   const register = async () => {
     dispatch(ACTION.loadingStarted());
@@ -62,6 +60,7 @@ export default ({navigation}) => {
   return (
     <Container isTransparentStatusBar={false}>
       <ImageBackground source={background} style={styles.background} />
+      <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
       <LinearGradient
         colors={[Colors.secondary, Colors.primary]}
         style={styles.headerBar}>
@@ -75,7 +74,7 @@ export default ({navigation}) => {
         </View>
       </LinearGradient>
       <ScrollView keyboardShouldPersistTaps={'handled'}>
-        <View style={[styles.marginTop20]}>
+        {/* <View style={[styles.marginTop40]}>
           <View style={styles.searchHolder}>
             <Icon
               name={'user'}
@@ -149,7 +148,83 @@ export default ({navigation}) => {
             />
           </View>
           <LinearGradient
-            colors={[Colors.primary, Colors.secondary]}
+            colors={[Colors.secondary, Colors.primary]}
+            style={styles.loginButton}>
+            <TouchableOpacity
+              onPress={() => register()}
+              style={[styles.flexRow, styles.centerAll]}>
+              <Text style={styles.submitBtnText}>SIGN UP</Text>
+            </TouchableOpacity>
+          </LinearGradient>
+        </View> */}
+        <View style={[styles.marginTop40]}>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setFirstName(text)}
+              value={firstName}
+              placeholder={'First name'}
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setLastName(text)}
+              value={lastName}
+              placeholder={'Last name'}
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setAddress(text)}
+              value={address}
+              placeholder={'Address'}
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setFatherName(text)}
+              value={fatherName}
+              placeholder={`Father's name`}
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setMotherName(text)}
+              value={motherName}
+              placeholder={`Mother's name`}
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setDob(text)}
+              value={dob}
+              placeholder={'DD/MM/YY'}
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setPhonenumber(text)}
+              value={dob}
+              placeholder={'Phone number'}
+              keyboardType="numeric"
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setSchoolName(text)}
+              value={schoolName}
+              placeholder={'School/Collage'}
+            />
+          </View>
+          <LinearGradient
+            colors={[Colors.secondary, Colors.primary]}
             style={styles.loginButton}>
             <TouchableOpacity
               onPress={() => register()}
