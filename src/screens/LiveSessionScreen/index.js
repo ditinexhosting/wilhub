@@ -4,6 +4,7 @@ import {
   Image,
   Text,
   TouchableOpacity,
+  FlatList,
   ImageBackground,
   StatusBar,
 } from 'react-native';
@@ -14,10 +15,8 @@ import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
-import {videoCameraIcon, computerIcon} from 'src/assets';
 
-export default ({route, navigation}) => {
-  const {title} = route.params;
+export default ({navigation}) => {
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
 
@@ -28,39 +27,17 @@ export default ({route, navigation}) => {
       <LinearGradient
         colors={[Colors.secondary, Colors.primary]}
         style={styles.headerBar}>
-        <View
-          style={[styles.flexRow, styles.centerAll, {paddingHorizontal: 40}]}>
+        <View style={[styles.flexRow, styles.centerAll]}>
           <View style={styles.backButton}>
             <TouchableOpacity onPress={() => navigation.pop()}>
               <Icon name={'chevron-left'} size={20} color={Colors.white} />
             </TouchableOpacity>
           </View>
-          {/* <Text style={styles.headerText}>{title}</Text> */}
-          <Text
-            style={styles.headerText}
-            ellipsizeMode={'tail'}
-            numberOfLines={2}>
-            {title}
-          </Text>
+          <Text style={styles.headerText}>{translate('Live session')}</Text>
         </View>
       </LinearGradient>
       <View style={styles.container}>
-        <TouchableOpacity
-          style={styles.cardView}
-          onPress={() => navigation.navigate('LiveSessionScreen')}>
-          <Image source={videoCameraIcon} style={styles.cardViewImg} />
-          <Text style={styles.titleText}>View Live Session</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.cardView}
-          onPress={() =>
-            navigation.navigate('ViewRecordedScreen', {
-              title: title,
-            })
-          }>
-          <Image source={computerIcon} style={styles.cardViewImg} />
-          <Text style={styles.titleText}>View Recorded Session</Text>
-        </TouchableOpacity>
+        <Text style={styles.textStyle}>Live session currently unavailable</Text>
       </View>
     </Container>
   );

@@ -62,6 +62,10 @@ const Router = () => {
           name="AdmissionScreen"
           component={Screen.AdmissionScreen}
         />
+        <Stack.Screen
+          name="LiveSessionScreen"
+          component={Screen.LiveSessionScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
