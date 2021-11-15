@@ -51,10 +51,10 @@ export default ({navigation}) => {
     );
   };
 
-  // const logout = async () => {
-  //   dispatch(ACTION.loggedin(null));
-  //   await AsyncStorage.removeItem('@userSession');
-  // };
+  const logout = async () => {
+    dispatch(ACTION.loggedin(null));
+    await AsyncStorage.removeItem('@userSession');
+  };
 
   const login_render = () => {
     return (
@@ -189,7 +189,7 @@ export default ({navigation}) => {
     <Container isTransparentStatusBar={false}>
       <ImageBackground source={background} style={styles.background} />
       <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
-      {true ? login_render() : profile_render()}
+      {userSession == null ? login_render() : profile_render()}
     </Container>
   );
 };

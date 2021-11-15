@@ -122,7 +122,7 @@ const CustomDrawerContent = props => {
                 <Icon color={Colors.white} size={30} name="angle-right" />
               </View>
             )}
-            onPress={() => Linking.openURL('https://google.com')}
+            onPress={() => navigation.navigate('quiz')}
             style={styles.drawerItemWrapper}
           />
 
@@ -144,7 +144,7 @@ const CustomDrawerContent = props => {
                 <Icon color={Colors.white} size={30} name="angle-right" />
               </View>
             )}
-            onPress={() => Linking.openURL('https://wilhub.com/')}
+            onPress={() => navigation.navigate('FeedbackScreen')}
             style={styles.drawerItemWrapper}
           />
 
@@ -158,7 +158,6 @@ const CustomDrawerContent = props => {
             onPress={() => Linking.openURL('https://wilhub.com/')}
             style={styles.lastDrawerItemWrapper}
           />
-
         </ScrollView>
       </LinearGradient>
     </DrawerContentScrollView>
