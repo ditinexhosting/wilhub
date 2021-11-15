@@ -79,6 +79,7 @@ export default ({route, navigation}) => {
     if (username && password) {
       navigation.navigate('AdmissionScreen');
     } else {
+      dispatch(ACTION.checkIsApplyToLogin());
       Toast.show({type: 'info', message: 'Please login first.'});
       navigation.navigate('Account');
     }
