@@ -52,7 +52,7 @@ export default ({navigation}) => {
       JSON.stringify({...response.data.user, password}),
     );
     if (sessionReducer?.isApplyToLogin) {
-      navigation.navigate('AdmissionScreen');
+      navigation.replace('AdmissionScreen');
       dispatch(ACTION.afterIsApplyToLogin());
     }
   };
