@@ -32,9 +32,11 @@ export default ({navigation}) => {
   const sessionReducer = useSelector(state => state.sessionReducer);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
   // useEffect(() => {
   //   logout();
   // }, []);
+
   const login = async () => {
     dispatch(ACTION.loadingStarted());
     const response = await API.login({username: username, password: password});
@@ -177,7 +179,7 @@ export default ({navigation}) => {
       <ScrollView keyboardShouldPersistTaps={'handled'}>
         {userSession == null
           ? login_render()
-          : sessionReducer?.isApplyToLogin == true
+          : sessionReducer?.isApplyToLogin
           ? login_render()
           : profile_render()}
       </ScrollView>

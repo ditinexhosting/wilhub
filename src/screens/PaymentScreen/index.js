@@ -22,7 +22,7 @@ export default ({navigation}) => {
 
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate('Account');
+      navigation.navigate('Dashboard');
     }, 2000);
   }, []);
   return (
