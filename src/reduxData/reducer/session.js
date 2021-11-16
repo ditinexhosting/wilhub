@@ -21,6 +21,9 @@ const reducer = (state = initialState, action) => {
     case 'APPLY_TO_LOGIN':
       state = {...state, isApplyToLogin: true};
       break;
+    case 'AFFTER_APPLY_TO_LOGIN':
+      state = {...state, isApplyToLogin: false};
+      break;
     default:
       break;
   }

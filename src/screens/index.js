@@ -26,3 +26,4 @@ export {default as SubjectScreen} from './SubjectScreen';
 export {default as FeedbackScreen} from './FeedbackScreen';
 export {default as AdmissionScreen} from './AdmissionScreen';
 export {default as LiveSessionScreen} from './LiveSessionScreen';
+export {default as PaymentScreen} from './PaymentScreen';
