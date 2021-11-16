@@ -56,7 +56,7 @@ const Router = () => {
         />
         <Stack.Screen name="LibraryScreen" component={Screen.LibraryScreen} />
         <Stack.Screen name="SubjectScreen" component={Screen.SubjectScreen} />
-        <Stack.Screen name="quiz" component={Screen.Quiz} />
+        <Stack.Screen name="Quiz" component={Screen.Quiz} />
         <Stack.Screen name="FeedbackScreen" component={Screen.FeedbackScreen} />
         <Stack.Screen
           name="AdmissionScreen"
@@ -66,6 +66,8 @@ const Router = () => {
           name="LiveSessionScreen"
           component={Screen.LiveSessionScreen}
         />
+        <Stack.Screen name="PaymentScreen" component={Screen.PaymentScreen} />
+        <Stack.Screen name="Account" component={Screen.Account} />
       </Stack.Navigator>
     </NavigationContainer>
   );

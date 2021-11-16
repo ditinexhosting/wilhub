@@ -124,7 +124,7 @@ export default ({navigation}) => {
             colors={[Colors.secondary, Colors.primary]}
             style={styles.loginButton}>
             <TouchableOpacity
-              onPress={() => register()}
+              onPress={() => navigation.navigate('PaymentScreen')}
               style={[styles.flexRow, styles.centerAll]}>
               <Text style={styles.submitBtnText}>SIGN UP</Text>
             </TouchableOpacity>

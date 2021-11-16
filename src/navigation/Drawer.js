@@ -122,7 +122,7 @@ const CustomDrawerContent = props => {
                 <Icon color={Colors.white} size={30} name="angle-right" />
               </View>
             )}
-            onPress={() => navigation.navigate('quiz')}
+            onPress={() => navigation.navigate('Quiz')}
             style={styles.drawerItemWrapper}
           />
 
