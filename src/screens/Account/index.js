@@ -51,6 +51,7 @@ export default ({navigation}) => {
     );
     if (sessionReducer?.isApplyToLogin) {
       navigation.navigate('AdmissionScreen');
+      dispatch(ACTION.afterIsApplyToLogin());
     }
   };
 
@@ -174,7 +175,11 @@ export default ({navigation}) => {
       <ImageBackground source={background} style={styles.background} />
 
       <ScrollView keyboardShouldPersistTaps={'handled'}>
-        {userSession == null ? login_render() : profile_render()}
+        {userSession == null
+          ? login_render()
+          : sessionReducer?.isApplyToLogin == true
+          ? login_render()
+          : profile_render()}
       </ScrollView>
     </Container>
   );

@@ -28,3 +28,9 @@ export const checkIsApplyToLogin = () => {
     type: 'APPLY_TO_LOGIN',
   };
 };
+
+export const afterIsApplyToLogin = () => {
+  return {
+    type: 'AFFTER_APPLY_TO_LOGIN',
+  };
+};
