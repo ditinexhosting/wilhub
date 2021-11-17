@@ -126,7 +126,7 @@ export default ({navigation}) => {
             <TouchableOpacity
               onPress={() => navigation.navigate('PaymentScreen')}
               style={[styles.flexRow, styles.centerAll]}>
-              <Text style={styles.submitBtnText}>SIGN UP</Text>
+              <Text style={styles.submitBtnText}>APPLY</Text>
             </TouchableOpacity>
           </LinearGradient>
         </View>

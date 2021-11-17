@@ -5,7 +5,6 @@ const styles = ({Colors}) =>
   StyleSheet.create({
     headerBar: {
       height: Mixins.scaleSize(85),
-
       justifyContent: 'center',
     },
     background: {
@@ -29,16 +28,6 @@ const styles = ({Colors}) =>
       textAlign: 'center',
       fontWeight: '500',
     },
-    imagesCardView: {
-      width: '100%',
-      height: 175,
-      borderRadius: 20,
-      marginVertical: Spacing.SCALE_5,
-    },
-    listViewStyle: {
-      paddingHorizontal: Spacing.SCALE_22,
-      paddingTop: Spacing.SCALE_10,
-    },
     videoView: {
       width: '100%',
       height: 210,
@@ -46,10 +35,52 @@ const styles = ({Colors}) =>
     },
     videoBottomView: {
       width: '100%',
-      height: 70,
+      height: Mixins.scaleSize(64),
       backgroundColor: Colors.white,
       paddingHorizontal: 22,
       justifyContent: 'center',
+    },
+    itemContainer: {
+      height: Mixins.scaleSize(92),
+      width: '100%',
+      justifyContent: 'center',
+      borderBottomWidth: 2,
+      borderBottomColor: Colors.primary,
+      paddingHorizontal: 22,
+    },
+    itemInnerContainer: {
+      flexDirection: 'row',
+      width: '100%',
+      alignItems: 'center',
+    },
+    leftSideView: {
+      height: Mixins.scaleSize(57),
+      backgroundColor: Colors.primary,
+      borderRadius: 8,
+      width: '30%',
+    },
+    rightSideView: {
+      paddingHorizontal: 10,
+      height: Mixins.scaleSize(57),
+      width: '70%',
+    },
+    classTextStyle: {
+      color: Colors.primary,
+      fontSize: Typography.FONT_SIZE_17,
+      fontWeight: '600',
+    },
+    descTextStyle: {
+      fontSize: Typography.FONT_SIZE_10,
+    },
+    topClassHeaderTxt: {
+      color: Colors.primary,
+      fontSize: Typography.FONT_SIZE_17,
+      fontWeight: '600',
+    },
+    topDescText: {
+      color: Colors.primary,
+      fontSize: Typography.FONT_SIZE_10,
+      marginRight: 20,
     },
   });
 

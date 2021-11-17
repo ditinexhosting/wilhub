@@ -22,82 +22,62 @@ export default ({route, navigation}) => {
   const {index} = route.params;
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
-  const [modalVideo, setModalVideo] = useState(null);
-
   const VIDEOS = [
     {
-      name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text',
+      name: 'Learn Islamic Studies in Malayalam | Diploma in Islamic Studies | Wil Hub | Promo efei fiewfiefejfhfejefhehjf ewh f  khffkjsdh fhsdfkjh sdkfhkdjshf sdfkdsfhdskfj hsdkhfksdzhfkdszhf',
       link: 'https://youtu.be/TsHpNxQIrhI',
-      id: 1,
+      id: 'TsHpNxQIrhI',
     },
     {
-      name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text',
-      link: 'https://youtu.be/TsHpNxQIrhI',
-      id: 2,
+      name: 'Learn Parenting | Diploma in Parenting and Home Management | Wil Hub | Promo',
+      link: 'https://www.youtube.com/watch?v=Y2SgZcpzPNw',
+      id: 'Y2SgZcpzPNw',
     },
     {
-      name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text',
-      link: 'https://youtu.be/TsHpNxQIrhI',
-      id: 3,
+      name: 'Huroof and Harakat | Arabic Alphabets | Learn Arabic in Malayalam with Usthad Anfal Bayani | Wil Hub',
+      link: 'https://www.youtube.com/watch?v=vv5si8-DndA',
+      id: 'vv5si8-DndA',
     },
     {
-      name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text',
+      name: 'Learn Islamic Studies in Malayalam | Diploma in Islamic Studies | Wil Hub | Promo',
       link: 'https://youtu.be/TsHpNxQIrhI',
-      id: 4,
+      id: 'TsHpNxQIrhI',
     },
     {
-      name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text',
-      link: 'https://youtu.be/TsHpNxQIrhI',
-      id: 5,
+      name: 'Learn Parenting | Diploma in Parenting and Home Management | Wil Hub | Promo',
+      link: 'https://www.youtube.com/watch?v=Y2SgZcpzPNw',
+      id: 'Y2SgZcpzPNw',
     },
     {
-      name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text',
-      link: 'https://youtu.be/TsHpNxQIrhI',
-      id: 6,
-    },
-    {
-      name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text',
-      link: 'https://youtu.be/TsHpNxQIrhI',
-      id: 7,
-    },
-    {
-      name: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text',
-      link: 'https://youtu.be/TsHpNxQIrhI',
-      id: 8,
+      name: 'Huroof and Harakat | Arabic Alphabets | Learn Arabic in Malayalam with Usthad Anfal Bayani | Wil Hub',
+      link: 'https://www.youtube.com/watch?v=vv5si8-DndA',
+      id: 'vv5si8-DndA',
     },
   ];
 
+  const [modalVideo, setModalVideo] = useState(VIDEOS[0]);
+  const [classIndex, setClassIndex] = useState(1);
+  const updateClassData = index => {
+    setModalVideo(VIDEOS[index]);
+    setClassIndex(index + 1);
+  };
   const renderItem = ({item, index}) => {
     return (
-      <View
-        style={{
-          height: 100,
-          width: '100%',
-          justifyContent: 'center',
-          borderBottomWidth: 2,
-          borderBottomColor: Colors.primary,
-          paddingHorizontal: 22,
-        }}>
-        <View
-          style={{flexDirection: 'row', width: '100%', alignItems: 'center'}}>
-          <View
-            style={{
-              width: 100,
-              height: 60,
-              backgroundColor: Colors.primary,
-              borderRadius: 8,
-              width: '30%',
-            }}></View>
-          <View style={{paddingHorizontal: 10, width: '70%'}}>
+      <View style={styles.itemContainer}>
+        <TouchableOpacity
+          style={styles.itemInnerContainer}
+          onPress={() => updateClassData(index)}>
+          <View style={styles.leftSideView}></View>
+          <View style={styles.rightSideView}>
+            <Text style={styles.classTextStyle}>{`Class ${index + 1}`}</Text>
             <Text
-              style={{
-                color: Colors.primary,
-                fontSize: 17,
-                fontWeight: '600',
-              }}>{`Class ${index + 1}`}</Text>
-            <Text style={{fontSize: 10}}>{item?.name}</Text>
+              style={styles.descTextStyle}
+              ellipsizeMode={'tail'}
+              numberOfLines={3}>
+              {item?.name}
+            </Text>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
     );
   };
@@ -123,23 +103,22 @@ export default ({route, navigation}) => {
         source={{
           uri:
             'https://www.youtube.com/embed/' +
-            'TsHpNxQIrhI' +
+            modalVideo?.id +
             '?autoplay=1&controls=1&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://wilhub.com',
         }}
       />
       <View style={styles.videoBottomView}>
-        <Text style={{color: Colors.primary, fontSize: 17, fontWeight: '600'}}>
-          Class 1
-        </Text>
+        <Text style={styles.topClassHeaderTxt}>{`Class ${classIndex}`}</Text>
         <View style={{flexDirection: 'row'}}>
-          <Text style={{color: Colors.primary, fontSize: 10, marginRight: 20}}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
+          <Text
+            style={styles.topDescText}
+            ellipsizeMode={'tail'}
+            numberOfLines={2}>
+            {modalVideo?.name}
           </Text>
-          <Icon name={'chevron-down'} size={20} color={Colors.gray_dark} />
+          {/* <Icon name={'chevron-down'} size={20} color={Colors.gray_dark} /> */}
         </View>
       </View>
-      {/* <View style={styles.listViewStyle}> */}
       <FlatList
         data={VIDEOS}
         renderItem={renderItem}
@@ -147,7 +126,6 @@ export default ({route, navigation}) => {
         contentContainerStyle={{paddingBottom: 50}}
         showsVerticalScrollIndicator={false}
       />
-      {/* </View> */}
     </Container>
   );
 };
