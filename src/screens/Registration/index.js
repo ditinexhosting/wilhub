@@ -71,7 +71,7 @@ export default ({navigation}) => {
               <Icon name={'chevron-left'} size={20} color={Colors.white} />
             </TouchableOpacity>
           </View>
-          <Text style={styles.headerText}>{translate('Admission form')}</Text>
+          <Text style={styles.headerText}>{translate('Signup')}</Text>
         </View>
       </LinearGradient>
       <ScrollView keyboardShouldPersistTaps={'handled'}>
