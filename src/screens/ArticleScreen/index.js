@@ -13,16 +13,30 @@ import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
-import data from './data';
+import axios from 'axios';
+import {useDispatch, useSelector} from 'react-redux';
+import * as ACTION from 'src/reduxData/action';
 
 export default ({navigation}) => {
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
+  const [blogData, setBlogData] = useState([]);
 
-  const img =
-    'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80';
+  const headerItem = blogData[0];
+  const API_URL = 'https://wilhub.com/api/v1';
+  const dispatch = useDispatch();
 
-  const title = data[0].title;
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = () => {
+    dispatch(ACTION.loadingStarted());
+    axios.get(`${API_URL}/blog/{key}`).then(response => {
+      dispatch(ACTION.loadingCompleted());
+      setBlogData(response?.data?.items);
+    });
+  };
 
   const renderHeaderItem = ({item}) => {
     return (
@@ -30,14 +44,15 @@ export default ({navigation}) => {
         style={styles.topCardView}
         imageStyle={{borderRadius: 15}}
         source={{
-          uri: img,
+          uri: headerItem?.pic,
         }}>
         <TouchableOpacity
           style={styles.topCardViewBtnView}
           onPress={() =>
             navigation.navigate('ArticleDetailsScreen', {
-              title: title,
-              headerImg: img,
+              title: headerItem?.title,
+              headerImg: headerItem?.pic,
+              content: headerItem?.content,
             })
           }>
           <Icon name={'chevron-right'} size={20} color={Colors.gray_dark} />
@@ -47,25 +62,27 @@ export default ({navigation}) => {
           style={styles.topCardViewTitle}
           ellipsizeMode={'tail'}
           numberOfLines={2}>
-          {title}
+          {headerItem?.title}
         </Text>
       </ImageBackground>
     );
   };
+
   const renderItem = ({item}) => {
     return (
       <ImageBackground
         style={styles.eachCardView}
         imageStyle={styles.caechImageView}
         source={{
-          uri: item?.imgUrl,
+          uri: item?.pic,
         }}>
         <TouchableOpacity
           style={styles.eachCardViewBtnView}
           onPress={() =>
             navigation.navigate('ArticleDetailsScreen', {
-              title: title,
-              headerImg: item?.imgUrl,
+              title: item?.title,
+              headerImg: item?.pic,
+              content: item?.content,
             })
           }>
           <Icon name={'chevron-right'} size={16} color={Colors.black} />
@@ -99,7 +116,7 @@ export default ({navigation}) => {
       </LinearGradient>
       <View style={styles.container}>
         <FlatList
-          data={data}
+          data={blogData}
           renderItem={renderItem}
           keyExtractor={item => item.id}
           showsVerticalScrollIndicator={false}
