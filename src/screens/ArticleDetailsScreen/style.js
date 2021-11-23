@@ -58,6 +58,13 @@ const styles = ({Colors}) =>
       justifyContent: 'flex-end',
       paddingHorizontal: Spacing.SCALE_22,
     },
+    container: {
+      paddingHorizontal: 15,
+    },
+    contentTextStyle: {
+      marginTop: 10,
+      textAlign: 'justify',
+    },
   });
 
 export default styles;
