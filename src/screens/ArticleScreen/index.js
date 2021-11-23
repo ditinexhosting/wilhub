@@ -16,6 +16,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import axios from 'axios';
 import {useDispatch, useSelector} from 'react-redux';
 import * as ACTION from 'src/reduxData/action';
+import {API_URL} from '../../config/index';
 
 export default ({navigation}) => {
   const [Colors, styles] = useTheme(style);
@@ -23,7 +24,6 @@ export default ({navigation}) => {
   const [blogData, setBlogData] = useState([]);
 
   const headerItem = blogData[0];
-  const API_URL = 'https://wilhub.com/api/v1';
   const dispatch = useDispatch();
 
   useEffect(() => {
