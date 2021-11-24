@@ -17,6 +17,7 @@ import axios from 'axios';
 import {useDispatch, useSelector} from 'react-redux';
 import * as ACTION from 'src/reduxData/action';
 import {API_URL} from '../../config/index';
+import API from 'src/services/api';
 
 export default ({navigation}) => {
   const [Colors, styles] = useTheme(style);
@@ -30,12 +31,18 @@ export default ({navigation}) => {
     getData();
   }, []);
 
-  const getData = () => {
+  const getData = async () => {
+    // dispatch(ACTION.loadingStarted());
+    // axios.get(`${API_URL}/blog/{key}`).then(response => {
+    //   dispatch(ACTION.loadingCompleted());
+    //   setBlogData(response?.data?.items);
+    // });
     dispatch(ACTION.loadingStarted());
-    axios.get(`${API_URL}/blog/{key}`).then(response => {
-      dispatch(ACTION.loadingCompleted());
-      setBlogData(response?.data?.items);
-    });
+    const response = await API.getBlogs();
+    dispatch(ACTION.loadingCompleted());
+    if (response.status) {
+      setBlogData(response?.data);
+    }
   };
 
   const renderHeaderItem = ({item}) => {
