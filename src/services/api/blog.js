@@ -4,7 +4,7 @@ const blog = {
   getBlogs: async () => {
     let response = null;
     try {
-      response = await API.get(`/blog/{key}`, {
+      response = await API.get(`/blog/65665`, {
         headers: {'Content-Type': 'application/json'},
       });
     } catch (e) {
