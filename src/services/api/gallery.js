@@ -1,18 +1,17 @@
 import {handleResponse, API, getToken} from './utils';
 
-const home = {
-  getCourses: async () => {
+const gallery = {
+  getGallers: async () => {
     let response = null;
-    //const token = await getToken()
     try {
-      response = await API.get(`/courses/65665`, {
+      response = await API.get(`/gallery/65665`, {
         headers: {'Content-Type': 'application/json'},
       });
     } catch (e) {
       response = e;
     }
-    return handleResponse(response);
+    return response;
   },
 };
 
-export default home;
+export default gallery;

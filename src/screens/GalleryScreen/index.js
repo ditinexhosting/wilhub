@@ -15,43 +15,38 @@ import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
+import * as ACTION from 'src/reduxData/action';
+import API from 'src/services/api';
 
 export default ({navigation}) => {
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
+  const [data, setData] = useState([]);
 
-  const data = [
-    {
-      id: 1,
-      imgUrl: require('../../assets/images/courseDetailsHeader.jpg'),
-    },
-    {
-      id: 2,
-      imgUrl: require('../../assets/images/courseDetailsHeader.jpg'),
-    },
-    {
-      id: 3,
-      imgUrl: require('../../assets/images/courseDetailsHeader.jpg'),
-    },
-    {
-      id: 4,
-      imgUrl: require('../../assets/images/courseDetailsHeader.jpg'),
-    },
-    {
-      id: 5,
-      imgUrl: require('../../assets/images/courseDetailsHeader.jpg'),
-    },
-    {
-      id: 6,
-      imgUrl: require('../../assets/images/courseDetailsHeader.jpg'),
-    },
-    {
-      id: 7,
-      imgUrl: require('../../assets/images/courseDetailsHeader.jpg'),
-    },
-  ];
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    dispatch(ACTION.loadingStarted());
+    const response = await API.getGallers();
+    dispatch(ACTION.loadingCompleted());
+    if (response.status) {
+      // console.log(response?.data?.gallery);
+      setData(response?.data?.gallery);
+    }
+  };
   const renderItem = ({item}) => {
-    return <Image source={item?.imgUrl} style={styles.imagesCardView} />;
+    return (
+      <Image
+        source={{
+          uri: item?.pic,
+        }}
+        style={styles.imagesCardView}
+      />
+    );
   };
   return (
     <Container isTransparentStatusBar={false}>
