@@ -39,7 +39,7 @@ export default ({navigation, route}) => {
     const response = await API.addCourse(data);
     dispatch(ACTION.loadingCompleted());
     if (response) {
-      console.log(response);
+      // console.log(response);
       try {
         let courseArray = await AsyncStorage.getItem('@courses_key');
         if (courseArray) {
