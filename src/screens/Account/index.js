@@ -50,7 +50,7 @@ export default ({navigation}) => {
       const jsonValue = await AsyncStorage.getItem('@courses_key');
       const data = jsonValue != null ? JSON.parse(jsonValue) : null;
       // console.log(data?.course1);
-      setAllCourse(data?.course1);
+      setAllCourse(data);
     } catch (e) {
       console.log(e);
     }
@@ -182,26 +182,6 @@ export default ({navigation}) => {
           </Text>
         </View>
         <View style={styles.container}>
-          {/* <TouchableOpacity
-            style={styles.courseCard}
-            onPress={() =>
-              navigation.navigate('CourseScreen', {
-                title: 'Mawadha',
-              })
-            }>
-            <Text style={styles.courseCardText}>Mawadha</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.courseCard}
-            onPress={() =>
-              navigation.navigate('CourseScreen', {
-                title: 'Diploma in islamic studies',
-              })
-            }>
-            <Text style={styles.courseCardText}>
-              Diploma in islamic studies
-            </Text>
-          </TouchableOpacity> */}
           <FlatList
             data={allCourse}
             renderItem={renderItem}
