@@ -1,38 +1,57 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {
-  View,
-  Image,
-  Text,
-  TouchableOpacity,
-  FlatList,
-  ImageBackground,
-  StatusBar,
-} from 'react-native';
+import {View, Text, ImageBackground, StatusBar, Button} from 'react-native';
 import style from './style';
+import Config, {API_STORAGE} from 'src/config';
 import {background} from 'src/assets';
+import API from 'src/services/api';
+import * as ACTION from 'src/reduxData/action';
 import {useDispatch, useSelector} from 'react-redux';
 import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
+import {Toast} from 'src/components';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default ({navigation}) => {
+export default ({navigation, route}) => {
+  const {data} = route.params;
+
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
+  const dispatch = useDispatch();
+  const sessionReducer = useSelector(state => state.sessionReducer);
 
-  useEffect(() => {
-    setTimeout(() => {
+  const paymentHandler = async () => {
+    dispatch(ACTION.loadingStarted());
+    const response = await API.addCourse(data);
+    dispatch(ACTION.loadingCompleted());
+    if (response) {
+      console.log(response);
+      alert('payment successful');
+      await AsyncStorage.setItem('@courses_key', JSON.stringify(response));
       navigation.navigate('Dashboard');
-    }, 2000);
-  }, []);
+    }
+  };
+
+  const cancelPaymentHandler = () => {
+    alert('payment unsuccessful');
+    navigation.navigate('Dashboard');
+  };
+
   return (
     <Container isTransparentStatusBar={false}>
       <ImageBackground source={background} style={styles.background} />
       <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
 
       <View style={styles.container}>
-        <Text style={styles.thankyou}>Thank You!</Text>
-        <Text style={styles.textStyle}>Your Payment is Successfully Done</Text>
+        {/* <Text style={styles.thankyou}>Thank You!</Text> */}
+        {/* <Text style={styles.textStyle}>Your Payment is Successfully Done</Text> */}
+        <Text style={styles.thankyou}>Payment Page</Text>
+        <View style={{margin: 20}}>
+          <Button title="pay" onPress={paymentHandler} />
+        </View>
+        <Button title="cancel" onPress={cancelPaymentHandler} />
       </View>
     </Container>
   );

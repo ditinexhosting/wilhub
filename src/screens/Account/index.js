@@ -10,7 +10,6 @@ import {
   ImageBackground,
 } from 'react-native';
 import style from './style';
-import Config, {API_STORAGE} from 'src/config';
 import {background} from 'src/assets';
 import API from 'src/services/api';
 import * as ACTION from 'src/reduxData/action';
@@ -18,7 +17,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Icon2 from 'react-native-vector-icons/Entypo';
 import LinearGradient from 'react-native-linear-gradient';
 import {Toast} from 'src/components';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -32,10 +30,31 @@ export default ({navigation}) => {
   const sessionReducer = useSelector(state => state.sessionReducer);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [allCourse, setAllCourse] = useState([]);
 
-  // useEffect(() => {
-  //   logout();
-  // }, []);
+  useEffect(() => {
+    // logout();
+    // getData();
+    // removeCourse()
+  }, []);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      getData();
+    });
+    return unsubscribe;
+  }, [navigation]);
+
+  const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('@courses_key');
+      const data = jsonValue != null ? JSON.parse(jsonValue) : null;
+      // console.log(data?.course1);
+      setAllCourse(data?.course1);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const login = async () => {
     dispatch(ACTION.loadingStarted());
@@ -61,7 +80,23 @@ export default ({navigation}) => {
     dispatch(ACTION.loggedin(null));
     await AsyncStorage.removeItem('@userSession');
   };
+  const removeCourse = async () => {
+    await AsyncStorage.removeItem('@courses_key');
+  };
 
+  const renderItem = ({item}) => {
+    return (
+      <TouchableOpacity
+        style={styles.courseCard}
+        onPress={() =>
+          navigation.navigate('CourseScreen', {
+            title: item?.course,
+          })
+        }>
+        <Text style={styles.courseCardText}>{item?.course}</Text>
+      </TouchableOpacity>
+    );
+  };
   const login_render = () => {
     return (
       <>
@@ -147,7 +182,7 @@ export default ({navigation}) => {
           </Text>
         </View>
         <View style={styles.container}>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             style={styles.courseCard}
             onPress={() =>
               navigation.navigate('CourseScreen', {
@@ -166,7 +201,13 @@ export default ({navigation}) => {
             <Text style={styles.courseCardText}>
               Diploma in islamic studies
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+          <FlatList
+            data={allCourse}
+            renderItem={renderItem}
+            keyExtractor={index => index}
+            showsVerticalScrollIndicator={false}
+          />
         </View>
       </>
     );
