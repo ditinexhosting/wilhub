@@ -22,16 +22,61 @@ export default ({navigation, route}) => {
   const dispatch = useDispatch();
   const sessionReducer = useSelector(state => state.sessionReducer);
 
+  // const paymentHandler = async () => {
+  //   dispatch(ACTION.loadingStarted());
+  //   const response = await API.addCourse(data);
+  //   dispatch(ACTION.loadingCompleted());
+  // if (response) {
+  //   console.log(response);
+  //   alert('payment successful');
+  //   await AsyncStorage.setItem('@courses_key', JSON.stringify(response));
+  //   navigation.navigate('Dashboard');
+  // }
+  // };
+
   const paymentHandler = async () => {
     dispatch(ACTION.loadingStarted());
     const response = await API.addCourse(data);
     dispatch(ACTION.loadingCompleted());
     if (response) {
       console.log(response);
-      alert('payment successful');
-      await AsyncStorage.setItem('@courses_key', JSON.stringify(response));
+      try {
+        let courseArray = await AsyncStorage.getItem('@courses_key');
+        if (courseArray) {
+          courseArray = JSON.parse(courseArray);
+          courseArray.push(response?.course1[0]);
+          await AsyncStorage.setItem(
+            '@courses_key',
+            JSON.stringify(courseArray),
+          );
+        } else {
+          let courseArray = [];
+          courseArray.push(response?.course1[0]);
+          await AsyncStorage.setItem(
+            '@courses_key',
+            JSON.stringify(courseArray),
+          );
+        }
+        alert('payment successful');
+      } catch (err) {
+        console.log('error', err);
+      }
       navigation.navigate('Dashboard');
     }
+  };
+
+  const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('@courses_key');
+      const data = jsonValue != null ? JSON.parse(jsonValue) : null;
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const removeCourse = async () => {
+    await AsyncStorage.removeItem('@courses_key');
   };
 
   const cancelPaymentHandler = () => {
