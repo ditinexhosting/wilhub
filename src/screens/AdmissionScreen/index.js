@@ -9,7 +9,6 @@ import {
   StatusBar,
 } from 'react-native';
 import style from './style';
-import Config, {API_STORAGE} from 'src/config';
 import {background} from 'src/assets';
 import API from 'src/services/api';
 import * as ACTION from 'src/reduxData/action';
@@ -43,7 +42,7 @@ export default ({navigation}) => {
     const data = new FormData();
 
     data.append('name', 'srtss'); //name
-    data.append('c1course', 'Diploma%20in%20Islamic%20Studies'); //course name
+    data.append('c1course', 'Diploma In Islamic Studies'); //course name
     data.append('amount1', '1000'); //course price
     data.append('c1region', 'India'); //region
     data.append('c1mstatus', ''); // marital status

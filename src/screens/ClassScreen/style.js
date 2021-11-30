@@ -41,7 +41,7 @@ const styles = ({Colors}) =>
     },
     headerTitleText: {
       color: Colors.white,
-      fontSize: Typography.FONT_SIZE_25,
+      fontSize: Typography.FONT_SIZE_23,
       fontWeight: '500',
       marginTop: Spacing.SCALE_5,
       marginBottom: Spacing.SCALE_12,

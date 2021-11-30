@@ -99,10 +99,10 @@ const styles = ({Colors}) =>
       fontSize: Typography.FONT_SIZE_14,
     },
     container: {
-      alignItems: 'center',
+      paddingHorizontal: Spacing.SCALE_35,
     },
     courseCard: {
-      width: '80%',
+      width: '100%',
       height: Mixins.scaleSize(50),
       backgroundColor: Colors.primary,
       borderRadius: 30,
