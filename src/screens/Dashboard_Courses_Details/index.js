@@ -73,9 +73,11 @@ export default ({route, navigation}) => {
 
   useEffect(() => {
     getCourseDetails();
+    dispatch(ACTION.courseDetails({id, title}));
   }, []);
 
   const ApplyClicked = async () => {
+    dispatch(ACTION.courseDetails({id, title}));
     if (username && password) {
       navigation.navigate('AdmissionScreen');
     } else {

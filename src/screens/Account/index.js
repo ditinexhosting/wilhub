@@ -32,9 +32,13 @@ export default ({navigation}) => {
   const [password, setPassword] = useState('');
   const [allCourse, setAllCourse] = useState([]);
 
+  const [userName, setUserName] = useState(
+    sessionReducer?.userSession?.username,
+  );
+
   useEffect(() => {
     // logout();
-    // getData();
+    getData();
     // removeCourse()
   }, []);
 
@@ -173,7 +177,7 @@ export default ({navigation}) => {
           </View>
           <View style={[styles.centerAll]}>
             <Image source={profile} style={styles.profile} />
-            <Text style={styles.username}>User name</Text>
+            <Text style={styles.username}>{userName}</Text>
           </View>
         </LinearGradient>
         <View style={styles.headerView}>

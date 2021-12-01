@@ -47,7 +47,7 @@ const styles = ({Colors}) =>
       flex: 1,
       marginVertical: 0,
       paddingVertical: 0,
-      fontSize: Typography.FONT_SIZE_15,
+      fontSize: Typography.FONT_SIZE_18,
       marginLeft: Spacing.SCALE_10,
     },
     loginButton: {
@@ -58,7 +58,7 @@ const styles = ({Colors}) =>
       justifyContent: 'center',
       alignItems: 'center',
       marginTop: Spacing.SCALE_30,
-      marginBottom: Spacing.SCALE_80,
+      marginBottom: 250,
     },
     signupHolder: {
       alignSelf: 'center',

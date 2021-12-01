@@ -34,3 +34,10 @@ export const afterIsApplyToLogin = () => {
     type: 'AFFTER_APPLY_TO_LOGIN',
   };
 };
+
+export const courseDetails = payload => {
+  return {
+    type: 'COURSE_DETAILS',
+    payload,
+  };
+};

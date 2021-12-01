@@ -39,7 +39,7 @@ export default ({navigation, route}) => {
     const response = await API.addCourse(data);
     dispatch(ACTION.loadingCompleted());
     if (response) {
-      // console.log(response);
+      console.log(response);
       try {
         let courseArray = await AsyncStorage.getItem('@courses_key');
         if (courseArray) {
@@ -93,10 +93,12 @@ export default ({navigation, route}) => {
         {/* <Text style={styles.thankyou}>Thank You!</Text> */}
         {/* <Text style={styles.textStyle}>Your Payment is Successfully Done</Text> */}
         <Text style={styles.thankyou}>Payment Page</Text>
-        <View style={{margin: 20}}>
+        <View style={{margin: 20, width: '60%'}}>
           <Button title="pay" onPress={paymentHandler} />
         </View>
-        <Button title="cancel" onPress={cancelPaymentHandler} />
+        <View style={{margin: 20, width: '60%'}}>
+          <Button title="cancel" onPress={cancelPaymentHandler} />
+        </View>
       </View>
     </Container>
   );
