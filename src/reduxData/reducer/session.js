@@ -2,6 +2,7 @@ const initialState = {
   userSession: null,
   isLoading: false,
   isApplyToLogin: false,
+  selectedCourse: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -23,6 +24,9 @@ const reducer = (state = initialState, action) => {
       break;
     case 'AFFTER_APPLY_TO_LOGIN':
       state = {...state, isApplyToLogin: false};
+      break;
+    case 'COURSE_DETAILS':
+      state = {...state, selectedCourse: action.payload};
       break;
     default:
       break;
