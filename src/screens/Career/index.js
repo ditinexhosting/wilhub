@@ -15,58 +15,49 @@ import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
+import * as ACTION from 'src/reduxData/action';
+import API from 'src/services/api';
 
 export default ({navigation}) => {
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
+  const [data, setData] = useState([]);
 
-  const data = [
-    {
-      jobTitle: 'Job Vacancy 1',
-      jobDesc:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has',
-    },
-    {
-      jobTitle: 'Job Vacancy 2',
-      jobDesc:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has',
-    },
-    {
-      jobTitle: 'Job Vacancy 3',
-      jobDesc:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has',
-    },
-    {
-      jobTitle: 'Job Vacancy 4',
-      jobDesc:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has',
-    },
-    {
-      jobTitle: 'Job Vacancy 5',
-      jobDesc:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has',
-    },
-  ];
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    dispatch(ACTION.loadingStarted());
+    const response = await API.getCareers();
+    dispatch(ACTION.loadingCompleted());
+    if (response.status) {
+      // console.log(response?.data?.career);
+      setData(response?.data?.career);
+    }
+  };
 
   const renderItem = ({item}) => {
     return (
       <View style={styles.cardView}>
         <View style={styles.cardTopView}>
-          <Text style={styles.cardHeadingTitle}>{item?.jobTitle}</Text>
+          <Text style={styles.cardHeadingTitle}>{item?.title}</Text>
         </View>
         <View style={styles.cardCenterView}>
           <Text
             style={styles.cardDescText}
             ellipsizeMode={'tail'}
             numberOfLines={4}>
-            {item?.jobDesc}
+            {item?.content}
           </Text>
-          <View style={styles.loadMoreView}>
+          {/* <View style={styles.loadMoreView}>
             <TouchableOpacity style={styles.loadMoreBtn}>
               <Text style={styles.loadMoreText}>Load more</Text>
               <Icon name={'chevron-down'} size={8} color={Colors.gray_dark} />
             </TouchableOpacity>
-          </View>
+          </View> */}
         </View>
         <View style={styles.cardBottomView}>
           <TouchableOpacity

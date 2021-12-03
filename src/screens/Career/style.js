@@ -52,14 +52,14 @@ const styles = ({Colors}) =>
     },
     cardCenterView: {
       width: '100%',
-      height: '55%',
-      paddingLeft: Spacing.SCALE_8,
+      height: '50%',
+      paddingHorizontal: Spacing.SCALE_8,
     },
     cardBottomView: {
       width: '100%',
-      height: '20%',
+      height: '25%',
       alignItems: 'center',
-      paddingTop: Spacing.SCALE_4,
+      justifyContent: 'center',
     },
     applyBtnView: {
       width: 120,
