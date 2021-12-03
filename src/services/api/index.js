@@ -3,6 +3,8 @@ import auth from './auth';
 import blog from './blog';
 import gallery from './gallery';
 import addCourses from './addCourse';
+import career from './career';
+
 import {SOCKET} from './utils';
 
 const api = {
@@ -11,6 +13,7 @@ const api = {
   ...blog,
   ...gallery,
   ...addCourses,
+  ...career,
   SOCKET,
 };
 export default api;
