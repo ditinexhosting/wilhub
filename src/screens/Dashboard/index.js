@@ -8,7 +8,6 @@ import {
   FlatList,
   TouchableWithoutFeedback,
   StatusBar,
-  Button,
 } from 'react-native';
 import style from './style';
 import Config from 'src/config';
@@ -103,17 +102,13 @@ export default ({navigation}) => {
           </View>
         </View>
       </LinearGradient>
-      {/* <FlatList
+      <FlatList
         data={DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}
         numColumns={2}
         ListHeaderComponent={<View style={styles.marginTop30}></View>}
         ListFooterComponent={<View style={styles.marginBottom100}></View>}
-      /> */}
-      <Button
-        title={'testing'}
-        onPress={() => navigation.navigate('PaymentScreen')}
       />
     </Container>
   );
