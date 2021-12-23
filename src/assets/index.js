@@ -49,3 +49,5 @@ export const pdfIcon = require('src/assets/images/pdfIcon.png');
 
 /*Profile*/
 export const profile = require('src/assets/images/profile.png');
+
+export const wilhubLogo = require('src/assets/images/wilhubLogo.png');

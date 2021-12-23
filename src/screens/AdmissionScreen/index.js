@@ -10,7 +10,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import style from './style';
-import {background} from 'src/assets';
+import {background, wilhubLogo} from 'src/assets';
 import API from 'src/services/api';
 import * as ACTION from 'src/reduxData/action';
 import {useDispatch, useSelector} from 'react-redux';
@@ -22,6 +22,7 @@ import {Toast} from 'src/components';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RNPickerSelect from 'react-native-picker-select';
+import RazorpayCheckout from 'react-native-razorpay';
 
 export default ({navigation}) => {
   const [Colors, styles] = useTheme(style);
@@ -33,6 +34,8 @@ export default ({navigation}) => {
   const [courseName, setCourseName] = useState(
     sessionReducer?.selectedCourse?.title,
   );
+  const [userDetails, setUserDetails] = useState(sessionReducer?.userSession);
+
   const [courseAmount, setCourseAmount] = useState('1000');
   const [region, setRegion] = useState('');
   const [pinCode, setPinCode] = useState('');
@@ -57,13 +60,7 @@ export default ({navigation}) => {
   const [ieClassOrSubject, setIeClassOrSubject] = useState('');
   const [convenientTime, setConvenientTime] = useState('');
 
-  // const [firstName, setFirstName] = useState('');
-  // const [lastName, setLastName] = useState('');
-  // const [address, setAddress] = useState('');
-  // const [fatherName, setFatherName] = useState('');
-  // const [motherName, setMotherName] = useState('');
-  // const [phonenumber, setPhonenumber] = useState('');
-  // const [schoolName, setSchoolName] = useState('');
+  const [formData, setFormData] = useState('');
 
   useEffect(() => {}, []);
 
@@ -135,9 +132,9 @@ export default ({navigation}) => {
       const spliteDob = dob.split('-');
       const month = spliteDob[1];
       if (month <= 12) {
-        navigation.navigate('PaymentScreen', {
-          data: data,
-        });
+        paymentHandler();
+        // addingNewCourse();
+        setFormData(data);
       } else {
         Toast.show({
           type: 'error',
@@ -150,28 +147,64 @@ export default ({navigation}) => {
         message: 'Please fill out all the fields',
       });
     }
+  };
 
-    // axios({
-    //   method: 'post',
-    //   url: 'https://wilhub.com/api/v1/course1/add',
-    //   data: data,
-    //   mimeType: 'multipart/form-data',
-    // })
-    //   .then(function (response) {
-    //     console.log(response?.data?.course1);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-    // dispatch(ACTION.loadingStarted());
-    // const response = await API.addCourse(data);
-    // dispatch(ACTION.loadingCompleted());
-    // console.log(response);
-    //   if (response) {
-    //     console.log(response);
-    //     await AsyncStorage.setItem('@courses_key', JSON.stringify(response));
-    //     navigation.navigate('PaymentScreen');
-    //   }
+  const paymentHandler = async data => {
+    var options = {
+      description: 'Credits towards consultation',
+      image: {wilhubLogo},
+      currency: 'INR',
+      key: 'rzp_live_jOpR3o4foquI8S',
+      amount: '100',
+      name: userDetails?.username,
+      prefill: {
+        // email: 'suryakarmakar.wis@gmail.com',
+        // contact: '9007505188',
+        // name: 'Razorpay Software',
+      },
+      theme: {color: '#F37254'},
+    };
+    RazorpayCheckout.open(options)
+      .then(data => {
+        alert(`Success: ${data.razorpay_payment_id}`);
+        if (data.razorpay_payment_id) {
+          addingNewCourse();
+        }
+      })
+      .catch(error => {
+        alert(`Error: ${error.code} | ${error.description}`);
+      });
+  };
+
+  const addingNewCourse = async () => {
+    dispatch(ACTION.loadingStarted());
+    const response = await API.addCourse(formData);
+    dispatch(ACTION.loadingCompleted());
+    console.warn(response);
+    if (response) {
+      try {
+        let courseArray = await AsyncStorage.getItem('@courses_key');
+        if (courseArray) {
+          courseArray = JSON.parse(courseArray);
+          courseArray.push(response?.course1[0]);
+          await AsyncStorage.setItem(
+            '@courses_key',
+            JSON.stringify(courseArray),
+          );
+        } else {
+          let courseArray = [];
+          courseArray.push(response?.course1[0]);
+          await AsyncStorage.setItem(
+            '@courses_key',
+            JSON.stringify(courseArray),
+          );
+        }
+        alert('payment successful');
+      } catch (err) {
+        console.log('error', err);
+      }
+      navigation.navigate('Dashboard');
+    }
   };
 
   return (
@@ -193,71 +226,6 @@ export default ({navigation}) => {
 
       <ScrollView keyboardShouldPersistTaps={'handled'}>
         <View style={[styles.marginTop40]}>
-          {/* <View style={styles.searchHolder}>
-            <TextInput
-              style={styles.searchInput}
-              onChangeText={text => setFirstName(text)}
-              value={firstName}
-              placeholder={'First name'}
-            />
-          </View>
-          <View style={styles.searchHolder}>
-            <TextInput
-              style={styles.searchInput}
-              onChangeText={text => setLastName(text)}
-              value={lastName}
-              placeholder={'Last name'}
-            />
-          </View>
-          <View style={styles.searchHolder}>
-            <TextInput
-              style={styles.searchInput}
-              onChangeText={text => setAddress(text)}
-              value={address}
-              placeholder={'Address'}
-            />
-          </View>
-          <View style={styles.searchHolder}>
-            <TextInput
-              style={styles.searchInput}
-              onChangeText={text => setFatherName(text)}
-              value={fatherName}
-              placeholder={`Father's name`}
-            />
-          </View>
-          <View style={styles.searchHolder}>
-            <TextInput
-              style={styles.searchInput}
-              onChangeText={text => setMotherName(text)}
-              value={motherName}
-              placeholder={`Mother's name`}
-            />
-          </View>
-          <View style={styles.searchHolder}>
-            <TextInput
-              style={styles.searchInput}
-              onChangeText={text => setDob(text)}
-              value={dob}
-              placeholder={'DD/MM/YY'}
-            />
-          </View>
-          <View style={styles.searchHolder}>
-            <TextInput
-              style={styles.searchInput}
-              onChangeText={text => setPhonenumber(text)}
-              value={phonenumber}
-              placeholder={'Phone number'}
-              keyboardType="numeric"
-            />
-          </View>
-          <View style={styles.searchHolder}>
-            <TextInput
-              style={styles.searchInput}
-              onChangeText={text => setSchoolName(text)}
-              value={schoolName}
-              placeholder={'School/Collage'}
-            />
-          </View> */}
           {/* name*/}
           <View style={styles.searchHolder}>
             <TextInput
@@ -493,13 +461,15 @@ export default ({navigation}) => {
               onChangeText={text => setConvenientTime(text)}
               value={convenientTime}
               placeholder={'Select Time'}
+              keyboardType="numeric"
             />
           </View>
           <LinearGradient
             colors={[Colors.secondary, Colors.primary]}
             style={styles.loginButton}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('PaymentScreen')}
+              // onPress={() => navigation.navigate('PaymentScreen')}
+              // onPress={applyHanbleClicked}
               onPress={applyHanbleClicked}
               style={[styles.flexRow, styles.centerAll]}>
               <Text style={styles.submitBtnText}>APPLY</Text>
