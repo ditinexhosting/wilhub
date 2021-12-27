@@ -100,112 +100,115 @@ export default ({navigation}) => {
     data.append('c1isla_edu', `${islamicEducation}`); //islamic education
     data.append('c1islamic_brd', `${ieBoard}`); //board
     data.append('c1isla_class', `${ieClassOrSubject}`); //class
-    data.append('c1time', `${convenientTime}`); //convenient time
+    data.append('c1time', '00.00'); //convenient time
 
-    if (
-      name !== '' &&
-      courseName !== '' &&
-      courseAmount !== '' &&
-      region !== '' &&
-      pinCode !== '' &&
-      courseId !== '' &&
-      userId !== '' &&
-      age !== '' &&
-      gender !== '' &&
-      dob !== '' &&
-      guardianName !== '' &&
-      relation !== '' &&
-      contactNumber !== '' &&
-      whatsappNumber !== '' &&
-      landline !== '' &&
-      emailId !== '' &&
-      facebookId !== '' &&
-      instagramId !== '' &&
-      educationQualification !== '' &&
-      eqBoard !== '' &&
-      eqClassOrSubject !== '' &&
-      islamicEducation !== '' &&
-      ieBoard !== '' &&
-      ieClassOrSubject !== '' &&
-      convenientTime !== ''
-    ) {
-      const spliteDob = dob.split('-');
-      const month = spliteDob[1];
-      if (month <= 12) {
-        paymentHandler();
-        // addingNewCourse();
-        setFormData(data);
-      } else {
-        Toast.show({
-          type: 'error',
-          message: 'Please enter valid DOB',
-        });
-      }
-    } else {
-      Toast.show({
-        type: 'error',
-        message: 'Please fill out all the fields',
-      });
-    }
+    // if (
+    //   name !== '' &&
+    //   courseName !== '' &&
+    //   courseAmount !== '' &&
+    //   region !== '' &&
+    //   pinCode !== '' &&
+    //   courseId !== '' &&
+    //   userId !== '' &&
+    //   age !== '' &&
+    //   gender !== '' &&
+    //   dob !== '' &&
+    //   guardianName !== '' &&
+    //   relation !== '' &&
+    //   contactNumber !== '' &&
+    //   whatsappNumber !== '' &&
+    //   landline !== '' &&
+    //   emailId !== '' &&
+    //   facebookId !== '' &&
+    //   instagramId !== '' &&
+    //   educationQualification !== '' &&
+    //   eqBoard !== '' &&
+    //   eqClassOrSubject !== '' &&
+    //   islamicEducation !== '' &&
+    //   ieBoard !== '' &&
+    //   ieClassOrSubject !== ''
+    // ) {
+    //   const spliteDob = dob.split('-');
+    //   const month = spliteDob[1];
+
+    //   if (month <= 12) {
+    //     navigation.navigate('PaymentScreen', {
+    //       formData: 'sdsdsd',
+    //     });
+    //   } else {
+    //     Toast.show({
+    //       type: 'error',
+    //       message: 'Please enter valid DOB',
+    //     });
+    //   }
+    // } else {
+    //   Toast.show({
+    //     type: 'error',
+    //     message: 'Please fill out all the fields',
+    //   });
+    // }
+    navigation.navigate('PaymentScreen', {
+      formData: 'sdsdsd',
+    });
   };
 
-  const paymentHandler = async data => {
-    var options = {
-      description: 'Credits towards consultation',
-      image: {wilhubLogo},
-      currency: 'INR',
-      key: 'rzp_live_jOpR3o4foquI8S',
-      amount: '100',
-      name: userDetails?.username,
-      prefill: {
-        // email: 'suryakarmakar.wis@gmail.com',
-        // contact: '9007505188',
-        // name: 'Razorpay Software',
-      },
-      theme: {color: '#F37254'},
-    };
-    RazorpayCheckout.open(options)
-      .then(data => {
-        alert(`Success: ${data.razorpay_payment_id}`);
-        if (data.razorpay_payment_id) {
-          addingNewCourse();
-        }
-      })
-      .catch(error => {
-        alert(`Error: ${error.code} | ${error.description}`);
-      });
-  };
+  // const paymentHandler = async data => {
+  //   var options = {
+  //     description: 'Credits towards consultation',
+  //     image: {wilhubLogo},
+  //     currency: 'INR',
+  //     key: 'rzp_live_jOpR3o4foquI8S',
+  //     amount: '100',
+  //     name: userDetails?.username,
+  //     prefill: {
+  //       // email: 'suryakarmakar.wis@gmail.com',
+  //       // contact: '9007505188',
+  //       // name: 'Razorpay Software',
+  //     },
+  //     theme: {color: '#F37254'},
+  //   };
+  //   RazorpayCheckout.open(options)
+  //     .then(data => {
+  //       alert(`Success: ${data.razorpay_payment_id}`);
+  //       if (data.razorpay_payment_id) {
+  //         addingNewCourse();
+  //       }
+  //     })
+  //     .catch(error => {
+  //       alert(`Error: ${error.code} | ${error.description}`);
+  //     });
+  // };
 
-  const addingNewCourse = async () => {
-    dispatch(ACTION.loadingStarted());
-    const response = await API.addCourse(formData);
-    dispatch(ACTION.loadingCompleted());
-    console.warn(response);
-    if (response) {
-      try {
-        let courseArray = await AsyncStorage.getItem('@courses_key');
-        if (courseArray) {
-          courseArray = JSON.parse(courseArray);
-          courseArray.push(response?.course1[0]);
-          await AsyncStorage.setItem(
-            '@courses_key',
-            JSON.stringify(courseArray),
-          );
-        } else {
-          let courseArray = [];
-          courseArray.push(response?.course1[0]);
-          await AsyncStorage.setItem(
-            '@courses_key',
-            JSON.stringify(courseArray),
-          );
-        }
-        alert('payment successful');
-      } catch (err) {
-        console.log('error', err);
-      }
-      navigation.navigate('Dashboard');
-    }
-  };
+  // const addingNewCourse = async () => {
+  //   dispatch(ACTION.loadingStarted());
+  //   const response = await API.addCourse(formData);
+  //   dispatch(ACTION.loadingCompleted());
+  //   console.warn(response);
+  //   if (response) {
+  //     try {
+  //       let courseArray = await AsyncStorage.getItem('@courses_key');
+  //       if (courseArray) {
+  //         courseArray = JSON.parse(courseArray);
+  //         courseArray.push(response?.course1[0]);
+  //         await AsyncStorage.setItem(
+  //           '@courses_key',
+  //           JSON.stringify(courseArray),
+  //         );
+  //       } else {
+  //         let courseArray = [];
+  //         courseArray.push(response?.course1[0]);
+  //         await AsyncStorage.setItem(
+  //           '@courses_key',
+  //           JSON.stringify(courseArray),
+  //         );
+  //       }
+  //       alert('payment successful');
+  //     } catch (err) {
+  //       console.log('error', err);
+  //     }
+  //     navigation.navigate('Dashboard');
+  //   }
+  // };
 
   return (
     <Container isTransparentStatusBar={false}>
@@ -455,7 +458,7 @@ export default ({navigation}) => {
             />
           </View>
           {/* Convenient time*/}
-          <View style={styles.searchHolder}>
+          {/* <View style={styles.searchHolder}>
             <TextInput
               style={styles.searchInput}
               onChangeText={text => setConvenientTime(text)}
@@ -463,13 +466,11 @@ export default ({navigation}) => {
               placeholder={'Select Time'}
               keyboardType="numeric"
             />
-          </View>
+          </View> */}
           <LinearGradient
             colors={[Colors.secondary, Colors.primary]}
             style={styles.loginButton}>
             <TouchableOpacity
-              // onPress={() => navigation.navigate('PaymentScreen')}
-              // onPress={applyHanbleClicked}
               onPress={applyHanbleClicked}
               style={[styles.flexRow, styles.centerAll]}>
               <Text style={styles.submitBtnText}>APPLY</Text>

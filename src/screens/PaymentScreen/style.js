@@ -31,8 +31,9 @@ const styles = ({Colors}) =>
       fontWeight: '500',
     },
     container: {
-      flex: 1,
-      justifyContent: 'center',
+      width: '100%',
+      height: '100%',
+      marginTop: Spacing.SCALE_100,
       alignItems: 'center',
     },
     textStyle: {
@@ -40,6 +41,64 @@ const styles = ({Colors}) =>
     },
     thankyou: {
       fontSize: Typography.FONT_SIZE_30,
+    },
+    searchHolder: {
+      backgroundColor: Colors.white,
+      width: '80%',
+      height: Mixins.scaleSize(50),
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingHorizontal: Spacing.SCALE_10,
+      borderRadius: 10,
+      alignSelf: 'center',
+      borderWidth: 2,
+      borderColor: Colors.primary,
+      marginBottom: Spacing.SCALE_12,
+    },
+    payNowButton: {
+      width: 140,
+      height: 50,
+      backgroundColor: '#33cc33',
+      borderRadius: 30,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginRight: Spacing.SCALE_10,
+    },
+    payNotButton: {
+      width: 140,
+      height: 50,
+      backgroundColor: '#009973',
+      borderRadius: 30,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    rowView: {
+      flexDirection: 'row',
+    },
+    payTextStyle: {
+      color: '#fff',
+      fontSize: 16,
+    },
+    doYouText: {
+      fontSize: Typography.FONT_SIZE_18,
+      color: 'gray',
+      marginBottom: Spacing.SCALE_25,
+      marginTop: Spacing.SCALE_10,
+    },
+    feeStructureText: {
+      fontSize: Typography.FONT_SIZE_22,
+      fontWeight: 'bold',
+      marginVertical: Spacing.SCALE_10,
+    },
+    leftFeeText: {
+      fontSize: Typography.FONT_SIZE_17,
+      fontWeight: 'bold',
+      color: '#484848',
+      marginVertical: Spacing.SCALE_10,
+    },
+    rowViewText: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
     },
   });
 
