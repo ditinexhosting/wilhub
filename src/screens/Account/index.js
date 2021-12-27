@@ -53,7 +53,7 @@ export default ({navigation}) => {
     try {
       const jsonValue = await AsyncStorage.getItem('@courses_key');
       const data = jsonValue != null ? JSON.parse(jsonValue) : null;
-      // console.log(data?.course1);
+      // console.warn(data);
       setAllCourse(data);
     } catch (e) {
       console.log(e);
@@ -135,7 +135,7 @@ export default ({navigation}) => {
               style={styles.marginRight8}
             />
             <TextInput
-              secureTextEntry={true}
+              // secureTextEntry={true}
               style={styles.searchInput}
               onChangeText={text => setPassword(text)}
               value={password}

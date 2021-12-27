@@ -77,10 +77,10 @@ const styles = ({Colors}) =>
     },
     payTextStyle: {
       color: '#fff',
-      fontSize: 16,
+      fontSize: 15,
     },
     doYouText: {
-      fontSize: Typography.FONT_SIZE_18,
+      fontSize: Typography.FONT_SIZE_17,
       color: 'gray',
       marginBottom: Spacing.SCALE_25,
       marginTop: Spacing.SCALE_10,
@@ -91,7 +91,7 @@ const styles = ({Colors}) =>
       marginVertical: Spacing.SCALE_10,
     },
     leftFeeText: {
-      fontSize: Typography.FONT_SIZE_17,
+      fontSize: Typography.FONT_SIZE_16,
       fontWeight: 'bold',
       color: '#484848',
       marginVertical: Spacing.SCALE_10,
@@ -99,6 +99,26 @@ const styles = ({Colors}) =>
     rowViewText: {
       flexDirection: 'row',
       justifyContent: 'space-between',
+    },
+    unselectRound: {
+      width: 13,
+      height: 13,
+      backgroundColor: '#fff',
+      borderRadius: 10,
+      marginRight: 10,
+      borderWidth: 1,
+    },
+    selectRound: {
+      width: 13,
+      height: 13,
+      backgroundColor: '#000',
+      borderRadius: 10,
+      marginRight: 10,
+      borderWidth: 1,
+    },
+    newRowView: {
+      flexDirection: 'row',
+      alignItems: 'center',
     },
   });
 

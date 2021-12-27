@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import style from './style';
 import Config, {API_STORAGE} from 'src/config';
-import {background} from 'src/assets';
+import {background, wilhubLogo} from 'src/assets';
 import API from 'src/services/api';
 import * as ACTION from 'src/reduxData/action';
 import {useDispatch, useSelector} from 'react-redux';
@@ -19,6 +19,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 import {Toast} from 'src/components';
 import RNPickerSelect from 'react-native-picker-select';
+import RazorpayCheckout from 'react-native-razorpay';
 
 export default ({navigation, route}) => {
   const {formData} = route.params;
@@ -29,6 +30,46 @@ export default ({navigation, route}) => {
   const sessionReducer = useSelector(state => state.sessionReducer);
 
   const [selectPayment, setSelectPayment] = useState('');
+  const [userName, setUserName] = useState(
+    sessionReducer?.userSession?.username,
+  );
+  const [checkSelected, setCheckSelected] = useState(1);
+
+  const paymentHandler = async () => {
+    var options = {
+      description: 'Credits towards consultation',
+      image: {wilhubLogo},
+      currency: 'INR',
+      key: 'rzp_live_jOpR3o4foquI8S',
+      amount: '100',
+      name: userName,
+      theme: {color: '#F37254'},
+    };
+    if (selectPayment) {
+      RazorpayCheckout.open(options)
+        .then(data => {
+          alert(`Success: ${data.razorpay_payment_id}`);
+          if (data.razorpay_payment_id) {
+            addingNewCourse();
+          }
+        })
+        .catch(error => {
+          alert(`Error: ${error.code} | ${error.description}`);
+        });
+    } else {
+      Toast.show({
+        type: 'error',
+        message: 'Please select the plan',
+      });
+    }
+  };
+
+  const addingNewCourse = async () => {
+    dispatch(ACTION.loadingStarted());
+    const response = await API.addCourse(formData);
+    dispatch(ACTION.loadingCompleted());
+    console.warn(response);
+  };
 
   const oneTimeAmountView = () => {
     return (
@@ -67,15 +108,36 @@ export default ({navigation, route}) => {
           </Text>
         </View>
         <View style={styles.rowViewText}>
-          <Text style={styles.leftFeeText}>2 Month</Text>
+          <View style={styles.newRowView}>
+            <TouchableOpacity
+              style={
+                checkSelected === 1 ? styles.selectRound : styles.unselectRound
+              }
+              onPress={() => setCheckSelected(1)}></TouchableOpacity>
+            <Text style={styles.leftFeeText}>2 Month</Text>
+          </View>
           <Text style={styles.leftFeeText}>2000/-</Text>
         </View>
         <View style={styles.rowViewText}>
-          <Text style={styles.leftFeeText}>4 Month</Text>
+          <View style={styles.newRowView}>
+            <TouchableOpacity
+              style={
+                checkSelected === 2 ? styles.selectRound : styles.unselectRound
+              }
+              onPress={() => setCheckSelected(2)}></TouchableOpacity>
+            <Text style={styles.leftFeeText}>4 Month</Text>
+          </View>
           <Text style={styles.leftFeeText}>4000/-</Text>
         </View>
         <View style={styles.rowViewText}>
-          <Text style={styles.leftFeeText}>6 Month</Text>
+          <View style={styles.newRowView}>
+            <TouchableOpacity
+              style={
+                checkSelected === 3 ? styles.selectRound : styles.unselectRound
+              }
+              onPress={() => setCheckSelected(3)}></TouchableOpacity>
+            <Text style={styles.leftFeeText}>6 Month</Text>
+          </View>
           <Text style={styles.leftFeeText}>6000/-</Text>
         </View>
       </View>
@@ -155,10 +217,14 @@ export default ({navigation, route}) => {
           Do you want to continue with payment?
         </Text>
         <View style={styles.rowView}>
-          <TouchableOpacity style={styles.payNowButton}>
+          <TouchableOpacity
+            style={styles.payNowButton}
+            onPress={paymentHandler}>
             <Text style={styles.payTextStyle}>PAY NOW</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.payNotButton}>
+          <TouchableOpacity
+            style={styles.payNotButton}
+            onPress={() => navigation.navigate('Dashboard')}>
             <Text style={styles.payTextStyle}>NOT NOW</Text>
           </TouchableOpacity>
         </View>
