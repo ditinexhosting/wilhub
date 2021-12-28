@@ -4,7 +4,6 @@ import {Mixins, Spacing, Typography} from 'src/styles';
 const styles = ({Colors}) =>
   StyleSheet.create({
     headerBar: {
-      height: Mixins.scaleSize(85),
       borderBottomLeftRadius: Spacing.SCALE_40,
       borderBottomRightRadius: Spacing.SCALE_40,
       justifyContent: 'center',
@@ -30,13 +29,35 @@ const styles = ({Colors}) =>
       textAlign: 'center',
       fontWeight: '500',
     },
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
+    imagesCardView: {
+      width: '100%',
+      height: 175,
+      borderRadius: 20,
+      marginVertical: Spacing.SCALE_5,
     },
-    textStyle: {
-      fontSize: Spacing.SCALE_17,
+    listViewStyle: {
+      paddingHorizontal: Spacing.SCALE_50,
+      marginTop: Spacing.SCALE_50,
+    },
+    headerTitleText: {
+      color: Colors.white,
+      fontSize: Typography.FONT_SIZE_23,
+      fontWeight: '500',
+      marginTop: Spacing.SCALE_5,
+      marginBottom: Spacing.SCALE_12,
+    },
+    cardView: {
+      width: '100%',
+      height: Mixins.scaleSize(45),
+      backgroundColor: Colors.primary,
+      borderRadius: 25,
+      marginBottom: Spacing.SCALE_12,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    cardViewText: {
+      color: Colors.white,
+      fontSize: Typography.FONT_SIZE_16,
     },
   });
 
