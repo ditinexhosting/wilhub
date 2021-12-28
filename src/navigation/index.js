@@ -68,6 +68,10 @@ const Router = () => {
         />
         <Stack.Screen name="PaymentScreen" component={Screen.PaymentScreen} />
         <Stack.Screen name="Account" component={Screen.Account} />
+        <Stack.Screen
+          name="AllSubjectScreen"
+          component={Screen.AllSubjectScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

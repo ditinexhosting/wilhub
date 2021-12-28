@@ -17,34 +17,35 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 
 export default ({route, navigation}) => {
-  const {title} = route.params;
+  const {headerTitle} = route.params;
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
 
   const data = [
     {
       id: 1,
-      title: 'Module 1',
+      title: 'Subject 1',
     },
     {
       id: 2,
-      title: 'Module 2',
+      title: 'Subject 2',
     },
     {
       id: 3,
-      title: 'Module 3',
+      title: 'Subject 3',
     },
     {
       id: 4,
-      title: 'Module 4',
+      title: 'Subject 4',
     },
   ];
+
   const renderItem = ({item}) => {
     return (
       <TouchableOpacity
         style={styles.cardView}
         onPress={() =>
-          navigation.navigate('AllSubjectScreen', {
+          navigation.navigate('SubjectScreen', {
             headerTitle: item?.title,
           })
         }>
@@ -54,32 +55,21 @@ export default ({route, navigation}) => {
   };
   return (
     <Container isTransparentStatusBar={false}>
-      <ImageBackground source={background} style={styles.background} />
+      <Image source={background} style={styles.background} />
       <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
-
       <LinearGradient
         colors={[Colors.secondary, Colors.primary]}
         style={styles.headerBar}>
-        <View style={[styles.flexRow, styles.centerAll]}>
+        <View
+          style={[styles.flexRow, styles.centerAll, {paddingHorizontal: 40}]}>
           <View style={styles.backButton}>
             <TouchableOpacity onPress={() => navigation.pop()}>
               <Icon name={'chevron-left'} size={20} color={Colors.white} />
             </TouchableOpacity>
           </View>
-          <Text style={styles.headerText}>
-            <Text style={styles.headerText}>Class</Text>
-          </Text>
-        </View>
-        <View style={[styles.centerAll]}>
-          <Text
-            style={styles.headerTitleText}
-            ellipsizeMode={'tail'}
-            numberOfLines={2}>
-            {title.toUpperCase()}
-          </Text>
+          <Text style={styles.headerText}>{headerTitle}</Text>
         </View>
       </LinearGradient>
-
       <View style={styles.listViewStyle}>
         <FlatList
           data={data}
