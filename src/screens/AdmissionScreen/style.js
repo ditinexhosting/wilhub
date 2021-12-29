@@ -58,7 +58,7 @@ const styles = ({Colors}) =>
       justifyContent: 'center',
       alignItems: 'center',
       marginTop: Spacing.SCALE_30,
-      marginBottom: 250,
+      marginBottom: 300,
     },
     signupHolder: {
       alignSelf: 'center',

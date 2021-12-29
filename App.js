@@ -7,14 +7,11 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
 import AppContainer from 'src';
+import {Text} from 'react-native';
 
-
-const App: () => Node = () => {
-  return (
-    <AppContainer />
-  );
+const App = () => {
+  return <AppContainer />;
 };
 
 export default App;

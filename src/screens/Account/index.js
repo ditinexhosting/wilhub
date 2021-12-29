@@ -23,6 +23,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {profile} from 'src/assets';
 
 export default ({navigation}) => {
+  const data = [
+    {
+      id: 1,
+      title: 'Diploma In Islamic Studies',
+    },
+  ];
+
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
   const dispatch = useDispatch();
@@ -30,7 +37,7 @@ export default ({navigation}) => {
   const sessionReducer = useSelector(state => state.sessionReducer);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [allCourse, setAllCourse] = useState([]);
+  const [allCourse, setAllCourse] = useState(data);
 
   const [userName, setUserName] = useState(
     sessionReducer?.userSession?.username,
@@ -38,27 +45,14 @@ export default ({navigation}) => {
 
   useEffect(() => {
     // logout();
-    getData();
-    // removeCourse()
   }, []);
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
-      getData();
+      //
     });
     return unsubscribe;
   }, [navigation]);
-
-  const getData = async () => {
-    try {
-      const jsonValue = await AsyncStorage.getItem('@courses_key');
-      const data = jsonValue != null ? JSON.parse(jsonValue) : null;
-      // console.log(data?.course1);
-      setAllCourse(data);
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   const login = async () => {
     dispatch(ACTION.loadingStarted());
@@ -84,9 +78,6 @@ export default ({navigation}) => {
     dispatch(ACTION.loggedin(null));
     await AsyncStorage.removeItem('@userSession');
   };
-  const removeCourse = async () => {
-    await AsyncStorage.removeItem('@courses_key');
-  };
 
   const renderItem = ({item}) => {
     return (
@@ -94,10 +85,10 @@ export default ({navigation}) => {
         style={styles.courseCard}
         onPress={() =>
           navigation.navigate('CourseScreen', {
-            title: item?.course,
+            title: item?.title,
           })
         }>
-        <Text style={styles.courseCardText}>{item?.course}</Text>
+        <Text style={styles.courseCardText}>{item?.title}</Text>
       </TouchableOpacity>
     );
   };
@@ -135,7 +126,7 @@ export default ({navigation}) => {
               style={styles.marginRight8}
             />
             <TextInput
-              secureTextEntry={true}
+              // secureTextEntry={true}
               style={styles.searchInput}
               onChangeText={text => setPassword(text)}
               value={password}
@@ -187,7 +178,7 @@ export default ({navigation}) => {
         </View>
         <View style={styles.container}>
           <FlatList
-            data={allCourse}
+            data={data}
             renderItem={renderItem}
             keyExtractor={index => index}
             showsVerticalScrollIndicator={false}

@@ -19,7 +19,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import {WebView} from 'react-native-webview';
 
 export default ({route, navigation}) => {
-  const {index} = route.params;
+  const {headerTitle} = route.params;
+
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
   const VIDEOS = [
@@ -94,7 +95,7 @@ export default ({route, navigation}) => {
               <Icon name={'chevron-left'} size={20} color={Colors.white} />
             </TouchableOpacity>
           </View>
-          <Text style={styles.headerText}>{`Subject ${index}`}</Text>
+          <Text style={styles.headerText}>{headerTitle}</Text>
         </View>
       </LinearGradient>
       <WebView

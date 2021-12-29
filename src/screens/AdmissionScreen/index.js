@@ -100,7 +100,7 @@ export default ({navigation}) => {
     data.append('c1isla_edu', `${islamicEducation}`); //islamic education
     data.append('c1islamic_brd', `${ieBoard}`); //board
     data.append('c1isla_class', `${ieClassOrSubject}`); //class
-    data.append('c1time', `${convenientTime}`); //convenient time
+    data.append('c1time', '00.00'); //convenient time
 
     if (
       name !== '' &&
@@ -126,15 +126,15 @@ export default ({navigation}) => {
       eqClassOrSubject !== '' &&
       islamicEducation !== '' &&
       ieBoard !== '' &&
-      ieClassOrSubject !== '' &&
-      convenientTime !== ''
+      ieClassOrSubject !== ''
     ) {
       const spliteDob = dob.split('-');
       const month = spliteDob[1];
+
       if (month <= 12) {
-        paymentHandler();
-        // addingNewCourse();
-        setFormData(data);
+        navigation.navigate('PaymentScreen', {
+          formData: data,
+        });
       } else {
         Toast.show({
           type: 'error',
@@ -146,64 +146,6 @@ export default ({navigation}) => {
         type: 'error',
         message: 'Please fill out all the fields',
       });
-    }
-  };
-
-  const paymentHandler = async data => {
-    var options = {
-      description: 'Credits towards consultation',
-      image: {wilhubLogo},
-      currency: 'INR',
-      key: 'rzp_live_jOpR3o4foquI8S',
-      amount: '100',
-      name: userDetails?.username,
-      prefill: {
-        // email: 'suryakarmakar.wis@gmail.com',
-        // contact: '9007505188',
-        // name: 'Razorpay Software',
-      },
-      theme: {color: '#F37254'},
-    };
-    RazorpayCheckout.open(options)
-      .then(data => {
-        alert(`Success: ${data.razorpay_payment_id}`);
-        if (data.razorpay_payment_id) {
-          addingNewCourse();
-        }
-      })
-      .catch(error => {
-        alert(`Error: ${error.code} | ${error.description}`);
-      });
-  };
-
-  const addingNewCourse = async () => {
-    dispatch(ACTION.loadingStarted());
-    const response = await API.addCourse(formData);
-    dispatch(ACTION.loadingCompleted());
-    console.warn(response);
-    if (response) {
-      try {
-        let courseArray = await AsyncStorage.getItem('@courses_key');
-        if (courseArray) {
-          courseArray = JSON.parse(courseArray);
-          courseArray.push(response?.course1[0]);
-          await AsyncStorage.setItem(
-            '@courses_key',
-            JSON.stringify(courseArray),
-          );
-        } else {
-          let courseArray = [];
-          courseArray.push(response?.course1[0]);
-          await AsyncStorage.setItem(
-            '@courses_key',
-            JSON.stringify(courseArray),
-          );
-        }
-        alert('payment successful');
-      } catch (err) {
-        console.log('error', err);
-      }
-      navigation.navigate('Dashboard');
     }
   };
 
@@ -454,22 +396,10 @@ export default ({navigation}) => {
               placeholder={'Class/Subject'}
             />
           </View>
-          {/* Convenient time*/}
-          <View style={styles.searchHolder}>
-            <TextInput
-              style={styles.searchInput}
-              onChangeText={text => setConvenientTime(text)}
-              value={convenientTime}
-              placeholder={'Select Time'}
-              keyboardType="numeric"
-            />
-          </View>
           <LinearGradient
             colors={[Colors.secondary, Colors.primary]}
             style={styles.loginButton}>
             <TouchableOpacity
-              // onPress={() => navigation.navigate('PaymentScreen')}
-              // onPress={applyHanbleClicked}
               onPress={applyHanbleClicked}
               style={[styles.flexRow, styles.centerAll]}>
               <Text style={styles.submitBtnText}>APPLY</Text>
