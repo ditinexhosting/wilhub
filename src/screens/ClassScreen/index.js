@@ -15,30 +15,14 @@ import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
+import data from './data';
 
 export default ({route, navigation}) => {
   const {title} = route.params;
+
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
 
-  const data = [
-    {
-      id: 1,
-      title: 'Module 1',
-    },
-    {
-      id: 2,
-      title: 'Module 2',
-    },
-    {
-      id: 3,
-      title: 'Module 3',
-    },
-    {
-      id: 4,
-      title: 'Module 4',
-    },
-  ];
   const renderItem = ({item}) => {
     return (
       <TouchableOpacity

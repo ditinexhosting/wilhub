@@ -15,30 +15,14 @@ import {useTheme, useLanguage} from 'src/hooks';
 import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
+import data from './data';
 
 export default ({route, navigation}) => {
   const {title} = route.params;
+
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
 
-  const data = [
-    {
-      id: 1,
-      title: 'Module 1',
-    },
-    {
-      id: 2,
-      title: 'Module 2',
-    },
-    {
-      id: 3,
-      title: 'Module 3',
-    },
-    {
-      id: 4,
-      title: 'Module 4',
-    },
-  ];
   const renderItem = ({item}) => {
     return (
       <TouchableOpacity style={styles.cardView}>
@@ -59,7 +43,17 @@ export default ({route, navigation}) => {
               <Icon name={'chevron-left'} size={20} color={Colors.white} />
             </TouchableOpacity>
           </View>
-          <Text style={styles.headerText}>{translate('Activity')}</Text>
+          <Text style={styles.headerText}>
+            <Text style={styles.headerText}>Activity</Text>
+          </Text>
+        </View>
+        <View style={[styles.centerAll]}>
+          <Text
+            style={styles.headerTitleText}
+            ellipsizeMode={'tail'}
+            numberOfLines={2}>
+            {title.toUpperCase()}
+          </Text>
         </View>
       </LinearGradient>
       <View style={styles.listViewStyle}>
