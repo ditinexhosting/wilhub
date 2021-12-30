@@ -147,17 +147,6 @@ const CustomDrawerContent = props => {
             onPress={() => navigation.navigate('FeedbackScreen')}
             style={styles.drawerItemWrapper}
           />
-
-          <DrawerItem
-            label={({focused, color}) => (
-              <View style={[styles.flexRow, styles.spaceBetween]}>
-                <Text style={styles.drawerItem}>Downloads</Text>
-                <Icon color={Colors.white} size={30} name="angle-right" />
-              </View>
-            )}
-            onPress={() => Linking.openURL('https://wilhub.com/')}
-            style={styles.lastDrawerItemWrapper}
-          />
         </ScrollView>
       </LinearGradient>
     </DrawerContentScrollView>

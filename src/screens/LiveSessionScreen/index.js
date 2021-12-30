@@ -73,16 +73,14 @@ export default ({navigation}) => {
           <Text style={styles.headerText}>{translate('Live session')}</Text>
         </View>
       </LinearGradient>
-      <View style={styles.container}>
-        <View style={styles.listViewStyle}>
-          <FlatList
-            data={data}
-            renderItem={renderItem}
-            keyExtractor={(item, index) => index}
-            contentContainerStyle={{paddingBottom: 160}}
-            showsVerticalScrollIndicator={false}
-          />
-        </View>
+      <View style={styles.listViewStyle}>
+        <FlatList
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={(item, index) => index}
+          contentContainerStyle={{paddingBottom: 160}}
+          showsVerticalScrollIndicator={false}
+        />
       </View>
     </Container>
   );

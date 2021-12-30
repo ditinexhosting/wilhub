@@ -72,6 +72,14 @@ const Router = () => {
           name="AllSubjectScreen"
           component={Screen.AllSubjectScreen}
         />
+        <Stack.Screen
+          name="PdfMaterialScreen"
+          component={Screen.PdfMaterialScreen}
+        />
+        <Stack.Screen
+          name="AllPdfMaterialScreen"
+          component={Screen.AllPdfMaterialScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

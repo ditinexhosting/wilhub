@@ -26,7 +26,7 @@ export default ({route, navigation}) => {
       <TouchableOpacity
         style={styles.cardView}
         onPress={() =>
-          navigation.navigate('SubjectScreen', {
+          navigation.navigate('PdfMaterialScreen', {
             headerTitle: item?.title,
           })
         }>

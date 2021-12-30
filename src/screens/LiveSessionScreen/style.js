@@ -4,6 +4,7 @@ import {Mixins, Spacing, Typography} from 'src/styles';
 const styles = ({Colors}) =>
   StyleSheet.create({
     headerBar: {
+      height: Mixins.scaleSize(85),
       borderBottomLeftRadius: Spacing.SCALE_40,
       borderBottomRightRadius: Spacing.SCALE_40,
       justifyContent: 'center',

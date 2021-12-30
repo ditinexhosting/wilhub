@@ -24,9 +24,7 @@ export default ({navigation}) => {
   const [phone, setPhone] = useState('');
   const [expreince, setExpreince] = useState('');
 
-  const handleSubmit = () => {
-    alert('handleSubmit');
-  };
+  const handleSubmit = () => {};
 
   const handleChooseFile = async () => {
     try {
