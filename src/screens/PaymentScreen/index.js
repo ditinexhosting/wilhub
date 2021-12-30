@@ -41,6 +41,7 @@ export default ({navigation, route}) => {
       image: {wilhubLogo},
       currency: 'INR',
       key: 'rzp_live_jOpR3o4foquI8S',
+      // amount: '100000',
       amount: '100',
       name: userName,
       theme: {color: '#F37254'},
@@ -69,6 +70,9 @@ export default ({navigation, route}) => {
     const response = await API.addCourse(formData);
     dispatch(ACTION.loadingCompleted());
     console.warn(response);
+    if (response) {
+      navigation.navigate('Dashboard');
+    }
   };
 
   const oneTimeAmountView = () => {
