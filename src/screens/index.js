@@ -28,3 +28,4 @@ export {default as AdmissionScreen} from './AdmissionScreen';
 export {default as LiveSessionScreen} from './LiveSessionScreen';
 export {default as PaymentScreen} from './PaymentScreen';
 export {default as AllSubjectScreen} from './AllSubjectScreen';
+export {default as PdfMaterialScreen} from './PdfMaterialScreen';

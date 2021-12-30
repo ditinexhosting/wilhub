@@ -17,37 +17,33 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 
 export default ({route, navigation}) => {
-  const {headerTitle} = route.params;
+  const {headerTitle, subject, cardName} = route.params;
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
 
-  const data = [
-    {
-      id: 1,
-      title: 'Subject 1',
-    },
-    {
-      id: 2,
-      title: 'Subject 2',
-    },
-    {
-      id: 3,
-      title: 'Subject 3',
-    },
-    {
-      id: 4,
-      title: 'Subject 4',
-    },
-  ];
-
+  const getNextScreen = cardName => {
+    switch (cardName) {
+      case 'CLASS':
+        return 'SubjectScreen';
+      case 'ACTIVITY':
+        return null;
+      case 'STUDYMATERIAL':
+        return 'PdfMaterialScreen';
+      case 'LIBRARY':
+        return 'PdfMaterialScreen';
+    }
+  };
   const renderItem = ({item}) => {
     return (
       <TouchableOpacity
         style={styles.cardView}
-        onPress={() =>
-          navigation.navigate('SubjectScreen', {
-            headerTitle: item?.title,
-          })
+        onPress={
+          cardName === 'ACTIVITY'
+            ? () => {}
+            : () =>
+                navigation.navigate(getNextScreen(cardName), {
+                  headerTitle: item?.title,
+                })
         }>
         <Text style={styles.cardViewText}>{item?.title}</Text>
       </TouchableOpacity>
@@ -72,7 +68,7 @@ export default ({route, navigation}) => {
       </LinearGradient>
       <View style={styles.listViewStyle}>
         <FlatList
-          data={data}
+          data={subject}
           renderItem={renderItem}
           keyExtractor={item => item.id}
           contentContainerStyle={{paddingBottom: 160}}

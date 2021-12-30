@@ -16,6 +16,7 @@ import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 import data from './data';
+import subject from './subject';
 
 export default ({route, navigation}) => {
   const {title} = route.params;
@@ -25,7 +26,15 @@ export default ({route, navigation}) => {
 
   const renderItem = ({item}) => {
     return (
-      <TouchableOpacity style={styles.cardView}>
+      <TouchableOpacity
+        style={styles.cardView}
+        onPress={() =>
+          navigation.navigate('AllSubjectScreen', {
+            headerTitle: item?.title,
+            subject: subject,
+            cardName: 'ACTIVITY',
+          })
+        }>
         <Text style={styles.cardViewText}>{item?.title}</Text>
       </TouchableOpacity>
     );
