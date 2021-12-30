@@ -29,7 +29,7 @@ export default ({route, navigation}) => {
       <TouchableOpacity
         style={styles.cardView}
         onPress={() =>
-          navigation.navigate('AllSubjectScreen', {
+          navigation.navigate('AllPdfMaterialScreen', {
             headerTitle: item?.title,
             subject: subject,
             cardName: 'LIBRARY',
