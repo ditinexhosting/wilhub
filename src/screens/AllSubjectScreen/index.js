@@ -21,30 +21,26 @@ export default ({route, navigation}) => {
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
 
-  const getNextScreen = cardName => {
-    switch (cardName) {
-      case 'CLASS':
-        return 'SubjectScreen';
-      case 'ACTIVITY':
-        return null;
-      case 'STUDYMATERIAL':
-        return 'PdfMaterialScreen';
-      case 'LIBRARY':
-        return 'PdfMaterialScreen';
+  const getNextScreen = (cardName, title) => {
+    if (cardName === 'CLASS') {
+      navigation.navigate('SubjectScreen', {
+        headerTitle: title,
+      });
+    } else if (cardName === 'STUDYMATERIAL') {
+      navigation.navigate('PdfMaterialScreen', {
+        headerTitle: title,
+      });
+    } else if (cardName === 'LIBRARY') {
+      navigation.navigate('PdfMaterialScreen', {
+        headerTitle: title,
+      });
     }
   };
   const renderItem = ({item}) => {
     return (
       <TouchableOpacity
         style={styles.cardView}
-        onPress={
-          cardName === 'ACTIVITY'
-            ? () => {}
-            : () =>
-                navigation.navigate(getNextScreen(cardName), {
-                  headerTitle: item?.title,
-                })
-        }>
+        onPress={() => getNextScreen(cardName, item?.title)}>
         <Text style={styles.cardViewText}>{item?.title}</Text>
       </TouchableOpacity>
     );
