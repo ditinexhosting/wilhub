@@ -57,7 +57,7 @@ const CustomDrawerContent = props => {
 
   const dispatch = useDispatch();
 
-  const logout = async () => {
+  const handleLogout = async () => {
     dispatch(ACTION.loggedin(null));
     await AsyncStorage.removeItem('@userSession');
   };
@@ -75,12 +75,6 @@ const CustomDrawerContent = props => {
         <View style={styles.header}>
           <Image source={logo_white} style={styles.logo} />
         </View>
-        <View style={[styles.flexRow, styles.centerAll, styles.marginBottom20]}>
-          <Text
-            style={[styles.drawerItem, {fontSize: 14, textAlign: 'center'}]}>
-            Version 1.0
-          </Text>
-        </View>
         <ScrollView>
           <DrawerItem
             label={({focused, color}) => (
@@ -92,7 +86,6 @@ const CustomDrawerContent = props => {
             onPress={() => navigation.navigate('Career')}
             style={styles.drawerItemWrapper}
           />
-
           <DrawerItem
             label={({focused, color}) => (
               <View style={[styles.flexRow, styles.spaceBetween]}>
@@ -103,7 +96,6 @@ const CustomDrawerContent = props => {
             onPress={() => navigation.navigate('GalleryScreen')}
             style={styles.drawerItemWrapper}
           />
-
           <DrawerItem
             label={({focused, color}) => (
               <View style={[styles.flexRow, styles.spaceBetween]}>
@@ -114,7 +106,6 @@ const CustomDrawerContent = props => {
             onPress={() => navigation.navigate('Courses')}
             style={styles.drawerItemWrapper}
           />
-
           <DrawerItem
             label={({focused, color}) => (
               <View style={[styles.flexRow, styles.spaceBetween]}>
@@ -125,7 +116,6 @@ const CustomDrawerContent = props => {
             onPress={() => navigation.navigate('Quiz')}
             style={styles.drawerItemWrapper}
           />
-
           <DrawerItem
             label={({focused, color}) => (
               <View style={[styles.flexRow, styles.spaceBetween]}>
@@ -136,7 +126,6 @@ const CustomDrawerContent = props => {
             onPress={() => navigation.navigate('ArticleScreen')}
             style={styles.drawerItemWrapper}
           />
-
           <DrawerItem
             label={({focused, color}) => (
               <View style={[styles.flexRow, styles.spaceBetween]}>
@@ -147,6 +136,11 @@ const CustomDrawerContent = props => {
             onPress={() => navigation.navigate('FeedbackScreen')}
             style={styles.drawerItemWrapper}
           />
+          <View style={styles.logutView}>
+            <TouchableOpacity style={styles.logutBtn} onPress={handleLogout}>
+              <Text style={styles.drawerItem}>LogOut</Text>
+            </TouchableOpacity>
+          </View>
         </ScrollView>
       </LinearGradient>
     </DrawerContentScrollView>
@@ -159,7 +153,6 @@ const style = ({Colors}) =>
       flex: 1,
       height: Mixins.DEVICE_HEIGHT + Mixins.STATUSBAR_HEIGHT,
       paddingTop: Mixins.STATUSBAR_HEIGHT + Spacing.SCALE_20,
-      borderBottomRightRadius: Platform.OS == 'ios' ? 0 : 90,
     },
     header: {
       alignItems: 'center',
@@ -186,5 +179,19 @@ const style = ({Colors}) =>
     },
     lastDrawerItemWrapper: {
       marginHorizontal: 0,
+    },
+    logutView: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 10,
+    },
+    logutBtn: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderWidth: 2,
+      borderRadius: 10,
+      borderColor: Colors.white,
+      paddingHorizontal: 20,
+      paddingVertical: 10,
     },
   });
