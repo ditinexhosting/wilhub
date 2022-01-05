@@ -41,3 +41,10 @@ export const courseDetails = payload => {
     payload,
   };
 };
+
+export const selectedRecordSession = payload => {
+  return {
+    type: 'SELECT_RECORD',
+    payload,
+  };
+};

@@ -28,6 +28,9 @@ export default ({route, navigation}) => {
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
   const dispatch = useDispatch();
+  const selectedCard = useSelector(
+    state => state?.sessionReducer?.selectRecordSession,
+  );
   const userSession = useSelector(state => state.sessionReducer.userSession);
   const userId = userSession?.id;
 
@@ -46,14 +49,20 @@ export default ({route, navigation}) => {
 
   const getData = async () => {
     dispatch(ACTION.loadingStarted());
-    const response = await API.classApi(userId, 1, 'islamic', 'studies');
+    const response =
+      selectedCard === 'ClassScreen'
+        ? await API.classApi(userId, 1, 'islamic', 'studies')
+        : await API.activityApi(userId, 1, 'islamic', 'studies');
     dispatch(ACTION.loadingCompleted());
 
+    console.log(response);
     if (response.status) {
       let videoIdArray = [];
       response?.data?.videos[0]?.map(item => {
-        const videoId = item?.video_name?.replace('watch?v=', 'embed/');
-        videoIdArray.push(videoId);
+        // const videoId = item?.video_name?.replace('watch?v=', 'embed/');
+        videoIdArray.push(
+          selectedCard === 'ClassScreen' ? item?.video_name : item?.file_name,
+        );
       });
       setAllVideo(videoIdArray);
     }

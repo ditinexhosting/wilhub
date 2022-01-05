@@ -3,6 +3,7 @@ const initialState = {
   isLoading: false,
   isApplyToLogin: false,
   selectedCourse: {},
+  selectRecordSession: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,6 +28,9 @@ const reducer = (state = initialState, action) => {
       break;
     case 'COURSE_DETAILS':
       state = {...state, selectedCourse: action.payload};
+      break;
+    case 'SELECT_RECORD':
+      state = {...state, selectRecordSession: action.payload};
       break;
     default:
       break;

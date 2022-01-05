@@ -65,15 +65,17 @@ export default ({route, navigation}) => {
 
   useEffect(() => {}, []);
 
+  const itemClicked = navigating_to => {
+    dispatch(ACTION.selectedRecordSession(navigating_to));
+    navigation.navigate(navigating_to, {
+      title: title,
+    });
+  };
   const renderItem = ({item}) => (
     <View style={styles.itemContainer}>
       <TouchableOpacity
         style={[styles.flex1, styles.centerAll]}
-        onPress={() =>
-          navigation.navigate(item.navigating_to, {
-            title: title,
-          })
-        }>
+        onPress={() => itemClicked(item.navigating_to)}>
         <Image style={styles.image} source={item.image} />
         <Text style={styles.title}>{item.title}</Text>
       </TouchableOpacity>
