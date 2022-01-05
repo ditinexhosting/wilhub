@@ -33,11 +33,16 @@ export default ({route, navigation}) => {
 
   const [classIndex, setClassIndex] = useState(1);
   const [allVideo, setAllVideo] = useState([]);
+  const [modalVideo, setModalVideo] = useState('');
 
   const updateClassData = index => {
-    // setModalVideo(VIDEOS[index]);
-    // setClassIndex(index + 1);
+    setModalVideo(allVideo[index]);
+    setClassIndex(index + 1);
   };
+
+  useEffect(() => {
+    setModalVideo(allVideo[0]);
+  }, [allVideo]);
 
   const getData = async () => {
     dispatch(ACTION.loadingStarted());
@@ -46,8 +51,8 @@ export default ({route, navigation}) => {
 
     if (response.status) {
       let videoIdArray = [];
-      response?.data?.videos?.map(item => {
-        const videoId = item[0]?.video_name?.replace('watch?v=', 'embed/');
+      response?.data?.videos[0]?.map(item => {
+        const videoId = item?.video_name?.replace('watch?v=', 'embed/');
         videoIdArray.push(videoId);
       });
       setAllVideo(videoIdArray);
@@ -67,7 +72,7 @@ export default ({route, navigation}) => {
               style={styles.descTextStyle}
               ellipsizeMode={'tail'}
               numberOfLines={3}>
-              {item?.name}
+              {item?.title}
             </Text>
           </View>
         </TouchableOpacity>
@@ -95,7 +100,7 @@ export default ({route, navigation}) => {
           containerStyle={styles.videoView}
           originWhitelist={['*']}
           source={{
-            uri: allVideo[0],
+            uri: modalVideo,
           }}
         />
       )}
@@ -106,9 +111,7 @@ export default ({route, navigation}) => {
           <Text
             style={styles.topDescText}
             ellipsizeMode={'tail'}
-            numberOfLines={2}>
-            {/* {modalVideo?.name} */}
-          </Text>
+            numberOfLines={2}></Text>
         </View>
       </View>
       <FlatList
