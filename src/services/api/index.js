@@ -7,6 +7,8 @@ import career from './career';
 import zoomMetingLink from './zoomMetingLink';
 import classApi from './classApi';
 import activityApi from './activityApi';
+import studyMaterialsApi from './studyMaterialsApi';
+import libraryApi from './libraryApi';
 
 import {SOCKET} from './utils';
 
@@ -20,6 +22,8 @@ const api = {
   ...zoomMetingLink,
   ...classApi,
   ...activityApi,
+  ...studyMaterialsApi,
+  ...libraryApi,
   SOCKET,
 };
 export default api;

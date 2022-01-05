@@ -16,39 +16,43 @@ import {Container} from 'src/components';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 import {pdfIcon} from 'src/assets';
+import * as ACTION from 'src/reduxData/action';
+import API from 'src/services/api';
 
 export default ({navigation, route}) => {
+  useEffect(() => {
+    getData();
+  }, []);
+
   const {headerTitle} = route.params;
 
   const [Colors, styles] = useTheme(style);
   const translate = useLanguage().t;
+  const dispatch = useDispatch();
+  const selectedCard = useSelector(
+    state => state?.sessionReducer?.selectRecordSession,
+  );
+  const userSession = useSelector(state => state.sessionReducer.userSession);
+  const userId = userSession?.id;
 
-  const data = [
-    {
-      id: 1,
-      title: 'Study Material 1',
-    },
-    {
-      id: 2,
-      title: 'Study Material 2',
-    },
-    {
-      id: 3,
-      title: 'Study Material 3',
-    },
-    {
-      id: 4,
-      title: 'Study Material 4',
-    },
-    {
-      id: 5,
-      title: 'Study Material 5',
-    },
-    {
-      id: 6,
-      title: 'Study Material 6',
-    },
-  ];
+  const [allVideo, setAllVideo] = useState([]);
+
+  const getData = async () => {
+    dispatch(ACTION.loadingStarted());
+    const response =
+      selectedCard === 'StudyMaterialScreen'
+        ? await API.studyMaterialsApi(userId, 1, 'islamic', 'studies')
+        : await API.libraryApi(userId, 1, 'islamic', 'studies');
+    dispatch(ACTION.loadingCompleted());
+
+    if (response.status) {
+      let videoIdArray = [];
+      response?.data?.files[0]?.map(item => {
+        videoIdArray.push(item?.file_name);
+      });
+      setAllVideo(videoIdArray);
+    }
+  };
   const renderItem = ({item}) => {
     return (
       <TouchableOpacity style={styles.itemContainer}>
@@ -57,7 +61,7 @@ export default ({navigation, route}) => {
           style={styles.cardView}>
           <Image source={pdfIcon} style={styles.cardViewImg} />
         </LinearGradient>
-        <Text style={styles.cardViewTitle}>{item?.title}</Text>
+        <Text style={styles.cardViewTitle}>{item?.file_name}</Text>
       </TouchableOpacity>
     );
   };
@@ -79,7 +83,7 @@ export default ({navigation, route}) => {
       </LinearGradient>
       <View style={styles.listViewStyle}>
         <FlatList
-          data={data}
+          data={allVideo}
           renderItem={renderItem}
           keyExtractor={item => item.id}
           contentContainerStyle={{paddingBottom: 160}}
