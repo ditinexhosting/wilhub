@@ -63,6 +63,7 @@ export default ({route, navigation}) => {
     isla_board: '',
     isla_class: '',
   });
+  const [newcourse, setnewcourse] = useState('');
 
   const password = sessionReducer.userSession
     ? sessionReducer.userSession.password
@@ -71,13 +72,24 @@ export default ({route, navigation}) => {
     ? sessionReducer.userSession.username
     : null;
 
+  const getcoursename = () => {
+    switch (title) {
+      case ' Diploma In Islamic Studies':
+        return 'Diploma%20In%20Islamic%20Studies';
+      case ' Diploma In Parenting & Home Management':
+        return 'Diploma%20in%20Parenting%20and%20Home%20Management';
+      case ' Mawadha':
+        return 'Mawadha';
+    }
+  };
   useEffect(() => {
+    setnewcourse(getcoursename());
     getCourseDetails();
-    dispatch(ACTION.courseDetails({id, title}));
+    dispatch(ACTION.courseDetails({id, newcourse}));
   }, []);
 
   const ApplyClicked = async () => {
-    dispatch(ACTION.courseDetails({id, title}));
+    dispatch(ACTION.courseDetails({id, newcourse}));
     if (username && password) {
       navigation.navigate('AdmissionScreen');
     } else {

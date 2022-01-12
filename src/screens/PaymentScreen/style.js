@@ -33,7 +33,7 @@ const styles = ({Colors}) =>
     container: {
       width: '100%',
       height: '100%',
-      marginTop: Spacing.SCALE_100,
+      marginTop: Spacing.SCALE_20,
       alignItems: 'center',
     },
     textStyle: {

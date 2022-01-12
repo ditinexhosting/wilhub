@@ -60,6 +60,14 @@ export default ({navigation}) => {
   const [ieClassOrSubject, setIeClassOrSubject] = useState('');
   const [convenientTime, setConvenientTime] = useState('');
 
+  const [houseName, sethouseName] = useState('');
+  const [street, setstreet] = useState('');
+  const [place, setplace] = useState('');
+  const [postoffice, setpostoffice] = useState('');
+  const [district, setdistrict] = useState('');
+  const [state, setstate] = useState('');
+  const [status, setstatus] = useState('');
+
   const [formData, setFormData] = useState('');
 
   useEffect(() => {}, []);
@@ -72,17 +80,17 @@ export default ({navigation}) => {
     data.append('amount1', `${courseAmount}`); //course price
     data.append('c1region', `${region}`); //region
     data.append('c1mstatus', ''); // marital status
-    data.append('In_hs', '');
-    data.append('In_str', '');
-    data.append('In_pl', '');
-    data.append('In_pst', '');
-    data.append('In_dist', '');
-    data.append('In_st', '');
+    data.append('In_hs', `${houseName}`);
+    data.append('In_str', `${street}`);
+    data.append('In_pl', `${place}`);
+    data.append('In_pst', `${postoffice}`);
+    data.append('In_dist', `${district}`);
+    data.append('In_st', `${state}`);
     data.append('pin_no', `${pinCode}`);
     data.append('canceladd', '');
     data.append('c1course_id', `${courseId}`);
     data.append('c1user_id', `${userId}`); //user id
-    data.append('c1name', 'wgfsg');
+    data.append('c1name', `${name}`);
     data.append('c1age', `${age}`); //age
     data.append('c1gender', `${gender}`); //gender
     data.append('c1dob', `${dob}`); //dob
@@ -252,6 +260,54 @@ export default ({navigation}) => {
               ]}
             />
           </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => sethouseName(text)}
+              value={houseName}
+              placeholder={'House Name / No'}
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setstreet(text)}
+              value={street}
+              placeholder={'Street / Road'}
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setplace(text)}
+              value={place}
+              placeholder={'Place'}
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setpostoffice(text)}
+              value={postoffice}
+              placeholder={'Post Office'}
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setdistrict(text)}
+              value={district}
+              placeholder={'District'}
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setstate(text)}
+              value={state}
+              placeholder={'State'}
+            />
+          </View>
           {/* pin code*/}
           <View style={styles.searchHolder}>
             <TextInput
@@ -394,6 +450,38 @@ export default ({navigation}) => {
               onChangeText={text => setIeClassOrSubject(text)}
               value={ieClassOrSubject}
               placeholder={'Class/Subject'}
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <RNPickerSelect
+              placeholder={{
+                label: 'Select Time',
+                value: convenientTime,
+                color: '#9EA0A4',
+              }}
+              style={pickerSelectStyles}
+              onValueChange={text => setConvenientTime(text)}
+              items={[
+                {label: 'Working Days(3 Days)', value: 'Working Days(3 Days)'},
+                {label: 'Weekend (3 Days)', value: 'Weekend (3 Days)'},
+              ]}
+            />
+          </View>
+          <View style={styles.searchHolder}>
+            <RNPickerSelect
+              placeholder={{
+                label: 'Select Marital status',
+                value: status,
+                color: '#9EA0A4',
+              }}
+              style={pickerSelectStyles}
+              onValueChange={text => setstatus(text)}
+              items={[
+                {label: 'Single', value: 'Single'},
+                {label: 'Married', value: 'Married'},
+                {label: 'Divorced', value: 'Divorced'},
+                {label: 'Widowed', value: 'Widowed'},
+              ]}
             />
           </View>
           <LinearGradient

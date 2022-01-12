@@ -20,6 +20,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {Toast} from 'src/components';
 import RNPickerSelect from 'react-native-picker-select';
 import RazorpayCheckout from 'react-native-razorpay';
+import {WebView} from 'react-native-webview';
 
 export default ({navigation, route}) => {
   const {formData} = route.params;
@@ -28,41 +29,44 @@ export default ({navigation, route}) => {
   const translate = useLanguage().t;
   const dispatch = useDispatch();
   const sessionReducer = useSelector(state => state.sessionReducer);
+  const [iswebview, setiswebview] = useState(false);
 
   const [selectPayment, setSelectPayment] = useState('');
-  const [userName, setUserName] = useState(
-    sessionReducer?.userSession?.username,
-  );
+  const [useid, setuseid] = useState(sessionReducer?.userSession?.id);
   const [checkSelected, setCheckSelected] = useState(1);
 
+  const [reduxcourse, setreduxcourse] = useState(
+    sessionReducer?.selectedCourse?.newcourse,
+  );
   const paymentHandler = async () => {
-    var options = {
-      description: 'Credits towards consultation',
-      image: {wilhubLogo},
-      currency: 'INR',
-      key: 'rzp_live_jOpR3o4foquI8S',
-      // amount: '100000',
-      amount: '100',
-      name: userName,
-      theme: {color: '#F37254'},
-    };
-    if (selectPayment) {
-      RazorpayCheckout.open(options)
-        .then(data => {
-          alert(`Success: ${data.razorpay_payment_id}`);
-          if (data.razorpay_payment_id) {
-            addingNewCourse();
-          }
-        })
-        .catch(error => {
-          alert(`Error: ${error.code} | ${error.description}`);
-        });
-    } else {
-      Toast.show({
-        type: 'error',
-        message: 'Please select the plan',
-      });
-    }
+    // var options = {
+    //   description: 'Credits towards consultation',
+    //   image: {wilhubLogo},
+    //   currency: 'INR',
+    //   key: 'rzp_live_jOpR3o4foquI8S',
+    //   // amount: '100000',
+    //   amount: '100',
+    //   name: userName,
+    //   theme: {color: '#F37254'},
+    // };
+    // if (selectPayment) {
+    //   RazorpayCheckout.open(options)
+    //     .then(data => {
+    //       alert(`Success: ${data.razorpay_payment_id}`);
+    //       if (data.razorpay_payment_id) {
+    //         addingNewCourse();
+    //       }
+    //     })
+    //     .catch(error => {
+    //       alert(`Error: ${error.code} | ${error.description}`);
+    //     });
+    // } else {
+    //   Toast.show({
+    //     type: 'error',
+    //     message: 'Please select the plan',
+    //   });
+    // }
+    setiswebview(true);
   };
 
   const addingNewCourse = async () => {
@@ -181,58 +185,68 @@ export default ({navigation, route}) => {
     <Container isTransparentStatusBar={false}>
       <ImageBackground source={background} style={styles.background} />
       <StatusBar backgroundColor={Colors.secondary} barStyle="light-content" />
-      <LinearGradient
-        colors={[Colors.secondary, Colors.primary]}
-        style={styles.headerBar}>
-        <View style={[styles.flexRow, styles.centerAll]}>
-          <View style={styles.backButton}>
-            <TouchableOpacity onPress={() => navigation.pop()}>
-              <Icon name={'chevron-left'} size={20} color={Colors.white} />
-            </TouchableOpacity>
+      {iswebview ? (
+        <WebView
+          source={{
+            uri: `https://wilhub.com/api/v1/payment_app?course=${reduxcourse}&user_id=${useid}&region=India&payment=1`,
+          }}
+        />
+      ) : (
+        <>
+          <LinearGradient
+            colors={[Colors.secondary, Colors.primary]}
+            style={styles.headerBar}>
+            <View style={[styles.flexRow, styles.centerAll]}>
+              <View style={styles.backButton}>
+                <TouchableOpacity onPress={() => navigation.pop()}>
+                  <Icon name={'chevron-left'} size={20} color={Colors.white} />
+                </TouchableOpacity>
+              </View>
+              <Text style={styles.headerText}>{translate('Payment')}</Text>
+            </View>
+          </LinearGradient>
+
+          <View style={styles.container}>
+            <View style={styles.searchHolder}>
+              <RNPickerSelect
+                placeholder={{
+                  label: 'Select Plan',
+                  value: selectPayment,
+                  color: '#9EA0A4',
+                }}
+                style={pickerSelectStyles}
+                onValueChange={text => setSelectPayment(text)}
+                items={[
+                  {label: 'One Time', value: 'one_time'},
+                  {label: 'Term', value: 'term'},
+                  {label: 'Monthly', value: 'monthly'},
+                ]}
+              />
+            </View>
+
+            <View>
+              {selectPayment === 'one_time' && oneTimeAmountView()}
+              {selectPayment === 'term' && termAmountView()}
+              {selectPayment === 'monthly' && monthlyAmountView()}
+            </View>
+            <Text style={styles.doYouText}>
+              Do you want to continue with payment?
+            </Text>
+            <View style={styles.rowView}>
+              <TouchableOpacity
+                style={styles.payNowButton}
+                onPress={paymentHandler}>
+                <Text style={styles.payTextStyle}>PAY NOW</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.payNotButton}
+                onPress={() => navigation.navigate('Dashboard')}>
+                <Text style={styles.payTextStyle}>NOT NOW</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-          <Text style={styles.headerText}>{translate('Payment')}</Text>
-        </View>
-      </LinearGradient>
-
-      <View style={styles.container}>
-        <View style={styles.searchHolder}>
-          <RNPickerSelect
-            placeholder={{
-              label: 'Select Plan',
-              value: selectPayment,
-              color: '#9EA0A4',
-            }}
-            style={pickerSelectStyles}
-            onValueChange={text => setSelectPayment(text)}
-            items={[
-              {label: 'One Time', value: 'one_time'},
-              {label: 'Term', value: 'term'},
-              {label: 'Monthly', value: 'monthly'},
-            ]}
-          />
-        </View>
-
-        <View>
-          {selectPayment === 'one_time' && oneTimeAmountView()}
-          {selectPayment === 'term' && termAmountView()}
-          {selectPayment === 'monthly' && monthlyAmountView()}
-        </View>
-        <Text style={styles.doYouText}>
-          Do you want to continue with payment?
-        </Text>
-        <View style={styles.rowView}>
-          <TouchableOpacity
-            style={styles.payNowButton}
-            onPress={paymentHandler}>
-            <Text style={styles.payTextStyle}>PAY NOW</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.payNotButton}
-            onPress={() => navigation.navigate('Dashboard')}>
-            <Text style={styles.payTextStyle}>NOT NOW</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+        </>
+      )}
     </Container>
   );
 };
